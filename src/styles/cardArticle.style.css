@@ -1,0 +1,137 @@
+.card-container{
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-direction: column;
+  -webkit-box-shadow: 0px 0px 10px -4px #828282;
+  box-shadow: 0px 0px 10px -4px #828282;
+  border-radius: 5px;
+}
+
+.card-wpr-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-wpr-2{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-weight: 800;
+  color: #313131;
+  text-align: left;
+  padding: 35px 15px 100px 15px;
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.card-wpr-2-portada{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-weight: 800;
+  color: #313131;
+  text-align: left;
+  padding: 0px 10px 10px 10px;
+  height: 100%;
+}
+
+.card-wpr-3{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #313131;
+  text-align: left;
+  padding: 15px 15px 15px 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.img-card-article{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 450px;
+  width: auto !important;
+}
+
+@media (max-width: 812px) { 
+  .card-wpr-2{
+    font-size: 12px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+   .img-card-article{
+    height: auto;
+    width: 100% !important;
+  } 
+}
+
+.slick-prev {
+  left: 10px;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+}
+
+.slick-next{
+  right: 10px;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+}
+
+.slick-next:before, .slick-prev:before {
+  font-size: 30px;
+  line-height: 1;
+  color: rgb(236 98 95 / 60%);
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+  color: rgb(236 98 95 / 90%);
+}
+
+.expand-button{
+  width: 25px;
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  right: 5px;
+  z-index: 1;
+  color: rgb(236 98 95 / 30%);
+  cursor: pointer;
+}
+
+.expand-button:hover{
+  color: rgb(236 98 95 / 60%);
+}
+
+.price-card{
+  font-family: "arial-black";
+  text-align: right;
+  width: 100%;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  color: rgb(0 0 0 / 30%);
+}
+
+.ver-prenda{
+  content: 'VER PRENDA';
+    background: transparent;
+    border: none;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    font-size: 12px;
+    color: rgb(153 70 68 / 50%);
+}

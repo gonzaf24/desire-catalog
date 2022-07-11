@@ -1,0 +1,48 @@
+.overlay-section-img-full-size{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.overlay-section-img-full-size{
+  max-width: 300px;
+  width: 100%;
+  background-color: #ffff;
+  padding: 45px;
+  position: relative;
+  text-align: center;
+   z-index: 3;
+}
+
+.close-button-full-size{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+  color: rgb(236 98 95 / 80%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.img-full-size{
+  width: inherit;
+  border: 1px solid black;
+  z-index: 3;
+}
+
+.input-group .btn {
+  position: relative;
+  z-index: 1;
+}
+
+.img-card-article{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}

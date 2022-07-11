@@ -1,0 +1,91 @@
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.menu-container-show::-webkit-scrollbar {
+	width: 5px;
+}
+
+.menu-container-show::-webkit-scrollbar-track {
+	border-radius: 0px;
+}
+
+.menu-container-show::-webkit-scrollbar-thumb {
+	background: rgb(255 255 255 / 30%);
+	border-radius: 5px;
+}
+
+.menu-container-show::-webkit-scrollbar-thumb:hover {
+	background: rgb(255 255 255 / 30%);
+	border-radius: 5px;
+}
+
+.menu-container-show::-webkit-scrollbar-corner {
+  display: none;
+}
+
+::-webkit-scrollbar:horizontal{
+  height: 0px
+}
+
+
+.icon-menu{
+  width: 60px;
+  height: 42px;
+  color: #313131;
+  cursor: pointer;
+}
+
+.icon-close-menu{
+  color: rgb(236 98 95 / 80%);
+  cursor: pointer;
+}
+
+
+
+.design-logo{
+  width: 35px;
+  margin-left: 10px;
+}
+
+.right-menu{
+  width: 60px;
+  height: 42px;
+}
+
+.menu-burguer{
+  color: #313131;
+  cursor: pointer;
+}
+
+.logo-wrapper{
+  display: flex;
+  align-items: flex-end;
+}
+
+.log-out-container{
+  text-decoration: none;
+  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-logo{
+  width: 350px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) { 
+  .main-logo{
+    width: 300px;
+    cursor: pointer;
+  }
+
+  .right-menu{
+    display: none;
+  }
+}
