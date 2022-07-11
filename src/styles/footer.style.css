@@ -1,0 +1,9 @@
+.footer-container{
+  padding: 10px;
+  background-color: #313131;
+  color: rgb(236 98 95 / 80%) !important;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+} 

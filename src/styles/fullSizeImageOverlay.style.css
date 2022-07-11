@@ -37,6 +37,10 @@
   z-index: 3;
 }
 
+.input-group{
+  justify-content: space-between !important;
+}
+
 .input-group .btn {
   position: relative;
   z-index: 1;
