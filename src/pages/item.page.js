@@ -6,12 +6,15 @@ import Slider from 'react-slick';
 import { BiCopy } from 'react-icons/bi';
 import { TiMinus } from 'react-icons/ti';
 import { Link } from 'wouter'
+import  useTitle  from '../hooks/useSEO'
 
 export const Item = ({ params }) => {
   const [isLoading, setIsLoading] = useState(true);
   const { getProductByIdHook } = useProduct()
   const [articleToShow, setArticleToShow] = useState({});
   const [copied, setCopied] = useState(false);
+
+  useTitle("", "")
 
   const onCopyLink = () => {
     setCopied(false);

@@ -37,7 +37,7 @@ export const Home = () => {
 
   const ordenarFechaCreacion = async () => {
     setIsLoading(true);
-    const outList = productsList.sort((a, b) => { return new Date(a.dateCreated) - new Date(b.dateCreated) });
+    const outList = productsList.sort((a, b) => { return new Date(b.dateCreated) - new Date(a.dateCreated) });
     setProductsList(outList)
     setTimeout(() => {
       setIsLoading(false)
@@ -69,7 +69,7 @@ export const Home = () => {
           </Dropdown.Menu>
         </Dropdown>
         <h1 className='h1-title-span'> HOME </h1>
-        <div className='icons-wrapper'>
+        <div className='icons-wrapper flex-center'>
           {isMode1Active && <>
             <img src={Mode1Active} width={5} alt='' className='icon-card-show' />
             <img src={Mode2} width={5} alt='' className='icon-card-show icon-active' onClick={() => setIsMode1Active(false)} />

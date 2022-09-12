@@ -77,7 +77,7 @@ export const Category = ({ params }) => {
           </Dropdown.Menu>
         </Dropdown>
         <h1 className='h1-title-span'> {categoryNamePage} </h1>
-        <div className='icons-wrapper'>
+        <div className='icons-wrapper flex-center'>
           {isMode1Active && <>
             <img src={Mode1Active} width={5} alt='' className='icon-card-show' />
             <img src={Mode2} width={5} alt='' className='icon-card-show icon-active' onClick={() => setIsMode1Active(false)} />
