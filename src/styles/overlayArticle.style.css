@@ -5,10 +5,10 @@
 
 .overlay-article-container-item-page{
   background-color: white;
- /*  z-index: 1; */
   overflow: scroll;
   display: flex;
   justify-content: center;
+  padding-top: 50px;
 }
 
 .overlay-article-container{
@@ -25,9 +25,6 @@
 }
 
 .close-overlay-button{
-  /* position: fixed;
-  top: 0px;
-  right: 0px; */
   cursor: pointer;
   z-index: 2;
   color: rgb(236 98 95 / 80%);
@@ -38,20 +35,17 @@
 }
 
 .card-logo-contanier{
-  /* position: absolute;  */
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   max-width: 650px;
-  /* left: 50%; */
-  /* transform: translate(-50% , -50%); */
   z-index: 5;
   background-color: white;
-  /* height: 127px; */
   width: 100%;
   padding: 15px 25px;
+  
 
 }
 
@@ -60,23 +54,16 @@
   width: 100%;
   height: max-content;
   margin-bottom: 50px;
-  border-radius: 5px;
-  border: 3px solid #ef8482;
-/*   margin: 5px;
-  padding: 1px; */
+  -webkit-box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 75%);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 75%);
+  border-radius: 10px;
 }
 
 .overlay-article-wrapper{
   max-width: 650px;
   width: 100%;
 }
-
-/* .card-logo-wrapper{
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-} */
 
 .link-copy-wrapper{
   position: absolute;
@@ -133,6 +120,8 @@
   min-height: 50vh;
   width: auto;
   height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .details-product{
@@ -230,6 +219,7 @@
     height: max-content;
     margin-bottom: 50px;
     border-radius: 5px;
+
   }
     
 }
