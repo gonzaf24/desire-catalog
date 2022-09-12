@@ -12,7 +12,7 @@ export const ListCardArticle = ({ isMode1Active, onClickArticle, productsList })
   }, [productsList]);
 
   return <article className='card-main'>
-    <div className={isMode1Active ? "grid-main grid-main-mode-1" : "grid-main"}>
+    <div className={isMode1Active ? "grid-main " : "grid-main grid-main-double-active"}>
       {listOfProducts.length > 0 && listOfProducts.map((prenda, index) => {
         return <CardArticle key={index} article={prenda} onClickArticle={() => onClickArticle(prenda)} />
       })}

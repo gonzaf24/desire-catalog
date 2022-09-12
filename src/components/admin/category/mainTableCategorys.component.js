@@ -10,34 +10,45 @@ import useCategory from '../../../hooks/useCategory';
 import EditCategoryOverlay from '../../../components/admin/category/editCategoryOverlay.component'
 import NewCategoryOverlay from '../../../components/admin/category/newCategoryOverlay.component';
 import AlertDismissible from '../../alertDismissible.component';
+import AlertConfirm from '../../alertConfirm.component';
 
 export const MainTableCategorys = () => {
   // eslint-disable-next-line no-unused-vars
   const [location, setLocation] = useLocation();
-  const { getCategorysHook, deleteCategoryHook, isLogged } = useCategory()
+  const { getCategorysHook, deleteCategoryHook } = useCategory()
   const [typeError, setTypeError] = useState("succes");
   const [showAlert, setShowAlert] = useState(false);
+  const [showAlertConfirm, setShowAlertConfirm] = useState(false);
   const [messageError, setMessageError] = useState();
   const [categoryList, setCategoryList] = useState([]);
-
   const [showNewCategoryOverlay, setShowNewCategoryOverlay] = useState(false);
   const [showEditCategoryOverlay, setShowEditCategoryOverlay] = useState(false);
-
   const [selectedCategory, setSelectedCategory] = useState();
-
   const [isSortingCategorys, setIsSortingCategorys] = useState(false);
+  const [idDeleteCategory, setIdDeleteCategory] = useState();
 
-  const onDeleteCategory = async (idCategory) => {
+  const onDeleteCategory = (idCategory) => {
+    setIdDeleteCategory(idCategory);
+    setShowAlertConfirm(true);
+  }
+
+  const confirmDeleteCategory = async () => {
     try {
-      const isDeleted = await deleteCategoryHook(idCategory)
+      const isDeleted = await deleteCategoryHook(idDeleteCategory)
       if (isDeleted) {
         setShowAlert(true);
         setMessageError("Categoria eliminada.")
         setTypeError('succes')
+        setIdDeleteCategory();
       }
     } catch (error) {
       console.log("error ", error)
     }
+  }
+
+  const cancelDeleteCategory = () => {
+    setIdDeleteCategory();
+    setShowAlertConfirm(false);
   }
 
   const onEditCategory = async (element) => {
@@ -128,6 +139,7 @@ export const MainTableCategorys = () => {
     {showEditCategoryOverlay && <EditCategoryOverlay show={showEditCategoryOverlay} callbackShowCategory={setShowEditCategoryOverlay} onSuccessEditCategory={onSuccessEditCategory} categoryToEdit={selectedCategory} />}
     {showNewCategoryOverlay && <NewCategoryOverlay show={showNewCategoryOverlay} callbackShowCategory={setShowNewCategoryOverlay} />}
     {showAlert && <AlertDismissible show={showAlert} msg={messageError} callbackCloseError={callbackCloseError} type={typeError} />}
+    {showAlertConfirm && <AlertConfirm show={showAlertConfirm} msg={'¿Seguro que deseas eliminar la Categoria?'} callbackConfirm={confirmDeleteCategory} callbackCancel={cancelDeleteCategory} />}
   </div >
 }
 

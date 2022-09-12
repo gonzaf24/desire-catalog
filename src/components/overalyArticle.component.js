@@ -57,13 +57,13 @@ export const OverlayArticle = ({ showOverlay, setShowOverlayArticle, articleToSh
         <span className='article-item'>{articleToShow.detail && articleToShow.detail}</span>
         {articleToShow.sizes && articleToShow.sizes.length > 0 && <section className='article-item'>
           <span className='mb-2'>Talles</span>
-          <div>{articleToShow.sizes.map((el, index) => <span key={index} className='pill-wrapper' >{el.trim()} </span>)}
+          <div>{articleToShow.sizes.map((el, index) => <span key={index} className='pill-wrapper' >{el.trim().toUpperCase()} </span>)}
           </div>
         </section>
         }
         {articleToShow.colors && articleToShow.colors.length > 0 && <section className='article-item'>
           <span className='mb-2'>Colores</span>
-          <div>{articleToShow.colors.map((el, index) => <span key={index} className='pill-wrapper'>{el.trim()} </span>)}
+          <div>{articleToShow.colors.map((el, index) => <span key={index} className='pill-wrapper'>{el.trim().toUpperCase()} </span>)}
           </div>
         </section>
         }

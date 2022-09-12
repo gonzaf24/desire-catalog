@@ -267,7 +267,7 @@ export const NewProductOverlay = ({ show, callbackShowProduct, onSuccessNewProdu
             onChange={(e) => {
               setDetail(e.target.value);
             }}></textarea>
-          <label htmlFor="floatingTextarea2">Detalles</label>
+          <label htmlFor="floatingTextarea2">Detalle</label>
         </div>
 
         <InputGroup className='mt-4'>
