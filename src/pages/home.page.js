@@ -48,7 +48,8 @@ export const Home = () => {
     async function exect() {
       setIsLoading(true);
       const products = await getProductsHook();
-      setProductsList(products);
+      const outList = products.sort((a, b) => { return new Date(b.dateCreated) - new Date(a.dateCreated) });
+      setProductsList(outList);
       setTimeout(() => {
         setIsLoading(false)
       }, 300);
