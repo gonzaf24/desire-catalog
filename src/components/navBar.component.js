@@ -4,7 +4,7 @@ import { useRoute, Link } from 'wouter'
 import { BiMenu, BiX } from 'react-icons/bi';
 import { useLocation } from "wouter"
 import { FaPowerOff } from 'react-icons/fa';
-import RiffLogo from "../images/riiffe-logo.png";
+import AnastassaLogo from "../images/logo-anastassa.jpg";
 import useUser from '../hooks/useUser'
 
 export const NavBar = ({ showMenu, onShowMenu }) => {
@@ -36,7 +36,7 @@ export const NavBar = ({ showMenu, onShowMenu }) => {
       : <BiX className="icon-menu icon-close-menu" onClick={() => onShowMenu()} size={50} />
     }
     <div className='logo-wrapper' onClick={() => setLocation('/')}>
-      <img src={RiffLogo} alt='www.riff.design' className='main-logo' />
+      <img src={AnastassaLogo} alt='www.riff.design' className='main-logo' />
       {/* <img src={DesingDot} alt='www.riff.design' className='design-logo' /> */}
     </div>
     <div className='right-menu'>

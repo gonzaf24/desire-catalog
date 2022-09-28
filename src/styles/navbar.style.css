@@ -75,15 +75,11 @@
 }
 
 .main-logo{
-  width: 350px;
+  width: 100px;
   cursor: pointer;
 }
 
 @media (max-width: 500px) { 
-  .main-logo{
-    width: 300px;
-    cursor: pointer;
-  }
 
   .right-menu{
     display: none;
