@@ -62,8 +62,10 @@
 }
 
 .logo-wrapper{
+  width: 100%;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
 }
 
 .log-out-container{
