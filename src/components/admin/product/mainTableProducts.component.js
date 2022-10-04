@@ -305,7 +305,7 @@ export const MainTableProducts = () => {
           onChange={(e) => setDeleteInTable(!deleteInTable)}
         />
 
-        <ReactHTMLTableToExcel className='export-excel' table='productTableId' filename={`Productos-RIIFFE-${new Date().getTime()}`} sheet='tablexls' buttonText='Exportar a Excel' />
+        <ReactHTMLTableToExcel className='export-excel' table='productTableId' filename={`Productos-Anastassa-${new Date().getTime()}`} sheet='tablexls' buttonText='Exportar a Excel' />
 
       </InputGroup>
     </div>
