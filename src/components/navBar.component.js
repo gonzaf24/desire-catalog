@@ -32,12 +32,12 @@ export const NavBar = ({ showMenu, onShowMenu }) => {
 
   return <section className='navbar-container'>
     {!showMenu
-      ? <BiMenu className="icon-menu menu-burguer" onClick={() => onShowMenu()} size={50} />
-      : <BiX className="icon-menu icon-close-menu" onClick={() => onShowMenu()} size={50} />
+      ? <BiMenu className="icon-menu menu-burguer" onClick={onShowMenu} size={50} />
+      : <BiX className="icon-menu icon-close-menu" onClick={onShowMenu} size={50} />
     }
-    <div className='logo-wrapper' onClick={() => setLocation('/')}>
+    <Link className='logo-wrapper' to='/'>
       <img src={AnastassaLogo} alt='www.anastassa.com' className='main-logo' />
-    </div>
+    </Link>
     <div className='right-menu'>
       {content}
     </div>

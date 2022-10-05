@@ -59,7 +59,7 @@ export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
         setShowAlert(true);
         setMessageError(`Creada nueva categoria ${categoryCreated.categoryName}`)
         setTypeError("succes")
-        //callbackShowCategory(false)
+        callbackShowCategory(false)
       }
     } catch (error) {
       console.log("error nueva categoria", error)

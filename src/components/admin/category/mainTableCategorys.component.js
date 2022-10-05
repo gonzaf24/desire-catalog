@@ -36,6 +36,7 @@ export const MainTableCategorys = () => {
     try {
       const isDeleted = await deleteCategoryHook(idDeleteCategory)
       if (isDeleted) {
+        setShowAlertConfirm(false); 
         setShowAlert(true);
         setMessageError("Categoria eliminada.")
         setTypeError('succes')
