@@ -5,7 +5,7 @@ export const Footer = () => {
 
   return <footer className='footer-container'>
     <div>
-      <span>www.riff.design</span>
+      <span>www.anastassa.com</span>
     </div>
   </footer>
 }

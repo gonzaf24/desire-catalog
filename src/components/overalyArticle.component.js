@@ -3,7 +3,7 @@ import "../styles/overlayArticle.style.css"
 import Slider from 'react-slick';
 import { BiX, BiCopy } from 'react-icons/bi';
 import { TiMinus } from 'react-icons/ti';
-import RiffLogo from "../images/riiffe-logo.png";
+import AnastassaLogo from "../images/logo-anastassa.jpg";
 import { useLocation } from "wouter"
 
 export const OverlayArticle = ({ showOverlay, setShowOverlayArticle, articleToShow }) => {
@@ -34,9 +34,8 @@ export const OverlayArticle = ({ showOverlay, setShowOverlayArticle, articleToSh
     <article className="overlay-article-wrapper">
       <div className='card-logo-contanier'>
         <div className='card-logo-wrapper'>
-          <img src={RiffLogo} alt='www.riff.design' className='main-logo' />
-          {/*           <img src={DesingDot} alt='www.riff.design' className='design-logo' />
- */}        </div>
+          <img src={AnastassaLogo} alt='www.anastassa.com' className='main-logo' />
+        </div>
         <BiX className="close-overlay-button" onClick={() => setShowOverlayArticle(false)} size={50} />
       </div>
       <div className='card-wpr-1' >

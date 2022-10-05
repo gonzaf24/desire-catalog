@@ -36,8 +36,7 @@ export const NavBar = ({ showMenu, onShowMenu }) => {
       : <BiX className="icon-menu icon-close-menu" onClick={() => onShowMenu()} size={50} />
     }
     <div className='logo-wrapper' onClick={() => setLocation('/')}>
-      <img src={AnastassaLogo} alt='www.riff.design' className='main-logo' />
-      {/* <img src={DesingDot} alt='www.riff.design' className='design-logo' /> */}
+      <img src={AnastassaLogo} alt='www.anastassa.com' className='main-logo' />
     </div>
     <div className='right-menu'>
       {content}
