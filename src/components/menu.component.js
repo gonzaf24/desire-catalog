@@ -19,28 +19,28 @@ export const Menu = ({ showMenu, onShowMenu }) => {
   }, [getCategorysHook, showMenu]);
 
 
-  return <section className={!showMenu ? 'menu-container' : 'menu-container-show'} >
+  return <section className={ !showMenu ? 'menu-container' : 'menu-container-show' } >
     <span className='menu-title'>MUJER</span>
     <section className='menu-subtitle-container'>
-      {womanList.map((element, index) => {
-        return <Link key={index} to={`/category/${element.idName}`} onClick={() => onShowMenu()}>
+      { womanList.map((element, index) => {
+        return <Link key={ index } to={ `/category/${element.idName}` } onClick={ () => onShowMenu() }>
           <span className='menu-subtitle cursor'>
-            {element.categoryName}
+            { element.categoryName }
           </span>
         </Link>
-      })}
+      }) }
     </section>
     <span className='menu-title'>HOMBRE</span>
     <section className='menu-subtitle-container'>
-      {mensList.map((element, index) => {
-        return <Link key={index} to={`/category/${element.idName}`} onClick={() => onShowMenu()}>
+      { mensList.map((element, index) => {
+        return <Link key={ index } to={ `/category/${element.idName}` } onClick={ () => onShowMenu() }>
           <span className='menu-subtitle cursor' >
-            {element.categoryName}
+            { element.categoryName }
           </span>
         </Link>
-      })}
+      }) }
     </section>
   </section >
-  }
+}
 
 export default Menu;

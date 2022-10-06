@@ -81,8 +81,6 @@
 @media (max-width: 812px) { 
   .card-wpr-2{
     font-size: 12px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
   }
 
    .img-card-article{
