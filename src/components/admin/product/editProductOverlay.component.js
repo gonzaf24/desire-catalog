@@ -327,16 +327,16 @@ export const EditProductOverlay = ({ show, callbackShowEditProduct, onSuccessEdi
 
         <InputGroup className='mt-4'>
           <FormControl
-            placeholder="Desc. talle"
-            aria-label="Lista de talles disponibles para la prenda."
+            placeholder="Descripcion"
+            aria-label=""
             value={sizesDescr1}
             onChange={(e) => {
               setSizesDescr1(e.target.value);
             }}
           />
           <FormControl
-            placeholder="Valor desc."
-            aria-label="Lista de talles disponibles para la prenda."
+            placeholder="Valor"
+            aria-label=""
             value={sizesDescr2}
             onChange={(e) => {
               setSizesDescr2(e.target.value);
