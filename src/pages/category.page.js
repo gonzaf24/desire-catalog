@@ -72,28 +72,28 @@ export const Category = ({ params }) => {
             <FaPlay className='rotate90' /><span className='ml-2 fw-2'>FILTRO</span>
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item onClick={ordenarBaratos}><HiPlusSm />BARATOS PRIMERO</Dropdown.Item>
-            <Dropdown.Item onClick={ordenarFechaCreacion}><HiPlusSm />NUEVOS PRIMERO</Dropdown.Item>
+            <Dropdown.Item onClick={ ordenarBaratos }><HiPlusSm />BARATOS PRIMERO</Dropdown.Item>
+            <Dropdown.Item onClick={ ordenarFechaCreacion }><HiPlusSm />NUEVOS PRIMERO</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <h1 className='h1-title-span'> {categoryNamePage} </h1>
+        <h1 className='h1-title-span'> { categoryNamePage } </h1>
         <div className='icons-wrapper flex-center'>
-          {isMode1Active && <>
-            <img src={Mode1Active} width={5} alt='' className='icon-card-show' />
-            <img src={Mode2} width={5} alt='' className='icon-card-show icon-active' onClick={() => setIsMode1Active(false)} />
-          </>}
-          {!isMode1Active && <>
-            <img src={Mode1} width={5} alt='' className='icon-card-show icon-active' onClick={() => setIsMode1Active(true)} />
-            <img src={Mode2Active} width={5} alt='' className='icon-card-show' />
-          </>}
+          { isMode1Active && <>
+            <img src={ Mode1Active } width={ 5 } alt='' className='icon-card-show' />
+            <img src={ Mode2 } width={ 5 } alt='' className='icon-card-show icon-active' onClick={ () => setIsMode1Active(false) } />
+          </> }
+          { !isMode1Active && <>
+            <img src={ Mode1 } width={ 5 } alt='' className='icon-card-show icon-active' onClick={ () => setIsMode1Active(true) } />
+            <img src={ Mode2Active } width={ 5 } alt='' className='icon-card-show' />
+          </> }
         </div>
       </section>
-      {isLoading
-        ? <Loading size={"xl"} />
-        : <ListCardArticle isMode1Active={isMode1Active} onClickArticle={onClickProduct} productsList={productsList} />
+      { isLoading
+        ? <Loading size={ "xl" } />
+        : <ListCardArticle isMode1Active={ isMode1Active } onClickArticle={ onClickProduct } productsList={ productsList } />
       }
     </section >
-    <OverlayArticle showOverlay={showOverlayArticle} articleToShow={productSelected} setShowOverlayArticle={setShowOverlayArticle} />
+    <OverlayArticle showOverlay={ showOverlayArticle } articleToShow={ productSelected } setShowOverlayArticle={ setShowOverlayArticle } />
   </Fragment>
 }
 

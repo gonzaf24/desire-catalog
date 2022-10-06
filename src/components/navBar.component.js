@@ -20,7 +20,7 @@ export const NavBar = ({ showMenu, onShowMenu }) => {
 
   const renderLoginButtons = ({ isLogged }) => {
     return isLogged
-      && <Link to='/' onClick={handleClick} className="log-out-container">
+      && <Link to='/' onClick={ handleClick } className="log-out-container">
         <FaPowerOff></FaPowerOff>
         <span>logout</span>
       </Link>
@@ -31,15 +31,15 @@ export const NavBar = ({ showMenu, onShowMenu }) => {
     : renderLoginButtons({ isLogged })
 
   return <section className='navbar-container'>
-    {!showMenu
-      ? <BiMenu className="icon-menu menu-burguer" onClick={onShowMenu} size={75} />
-      : <BiX className="icon-menu icon-close-menu" onClick={onShowMenu} size={75} />
+    { !showMenu
+      ? <BiMenu className="icon-menu menu-burguer" onClick={ onShowMenu } size={ 75 } />
+      : <BiX className="icon-menu icon-close-menu" onClick={ onShowMenu } size={ 75 } />
     }
     <Link className='logo-wrapper' to='/'>
-      <img src={AnastassaLogo} alt='www.anastassa.com' className='main-logo' />
+      <img src={ AnastassaLogo } alt='www.anastassa.com' className='main-logo' />
     </Link>
     <div className='right-menu'>
-      {content}
+      { content }
     </div>
   </section>
 

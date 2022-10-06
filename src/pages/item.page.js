@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import { BiCopy } from 'react-icons/bi';
 import { TiMinus } from 'react-icons/ti';
 import { Link } from 'wouter'
-import  useTitle  from '../hooks/useSEO'
+import useTitle from '../hooks/useSEO'
 
 export const Item = ({ params }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -52,42 +52,42 @@ export const Item = ({ params }) => {
 
   return <section className='overlay-article-container-item-page'>
     <article className="overlay-article-wrapper-item">
-      {isLoading
-        ? <Loading size={"xl"} />
+      { isLoading
+        ? <Loading size={ "xl" } />
         : Object.keys(articleToShow).length > 0 ? <Fragment>
           <div className='card-wpr-1' >
-            <Slider {...settings} id='slider'>
-              {articleToShow.photos.map((imagen, index) => {
-                return <img key={index} src={imagen} alt='' className='img-card-article-overlay' />
-              })}
+            <Slider { ...settings } id='slider'>
+              { articleToShow.photos.map((imagen, index) => {
+                return <img key={ index } src={ imagen } alt='' className='img-card-article-overlay' />
+              }) }
             </Slider>
-            <div className='link-copy-wrapper' onClick={() => onCopyLink()}>
-              <BiCopy className={copied ? 'copy-svg color-copy-active' : 'copy-svg color-copy'} size={25} />
-              <span className={copied ? 'copy-link-text color-copy-active' : 'copy-link-text color-copy'} >copy-link</span>
+            <div className='link-copy-wrapper' onClick={ () => onCopyLink() }>
+              <BiCopy className={ copied ? 'copy-svg color-copy-active' : 'copy-svg color-copy' } size={ 25 } />
+              <span className={ copied ? 'copy-link-text color-copy-active' : 'copy-link-text color-copy' } >copy-link</span>
             </div>
           </div>
           <div className='card-wpr-2'>
-            <span className='article-item'>REF. {articleToShow.ref} </span>
-            <span className='article-item price-style'>{articleToShow.precioUY} $U</span>
-            <span className='article-item'>{articleToShow.description && articleToShow.description}</span>
-            <span className='article-item'>{articleToShow.detail && articleToShow.detail}</span>
-            {articleToShow.sizes && articleToShow.sizes.length > 0 && <section className='article-item'>
+            <span className='article-item'>REF. { articleToShow.ref } </span>
+            <span className='article-item price-style'>{ articleToShow.precioUY } $U</span>
+            <span className='article-item'>{ articleToShow.description && articleToShow.description }</span>
+            <span className='article-item'>{ articleToShow.detail && articleToShow.detail }</span>
+            { articleToShow.sizes && articleToShow.sizes.length > 0 && <section className='article-item'>
               <span className='mb-2'>Talles</span>
-              <div>{articleToShow.sizes.map((el, index) => <span key={index} className='pill-wrapper' >{el.trim()} </span>)}
+              <div>{ articleToShow.sizes.map((el, index) => <span key={ index } className='pill-wrapper' >{ el.trim() } </span>) }
               </div>
             </section>
             }
-            {articleToShow.colors && articleToShow.colors.length > 0 && <section className='article-item'>
+            { articleToShow.colors && articleToShow.colors.length > 0 && <section className='article-item'>
               <span className='mb-2'>Colores</span>
-              <div>{articleToShow.colors.map((el, index) => <span key={index} className='pill-wrapper'>{el.trim()} </span>)}
+              <div>{ articleToShow.colors.map((el, index) => <span key={ index } className='pill-wrapper'>{ el.trim() } </span>) }
               </div>
             </section>
             }
-            {articleToShow.sizesDescriptions && articleToShow.sizesDescriptions.length > 0 && <section className='details-product'>
+            { articleToShow.sizesDescriptions && articleToShow.sizesDescriptions.length > 0 && <section className='details-product'>
               <span className='mb-2'>Detalles</span>
-              {articleToShow.sizesDescriptions.map((element, index) => {
-                return <span key={index} className='flex-center'> <TiMinus className='mr-5p' />{element.data} {element.description} </span>
-              })}
+              { articleToShow.sizesDescriptions.map((element, index) => {
+                return <span key={ index } className='flex-center'> <TiMinus className='mr-5p' />{ element.data } { element.description } </span>
+              }) }
             </section>
             }
           </div>
@@ -101,7 +101,7 @@ export const Item = ({ params }) => {
       }
 
     </article>
-    <span id="copy-id" className={copied ? 'copy-link-url-active' : 'copy-link-url'}>link copiado</span>
+    <span id="copy-id" className={ copied ? 'copy-link-url-active' : 'copy-link-url' }>link copiado</span>
   </section >
 
 }

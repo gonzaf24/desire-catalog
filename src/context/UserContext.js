@@ -6,11 +6,11 @@ export function UserContextProvider({ children }) {
     () => window.sessionStorage.getItem('jwt')
   )
 
-  return <Context.Provider value={{
+  return <Context.Provider value={ {
     jwt,
     setJWT
-  }}>
-    {children}
+  } }>
+    { children }
   </Context.Provider>
 }
 

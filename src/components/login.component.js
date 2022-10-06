@@ -26,15 +26,15 @@ export default function Login({ onLogin }) {
 
   return (
     <div className='login-container'>
-      {isLoginLoading && <strong>Checkeando credenciales...</strong>}
-      {!isLoginLoading &&
-        <form className='form' onSubmit={handleSubmit}>
+      { isLoginLoading && <strong>Checkeando credenciales...</strong> }
+      { !isLoginLoading &&
+        <form className='form' onSubmit={ handleSubmit }>
           <label>
             username
             <input
               placeholder="username"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
+              onChange={ (e) => setUsername(e.target.value) }
+              value={ username }
             />
           </label>
 
@@ -43,8 +43,8 @@ export default function Login({ onLogin }) {
             <input
               type="password"
               placeholder="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              onChange={ (e) => setPassword(e.target.value) }
+              value={ password }
             />
           </label>
 

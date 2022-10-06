@@ -13,7 +13,7 @@ export default function ErrorPage() {
         <span className='upss'>Upss!</span>
         <span className='text-error'>La pagina que buscas no existe.</span>
       </div>
-      <span className='ir-al-home cursor' onClick={() => setLocation('/')}>ir a Home</span>
+      <span className='ir-al-home cursor' onClick={ () => setLocation('/') }>ir a Home</span>
     </section>
   );
 }

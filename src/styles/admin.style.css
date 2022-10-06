@@ -1,9 +1,9 @@
-.h1-title-admin{
+.h1-title-admin {
   font-family: "arial-black";
   font-size: 20px;
 }
 
-.admin-container{
+.admin-container {
   display: flex;
   flex-direction: column;
   padding: 25px;
@@ -11,22 +11,22 @@
 }
 
 .admin-container::-webkit-scrollbar {
-	width: 5px;
+  width: 5px;
   background-color: #313131;
 }
 
 .admin-container::-webkit-scrollbar-track {
-	border-radius: 0px;
+  border-radius: 0px;
 }
 
 .admin-container::-webkit-scrollbar-thumb {
-	background: rgb(255 255 255 / 30%);
-	border-radius: 5px;
+  background: rgb(255 255 255 / 30%);
+    border-radius: 5px;
 }
 
 .admin-container::-webkit-scrollbar-thumb:hover {
-	background: rgb(255 255 255 / 30%);
-	border-radius: 5px;
+  background: rgb(255 255 255 / 30%);
+    border-radius: 5px;
 }
 
 .admin-container::-webkit-scrollbar-corner {
@@ -45,30 +45,30 @@
 }
 
 .table-responsive-xl {
-	overflow-x: scroll
+  overflow-x: scroll
 }
 
-.icon-admin{
+.icon-admin {
   font-size: 25px;
 }
 
-.icon-admin:hover{
+.icon-admin:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.admin-table-id{
+.admin-table-id {
   text-align: left;
   color: #313131 !important;
   border-color: rgb(0 0 0 / 40%) !important;
 }
 
-.table-responsive{
+.table-responsive {
   position: relative;
   max-height: 700px;
   min-height: 300px;
 }
 
-tr:hover{
+tr:hover {
   cursor: pointer;
 }
 
@@ -77,7 +77,7 @@ tbody > tr:hover > td {
   color: unset !important;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
@@ -92,22 +92,22 @@ tbody > tr:hover > td {
   border-color: var(--bs-primary);
 }
 
-.ascending-icon{
+.ascending-icon {
   float: right;
   width: 15px;
   height: 21px;
 }
 
-.spinner-container{
+.spinner-container {
   width: 100%;
   text-align: center;
 }
 
-.spinner{
+.spinner {
   background-color: var(--bs-primary) !important;
 }
 
-.bar-wrapper{
+.bar-wrapper {
   width: 100%;
   margin: 10px 0px;
   display: flex;
@@ -115,25 +115,27 @@ tbody > tr:hover > td {
   flex-direction: row;
 }
 
-.select-search{
+.select-search {
   max-width: 150px;
   font-weight: 700 !important;
 }
 
-.no-data-empty{
+.no-data-empty {
   position: absolute;
   left: 50%;
   top: 100px;
 }
 
-.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
   color: var(--bs-primary) !important;
   font-weight: 900 !important;
   background-color: #ef8482 !important;
   border-color: #ef8482 !important;
 }
 
-.nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link {
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
   width: 100%;
   font-weight: 600;
 }
@@ -142,11 +144,11 @@ tbody > tr:hover > td {
   background-color: #b9b9b9 !important;
 }
 
-.mr-10{
+.mr-10 {
   margin-right: 10px;
 }
 
-.export-excel{
+.export-excel {
   background-color: var(--bs-green);
   color: white;
   font-weight: 800;
@@ -155,7 +157,7 @@ tbody > tr:hover > td {
   cursor: pointer;
 }
 
-.refreshTable{
+.refreshTable {
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
