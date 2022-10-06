@@ -1,5 +1,5 @@
 .menu-container{
-  top: 80px;
+  top: 95px;
   bottom: 0px;
   left: -90vw;
   background: rgb(236 98 95 / 95%);
@@ -14,7 +14,7 @@
 }
 
 .menu-container-show{
-  top: 80px;
+  top: 95px;
   left: 0px;
   bottom: 0px;
   background: #ef8482;

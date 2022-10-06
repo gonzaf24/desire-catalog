@@ -32,8 +32,8 @@ export const NavBar = ({ showMenu, onShowMenu }) => {
 
   return <section className='navbar-container'>
     {!showMenu
-      ? <BiMenu className="icon-menu menu-burguer" onClick={onShowMenu} size={50} />
-      : <BiX className="icon-menu icon-close-menu" onClick={onShowMenu} size={50} />
+      ? <BiMenu className="icon-menu menu-burguer" onClick={onShowMenu} size={75} />
+      : <BiX className="icon-menu icon-close-menu" onClick={onShowMenu} size={75} />
     }
     <Link className='logo-wrapper' to='/'>
       <img src={AnastassaLogo} alt='www.anastassa.com' className='main-logo' />

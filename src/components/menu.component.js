@@ -18,6 +18,7 @@ export const Menu = ({ showMenu, onShowMenu }) => {
     exect()
   }, [getCategorysHook, showMenu]);
 
+
   return <section className={!showMenu ? 'menu-container' : 'menu-container-show'} >
     <span className='menu-title'>MUJER</span>
     <section className='menu-subtitle-container'>
@@ -40,6 +41,6 @@ export const Menu = ({ showMenu, onShowMenu }) => {
       })}
     </section>
   </section >
-}
+  }
 
 export default Menu;

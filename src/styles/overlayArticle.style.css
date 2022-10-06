@@ -25,6 +25,8 @@
 }
 
 .close-overlay-button{
+  height: 75px;
+  width: 75px;
   cursor: pointer;
   z-index: 2;
   color: rgb(236 98 95 / 80%);
@@ -43,9 +45,9 @@
   max-width: 650px;
   z-index: 5;
   background-color: white;
-  width: 100%;
   padding: 15px 25px;
-  
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
 }
 
@@ -63,12 +65,17 @@
 .overlay-article-wrapper{
   max-width: 650px;
   width: 100%;
+  padding: 35px;
+  overflow: scroll;
+}
+
+.overlay-article-wrapper::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 .link-copy-wrapper{
   position: absolute;
   bottom: -50px;
-  display: flex;
   right: 15px;
   z-index: 1;
   color: rgb(82 82 82);
