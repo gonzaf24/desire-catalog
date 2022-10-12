@@ -52,8 +52,8 @@ export const OverlayArticle = ({ showOverlay, setShowOverlayArticle, articleToSh
       <div className='card-wpr-2'>
         <span className='article-item'>REF. { articleToShow.ref } </span>
         <span className='article-item price-style'>{ articleToShow.precioUY } $U</span>
-        <span className='article-item'>{ articleToShow.description && articleToShow.description }</span>
-        <span className='article-item'>{ articleToShow.detail && articleToShow.detail }</span>
+        {/*         <span className='article-item'>{ articleToShow.description && articleToShow.description }</span>
+ */}        <span className='article-item'>{ articleToShow.detail && articleToShow.detail }</span>
         { articleToShow.sizes && articleToShow.sizes.length > 0 && <section className='article-item'>
           <span className='mb-2'>Talles</span>
           <div>{ articleToShow.sizes.map((el, index) => <span key={ index } className='pill-wrapper' >{ el.trim().toUpperCase() } </span>) }
@@ -62,7 +62,7 @@ export const OverlayArticle = ({ showOverlay, setShowOverlayArticle, articleToSh
         }
         { articleToShow.colors && articleToShow.colors.length > 0 && <section className='article-item'>
           <span className='mb-2'>Colores</span>
-          <div>{ articleToShow.colors.map((el, index) => <span key={ index } className='pill-wrapper'>{ el.trim().toUpperCase() } </span>) }
+          <div>{ articleToShow.colors.map((el, index) => el ? <span key={ index } className='pill-wrapper'>{ el.trim().toUpperCase() } </span> : null) }
           </div>
         </section>
         }

@@ -23,6 +23,7 @@
 }
 
 .card-wpr-2{
+  position: relative;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -60,8 +61,6 @@
 }
 
 .img-card-article{
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   max-height: 450px;
   width: auto !important;
   cursor: pointer;

@@ -285,10 +285,10 @@ export const EditProductOverlay = ({ show, callbackShowEditProduct, onSuccessEdi
             aria-label="Lista de colores disponibles para la prenda."
             value={colorDescription}
             onChange={(e) => {
-              setColorDescription(e.target.value);
+              setColorDescription(e.target.value.toUpperCase());
             }}
           />
-          <Button variant="outline-primary" onClick={() => onAddToColors(colorDescription)}>
+          <Button disabled={ !colorDescription } variant="outline-primary" onClick={ () => onAddToColors(colorDescription) }>
             <FaPlus />
           </Button>
         </InputGroup>
@@ -308,10 +308,10 @@ export const EditProductOverlay = ({ show, callbackShowEditProduct, onSuccessEdi
             aria-label="Lista de talles disponibles para la prenda."
             value={sizeDescription}
             onChange={(e) => {
-              setSizeDescription(e.target.value);
+              setSizeDescription(e.target.value.toUpperCase());
             }}
           />
-          <Button variant="outline-primary" onClick={() => onAddToSizes(sizeDescription)}>
+          <Button disabled={ !sizeDescription } variant="outline-primary" onClick={ () => onAddToSizes(sizeDescription) }>
             <FaPlus />
           </Button>
         </InputGroup>
@@ -331,7 +331,7 @@ export const EditProductOverlay = ({ show, callbackShowEditProduct, onSuccessEdi
             aria-label=""
             value={sizesDescr1}
             onChange={(e) => {
-              setSizesDescr1(e.target.value);
+              setSizesDescr1(e.target.value.toUpperCase());
             }}
           />
           <FormControl
@@ -342,14 +342,14 @@ export const EditProductOverlay = ({ show, callbackShowEditProduct, onSuccessEdi
               setSizesDescr2(e.target.value);
             }}
           />
-          <Button variant="outline-primary" onClick={() => onAddToSizesDescriptions(sizesDescr1, sizesDescr2)}>
+          <Button disabled={ !sizesDescr1 || !sizesDescr2 } variant="outline-primary" onClick={ () => onAddToSizesDescriptions(sizesDescr1, sizesDescr2) }>
             <FaPlus />
           </Button>
         </InputGroup>
 
         <ListGroup >
           {sizesDescriptions.map((el, index) => {
-            return <ListGroup.Item key={index} className='item-group'>{el.data}:{el.description}
+            return <ListGroup.Item key={ index } className='item-group'>{ `${el.data} :   ${el.description}` }
               <MdDeleteForever className='delete-item-group' onClick={() => onRemoveFromSizesDescriptions(el)} />
             </ListGroup.Item>
           })}
