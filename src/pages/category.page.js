@@ -2,19 +2,19 @@ import React, { useState, useEffect, Fragment } from 'react';
 import '../styles/lino.style.css'
 import { FaPlay } from "react-icons/fa";
 import { HiPlusSm } from "react-icons/hi";
-import { OverlayArticle } from '../components/overalyArticle.component';
+import { OverlayArticle } from '../components/overlayArticle.component';
 import Mode1 from "../images/mode-1.png";
 import Mode2 from "../images/mode-2.png";
 import Mode1Active from "../images/mode-1-active.png";
 import Mode2Active from "../images/mode-2-active.png";
 import useProduct from '../hooks/useProduct';
 import ListCardArticle from '../components/listCardArticle.component';
-import Loading from '../components/loader.component';
+import Loader from '../components/loader.component';
 import Dropdown from 'react-bootstrap/Dropdown';
+import useOpenToggle from '../hooks/useOpenToggle';
 
 export const Category = ({ params }) => {
 
-  const [showOverlayArticle, setShowOverlayArticle] = useState(false);
   const [productsList, setProductsList] = useState([]);
   const [productSelected, setProductSelected] = useState();
   const [isMode1Active, setIsMode1Active] = useState(false);
@@ -22,9 +22,15 @@ export const Category = ({ params }) => {
   const [categoryNamePage, setCategoryNamePage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const {
+    isOpen: isOpenModal,
+    open: openModal,
+    close: onCloseModal,
+  } = useOpenToggle(false);
+
   const onClickProduct = (product) => {
     setProductSelected(product);
-    setShowOverlayArticle(true);
+    openModal();
   }
 
   const ordenarBaratos = async () => {
@@ -89,11 +95,11 @@ export const Category = ({ params }) => {
         </div>
       </section>
       { isLoading
-        ? <Loading size={ "xl" } />
+        ? <Loader size={ "xl" } />
         : <ListCardArticle isMode1Active={ isMode1Active } onClickArticle={ onClickProduct } productsList={ productsList } />
       }
     </section >
-    <OverlayArticle showOverlay={ showOverlayArticle } articleToShow={ productSelected } setShowOverlayArticle={ setShowOverlayArticle } />
+    <OverlayArticle isOpenModal={ isOpenModal } onCloseModal={ onCloseModal } articleToShow={ productSelected } />
   </Fragment>
 }
 
