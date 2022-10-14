@@ -7,9 +7,9 @@ import AnastassaLogo from "../images/logo-anastassa.jpg";
 import Modal from '../containers/Modal/Modal';
 
 export const OverlayArticle = ({ isOpenModal = false, isLoading = false,
-  onCloseModal, articleToShow = undefined }) => {
+  onCloseModal, articleToShow }) => {
   const [copied, setCopied] = useState(false);
-  const [article, setArticle] = useState();
+  const [article, setArticle] = useState(articleToShow);
 
   const onCopyLink = () => {
     setCopied(false);
@@ -22,12 +22,14 @@ export const OverlayArticle = ({ isOpenModal = false, isLoading = false,
   }
 
   useEffect(() => {
-    setArticle(articleToShow);
-  }, [articleToShow]);
+    if (isOpenModal) {
+      setArticle(articleToShow);
+    }
+  }, [articleToShow, isOpenModal]);  
 
   const onCloseLocal = () => {
     onCloseModal();
-    setArticle(null);
+    setArticle(null)
   }
 
   var settings = {
