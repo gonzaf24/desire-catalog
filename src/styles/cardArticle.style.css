@@ -64,15 +64,14 @@
 
 .img-card-article{
   max-height: 450px;
-  width: auto !important;
   cursor: pointer;
+  width: 100% !important;
 }
 
 .slick-track{
   display: flex;
   align-items: center;
 }
-
 
 .slick-prev {
   left: 10px;
@@ -135,6 +134,12 @@
     color: rgb(153 70 68 / 50%);
 }
 
+.section-article {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 1500px) { 
   .img-card-article{
     height: auto;

@@ -18,7 +18,7 @@ export const CardArticle = ({ article, onClickArticle }) => {
     <div className='card-wpr-1' >
       <Slider { ...settings } id='slider'>
         { article.photos.map((imagen, index) => {
-          return <img key={ index } src={ imagen } alt='' className='img-card-article' onClick={ () => onClickArticle(article) } />
+          return <section key={ index } className='section-article' ><img src={ imagen } alt='' className='img-card-article' onClick={ () => onClickArticle(article) } /></section>
         }) }
       </Slider>
       <HiOutlineArrowsExpand size={ 35 } className="expand-button" onClick={ () => onClickArticle(article) } />
