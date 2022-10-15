@@ -85,7 +85,7 @@ export const Category = ({ params }) => {
 
    return (
       <Fragment>
-         <section className="lino-container">
+         <section>
             <section className="container-icons-show">
                <Dropdown className="fliter-wrapper">
                   <Dropdown.Toggle className="filtros-content" id="prueba">

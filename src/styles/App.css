@@ -45,41 +45,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.lino-container {
-  height: calc(100vh - 80px);
-}
-
-.lino-container::-webkit-scrollbar,
-.index::-webkit-scrollbar {
-  width: 5px;
-}
-
-.lino-container::-webkit-scrollbar-track,
-.index::-webkit-scrollbar-track {
-  background: #151516;
-  border-radius: 0px;
-}
-
-.lino-container::-webkit-scrollbar-thumb,
-.index::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 5px;
-}
-
-.lino-container::-webkit-scrollbar-thumb:hover,
-.index::-webkit-scrollbar-thumb:hover {
-  background: rgb(164, 164, 164);
-  border-radius: 5px;
-}
-
 .h1-title-span {
   font-family: "arial-black";
-  /*   margin: auto; */
   font-size: 20px;
   margin-bottom: 0px
-    /* 
-  margin-bottom
-  width: fit-content; */
 }
 
 .slick-slider {
