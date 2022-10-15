@@ -1,12 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 /* import Slider from "react-slick"; */
 
-
-
 export const Mujer = () => {
-
-  /* var settings = {
+   /* var settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -14,11 +11,11 @@ export const Mujer = () => {
     slidesToScroll: 1
   };
  */
-  return <div>
-    <h1 className='h1-title-span'>MUJER</h1>
+   return (
+      <div>
+         <h1 className="h1-title-span">MUJER</h1>
 
-
-    {/*    <Slider {...settings}>
+         {/*    <Slider {...settings}>
       <div>
         <h3>1</h3>
       </div>
@@ -38,7 +35,8 @@ export const Mujer = () => {
         <h3>6</h3>
       </div>
     </Slider> */}
-  </div >
+      </div>
+   )
 }
 
-export default Mujer;
+export default Mujer

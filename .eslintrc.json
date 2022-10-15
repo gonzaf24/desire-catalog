@@ -1,0 +1,68 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "overrides": [],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "quotes": [
+            2,
+            "single",
+            "avoid-escape"
+        ],
+        "linebreak-style": 0,
+        "max-len": [
+            2,
+            {
+                "code": 140,
+                "tabWidth": 4,
+                "ignoreUrls": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreComments": true,
+                "ignoreRegExpLiterals": true
+            }
+        ],
+        "react/jsx-curly-spacing": [
+            2,
+            "always"
+        ],
+        "react/sort-prop-types": [
+            2,
+            {
+                "callbacksLast": true,
+                "ignoreCase": true,
+                "requiredFirst": true,
+                "sortShapeProp": true,
+                "noSortAlphabetically": false
+            }
+        ],
+        "react/jsx-sort-props": [
+            2,
+            {
+                "callbacksLast": true,
+                "ignoreCase": true,
+                "noSortAlphabetically": false,
+                "shorthandFirst": false,
+                "shorthandLast": false,
+                "reservedFirst": true
+            }
+        ],
+        "import/no-cycle": 0,
+        "import/prefer-default-export": 0
+    }
+}

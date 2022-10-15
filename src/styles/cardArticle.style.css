@@ -66,6 +66,7 @@
   max-height: 450px;
   cursor: pointer;
   width: 100% !important;
+  max-width: 300px;
 }
 
 .slick-track{
@@ -140,6 +141,7 @@
   justify-content: center;
   align-items: center;
 }
+
 @media (max-width: 1500px) { 
   .img-card-article{
     height: auto;

@@ -1,15 +1,40 @@
-import React from 'react';
-import { BiX } from 'react-icons/bi';
-import "../styles/fullSizeImageOverlay.style.css"
+import React from 'react'
+import { BiX } from 'react-icons/bi'
+import '../styles/fullSizeImageOverlay.style.css'
 
-export const ShowFullSizeImage = ({ show, imgSrc, setShowFullSizeImage }) => {
+import PropTypes from 'prop-types'
 
-  return show && <div className="alert-overlay-container">
-    <section className='overlay-section-img-full-size' >
-      <BiX className="close-button-full-size" onClick={ () => setShowFullSizeImage(false) } size={ 50 } />
-      <img src={ imgSrc } alt="" className='img-full-size' />
-    </section>
-  </div >
+
+const propTypes = {
+   imgSrc: PropTypes.string,
+   setShowFullSizeImage: PropTypes.func,
+   show: PropTypes.bool,
 }
 
-export default ShowFullSizeImage;
+const defaultProps = {
+   imgSrc: '',
+   setShowFullSizeImage: undefined,
+   show: false,
+}
+
+export const ShowFullSizeImage = ({ show, imgSrc, setShowFullSizeImage }) => {
+   return (
+      show && (
+         <div className="alert-overlay-container">
+            <section className="overlay-section-img-full-size">
+               <BiX
+                  className="close-button-full-size"
+                  size={ 50 }
+                  onClick={ () => setShowFullSizeImage(false) }
+               />
+               <img alt="" className="img-full-size" src={ imgSrc } />
+            </section>
+         </div>
+      )
+   )
+}
+
+ShowFullSizeImage.propTypes = propTypes
+ShowFullSizeImage.defaultProps = defaultProps
+
+export default ShowFullSizeImage
