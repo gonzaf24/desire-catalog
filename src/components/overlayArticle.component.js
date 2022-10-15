@@ -32,23 +32,21 @@ const defaultProps = {
    },
 }
 
-const OverlayArticle = ({
-   isOpenModal = false,
-   isLoading = false,
-   onCloseModal,
-   articleToShow,
-}) => {
+const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, articleToShow, }) => {
    const [copied, setCopied] = useState(false)
    const [article, setArticle] = useState(articleToShow)
+   const [urlCopied, setUrlCopied] = useState('')
 
-   const onCopyLink = () => {
+   const onCopyLink = async () => {
       setCopied(false)
       setCopied(true)
       const url = window.location.host + '/item/' + articleToShow.id
-      navigator.clipboard.writeText(url)
+      setUrlCopied(url);
+      await navigator.clipboard.writeText(url)
       setTimeout(() => {
          setCopied(false)
       }, 500)
+      console.log('url ---- ', url)
       return url
    }
 
@@ -105,15 +103,15 @@ const OverlayArticle = ({
                         )
                      }) }
                   </Slider>
-                  <div className="links-copy-constainer" >
-                     <FacebookShareButton round={ true } size={ 32 } url={ () => onCopyLink() }>
+                  <div className="links-copy-constainer" onClick={ async () => onCopyLink() }>
+                     <FacebookShareButton round={ true } size={ 32 } url={ urlCopied }>
                         <FacebookIcon round={ true } size={ 32 } />
                      </FacebookShareButton>
 
-                     <WhatsappShareButton round={ true } size={ 32 } url={ () => onCopyLink() }>
+                     <WhatsappShareButton round={ true } size={ 32 } url={ urlCopied }>
                         <WhatsappIcon round={ true } size={ 32 } />
                      </WhatsappShareButton>
-                     <div className='copy-link-warpper-cop' onClick={ () => onCopyLink() }>
+                     <div className='copy-link-warpper-cop' >
                         <BiCopy
                            className={
                               copied
