@@ -110,10 +110,10 @@ const OverlayArticle = ({
                         <FacebookIcon round={ true } size={ 32 } />
                      </FacebookShareButton>
 
-                     <WhatsappShareButton round={ true } size={ 32 } url={ () => onCopyLink }>
+                     <WhatsappShareButton round={ true } size={ 32 } url={ () => onCopyLink() }>
                         <WhatsappIcon round={ true } size={ 32 } />
                      </WhatsappShareButton>
-                     <div className='copy-link-warpper-cop' onClick={ () => onCopyLink }>
+                     <div className='copy-link-warpper-cop' onClick={ () => onCopyLink() }>
                         <BiCopy
                            className={
                               copied
