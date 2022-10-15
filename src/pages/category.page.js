@@ -129,7 +129,7 @@ export const Category = ({ params }) => {
                />
             ) }
          </section>
-         <h6>info@anastassa.com</h6>
+
          <OverlayArticle
             articleToShow={ productSelected }
             isOpenModal={ isOpenModal }

@@ -97,6 +97,7 @@ export const Menu = ({ showMenu, onShowMenu }) => {
                </section>
             </>
          ) }
+         <h6>info@anastassa.com</h6>
       </section>
    )
 }
