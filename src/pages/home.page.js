@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import '../styles/lino.style.css'
-import OverlayArticle from '../components/OverlayArticle.component'
+import OverlayArticle from '../components/overlayArticle.component'
 import { FaPlay } from 'react-icons/fa'
 import { HiPlusSm } from 'react-icons/hi'
 import Mode1 from '../images/mode-1.png'
