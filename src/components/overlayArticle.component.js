@@ -6,6 +6,7 @@ import { TiMinus } from 'react-icons/ti'
 import AnastassaLogo from '../images/logo-anastassa.jpg'
 import Modal from '../containers/Modal/Modal'
 import PropTypes from 'prop-types'
+import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 const propTypes = {
    articleToShow: PropTypes.shape({
@@ -48,6 +49,7 @@ const OverlayArticle = ({
       setTimeout(() => {
          setCopied(false)
       }, 500)
+      return url
    }
 
    useEffect(() => {
@@ -103,24 +105,33 @@ const OverlayArticle = ({
                         )
                      }) }
                   </Slider>
-                  <div className="link-copy-wrapper" onClick={ onCopyLink }>
-                     <BiCopy
-                        className={
-                           copied
-                              ? 'copy-svg color-copy-active'
-                              : 'copy-svg color-copy'
-                        }
-                        size={ 25 }
-                     />
-                     <span
-                        className={
-                           copied
-                              ? 'copy-link-text color-copy-active'
-                              : 'copy-link-text color-copy'
-                        }
-                     >
-                        copy-link
-                     </span>
+                  <div className="links-copy-constainer" >
+                     <FacebookShareButton round={ true } size={ 32 } url={ onCopyLink }>
+                        <FacebookIcon round={ true } size={ 32 } />
+                     </FacebookShareButton>
+
+                     <WhatsappShareButton round={ true } size={ 32 } url={ onCopyLink }>
+                        <WhatsappIcon round={ true } size={ 32 } />
+                     </WhatsappShareButton>
+                     <div className='copy-link-warpper-cop' onClick={ onCopyLink }>
+                        <BiCopy
+                           className={
+                              copied
+                                 ? 'copy-svg color-copy-active'
+                                 : 'copy-svg color-copy'
+                           }
+                           size={ 25 }
+                        />
+                        <span
+                           className={
+                              copied
+                                 ? 'copy-link-text color-copy-active'
+                                 : 'copy-link-text color-copy'
+                           }
+                        >
+                           copy-link
+                        </span>
+                     </div>
                   </div>
                </div>
                <div className="card-wpr-2">

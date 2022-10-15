@@ -41,6 +41,24 @@
   justify-content: center;
 }
 
+.copy-link-warpper-cop {
+  display: flex;
+  flex-direction: column;
+}
+
+.links-copy-constainer {
+  gap: 15px;
+  position: absolute;
+  bottom: -48.5px;
+  right: 25px;
+  z-index: 1;
+  color: rgb(82 82 82);
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .copy-link-text {
   font-size: 6px;
   font-weight: 900;
