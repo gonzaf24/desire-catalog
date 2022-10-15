@@ -55,12 +55,7 @@ export function CardArticle({ article, onClickArticle }) {
                   { article.photos.map((imagen, index) => {
                      return (
                         <section key={ index } className="section-article">
-                           <img
-                              alt=""
-                              className="img-card-article"
-                              src={ imagen }
-                              onClick={ handleClickArticle }
-                           />
+                           <img alt="" className="img-card-article" src={ imagen } onClick={ handleClickArticle } />
                         </section>
                      )
                   }) }
@@ -76,7 +71,7 @@ export function CardArticle({ article, onClickArticle }) {
             className="card-wpr-2-portada cursor"
             onClick={ handleClickArticle }
          >
-            <span className="price-card">{ article.precioUY + ' $U' }</span>
+            <span className="price-card">{ `${article.precioUY} $U` }</span>
             <span className="article-item-portada">{ article.description }</span>
          </div>
       </section>

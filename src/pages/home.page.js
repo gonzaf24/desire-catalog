@@ -136,6 +136,7 @@ export const Home = () => {
                   />
             ) }
          </section>
+         <h6>info@anastassa.com</h6>
          <OverlayArticle
             articleToShow={ productSelected }
             isLoading={ isLoading }
