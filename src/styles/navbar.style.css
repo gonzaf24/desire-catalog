@@ -84,5 +84,8 @@
 }
 
 @media (max-width: 500px) { 
-
+  .main-logo {
+      width: 90px;
+      cursor: pointer;
+    }
 }

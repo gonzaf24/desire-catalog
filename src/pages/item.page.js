@@ -7,9 +7,9 @@ import { BiCopy } from 'react-icons/bi';
 import { TiMinus } from 'react-icons/ti';
 import { MdIosShare } from 'react-icons/md'
 import { Link } from 'wouter';
-import useTitle from '../hooks/useSEO';
 import PropTypes from 'prop-types'
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
+import { isMobile } from 'react-device-detect';
 
 const propTypes = {
   params: PropTypes.shape({
@@ -36,7 +36,7 @@ export const Item = ({ params }) => {
 
   const [isLoading, setIsLoading] = useState(true);
   const { getProductByIdHook } = useProduct();
-  const [articleToShow, setArticleToShow] = useState({});
+  const [articleToShow, setArticleToShow] = useState(null);
   const [copied, setCopied] = useState(false);
   const [urlCopied, setUrlCopied] = useState('');
 
@@ -56,7 +56,6 @@ export const Item = ({ params }) => {
         setIsLoading(true);
         const productToShow = await getProductByIdHook(params.id);
         setArticleToShow(productToShow);
-        useTitle(productToShow.description, productToShow.detail);
         const url = window.location.href;
         setUrlCopied(url);
         setIsLoading(false);
@@ -67,6 +66,7 @@ export const Item = ({ params }) => {
     }
     exect();
   }, [getProductByIdHook, params.id]);
+
 
   const handleShare = () => {
     if (navigator.share) {
@@ -116,7 +116,7 @@ export const Item = ({ params }) => {
                     <WhatsappShareButton size={ 25 } url={ urlCopied }>
                       <WhatsappIcon round={ true } size={ 25 } />
                     </WhatsappShareButton>
-                    <MdIosShare size={ 25 } onClick={ handleShare } />
+                    { isMobile && <MdIosShare size={ 25 } onClick={ handleShare } /> }
                     <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
                       <BiCopy className={ copied ? 'copy-svg color-copy-active' : 'copy-svg color-copy' } size={ 25 } />
                       <span className={ copied ? 'copy-link-text color-copy-active' : 'copy-link-text color-copy' }                      >
@@ -171,9 +171,10 @@ export const Item = ({ params }) => {
                           </span>
                         );
                       }) }
-                  </section>
+                  </section>  
                   ) }
               </div>
+              <h6>info@anastassa.com</h6>
             </Fragment>
           ) : (
             <div className="article-not-exist">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import '../styles/overlayArticle.style.css'
 import Slider from 'react-slick'
 import { BiCopy } from 'react-icons/bi'
@@ -8,6 +8,7 @@ import AnastassaLogo from '../images/logo-anastassa.jpg'
 import Modal from '../containers/Modal/Modal'
 import PropTypes from 'prop-types'
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
+import { isMobile } from 'react-device-detect';
 
 const propTypes = {
    articleToShow: PropTypes.shape({
@@ -96,14 +97,7 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
    return (
       <Modal
          header={
-            <>
-               <img
-                  alt="www.anastassa.com"
-                  className="main-logo"
-                  src={ AnastassaLogo }
-               />
-               <></>
-            </>
+            <><img alt="www.anastassa.com" className="main-logo" src={ AnastassaLogo } /><Fragment></Fragment></>
          }
          isLoading={ isLoading }
          isOpen={ isOpenModal }
@@ -137,7 +131,7 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
                         <WhatsappShareButton size={ 25 } url={ urlCopied }>
                            <WhatsappIcon round={ true } size={ 25 } />
                         </WhatsappShareButton>
-                        <MdIosShare size={ 25 } onClick={ handleShare } />
+                        { isMobile && <MdIosShare size={ 25 } onClick={ handleShare } /> }
                         <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
                            <BiCopy className={ copied ? 'copy-svg color-copy-active' : 'copy-svg color-copy' } size={ 25 } />
                            <span className={ copied ? 'copy-link-text color-copy-active' : 'copy-link-text color-copy' }          >
