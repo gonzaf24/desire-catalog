@@ -59,9 +59,9 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
       if (navigator.share) {
          navigator
             .share({
-               title: `${article.description} | ${article.detail}`,
-               text: `Mira aqui ${article.description} . En  ${article.detail}`,
-               url: document.location.href,
+               title: `Anastassa - ${article.description}`,
+               text: `${article.detail}`,
+               url: urlCopied,
             })
             .then(() => {
                console.log('Successfully shared');
@@ -75,6 +75,7 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
    useEffect(() => {
       if (isOpenModal) {
          setArticle(articleToShow)
+         setUrlCopied(window.location.host + '/item/' + articleToShow.id)
       }
    }, [articleToShow, isOpenModal])
 

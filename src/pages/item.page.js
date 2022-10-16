@@ -72,9 +72,9 @@ export const Item = ({ params }) => {
     if (navigator.share) {
       navigator
         .share({
-          title: `${articleToShow.description} | ${articleToShow.detail}`,
-          text: `Mira aqui ${articleToShow.description} . En  ${articleToShow.detail}`,
-          url: document.location.href,
+          title: `Anastassa - ${articleToShow.description}`,
+          text: `${articleToShow.detail}`,
+          url: urlCopied,
         })
         .then(() => {
           console.log('Successfully shared');
