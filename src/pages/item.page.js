@@ -5,6 +5,7 @@ import useProduct from '../hooks/useProduct';
 import Slider from 'react-slick';
 import { BiCopy } from 'react-icons/bi';
 import { TiMinus } from 'react-icons/ti';
+import { MdIosShare } from 'react-icons/md'
 import { Link } from 'wouter';
 import useTitle from '../hooks/useSEO';
 import PropTypes from 'prop-types'
@@ -22,14 +23,22 @@ const defaultProps = {
   },
 }
 
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  swipeToSlide: true,
+};
+
 export const Item = ({ params }) => {
+
   const [isLoading, setIsLoading] = useState(true);
   const { getProductByIdHook } = useProduct();
   const [articleToShow, setArticleToShow] = useState({});
   const [copied, setCopied] = useState(false);
   const [urlCopied, setUrlCopied] = useState('');
-
-  useTitle('Chaleco prueba', ' la prueba del chaleco');
 
   const onCopyLink = () => {
     setCopied(false);
@@ -47,6 +56,7 @@ export const Item = ({ params }) => {
         setIsLoading(true);
         const productToShow = await getProductByIdHook(params.id);
         setArticleToShow(productToShow);
+        useTitle(productToShow.description, productToShow.detail);
         const url = window.location.href;
         setUrlCopied(url);
         setIsLoading(false);
@@ -58,14 +68,22 @@ export const Item = ({ params }) => {
     exect();
   }, [getProductByIdHook, params.id]);
 
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-  };
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: `${articleToShow.description} | ${articleToShow.detail}`,
+          text: `Mira aqui ${articleToShow.description} . En  ${articleToShow.detail}`,
+          url: document.location.href,
+        })
+        .then(() => {
+          console.log('Successfully shared');
+        })
+        .catch(error => {
+          console.error('Something went wrong sharing the blog', error);
+        });
+    }
+  }
 
   return (
     <section className="overlay-article-container-item-page">
@@ -98,22 +116,10 @@ export const Item = ({ params }) => {
                     <WhatsappShareButton size={ 25 } url={ urlCopied }>
                       <WhatsappIcon round={ true } size={ 25 } />
                     </WhatsappShareButton>
+                    <MdIosShare size={ 25 } onClick={ handleShare } />
                     <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
-                      <BiCopy
-                        className={
-                          copied
-                            ? 'copy-svg color-copy-active'
-                            : 'copy-svg color-copy'
-                        }
-                        size={ 25 }
-                      />
-                      <span
-                        className={
-                          copied
-                            ? 'copy-link-text color-copy-active'
-                            : 'copy-link-text color-copy'
-                        }
-                      >
+                      <BiCopy className={ copied ? 'copy-svg color-copy-active' : 'copy-svg color-copy' } size={ 25 } />
+                      <span className={ copied ? 'copy-link-text color-copy-active' : 'copy-link-text color-copy' }                      >
                         copy-link
                       </span>
                     </div>

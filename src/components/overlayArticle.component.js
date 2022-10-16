@@ -3,6 +3,7 @@ import '../styles/overlayArticle.style.css'
 import Slider from 'react-slick'
 import { BiCopy } from 'react-icons/bi'
 import { TiMinus } from 'react-icons/ti'
+import { MdIosShare } from 'react-icons/md'
 import AnastassaLogo from '../images/logo-anastassa.jpg'
 import Modal from '../containers/Modal/Modal'
 import PropTypes from 'prop-types'
@@ -43,6 +44,7 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
    }, []);
 
    const onCopyLink = async () => {
+      console.log('entro')
       setCopied(false)
       setCopied(true)
       const url = window.location.host + '/item/' + articleToShow.id
@@ -51,6 +53,23 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
       setTimeout(() => {
          setCopied(false)
       }, 500)
+   }
+
+   const handleShare = () => {
+      if (navigator.share) {
+         navigator
+            .share({
+               title: `${article.description} | ${article.detail}`,
+               text: `Mira aqui ${article.description} . En  ${article.detail}`,
+               url: document.location.href,
+            })
+            .then(() => {
+               console.log('Successfully shared');
+            })
+            .catch(error => {
+               console.error('Something went wrong sharing the blog', error);
+            });
+      }
    }
 
    useEffect(() => {
@@ -106,34 +125,6 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
                         )
                      }) }
                   </Slider>
-                  {/* <div className="links-copy-constainer">
-                     <FacebookShareButton size={ 25 } url={ urlCopied }>
-                        <FacebookIcon round={ true } size={ 25 } />
-                     </FacebookShareButton>
-
-                     <WhatsappShareButton size={ 25 } url={ urlCopied }>
-                        <WhatsappIcon round={ true } size={ 25 } />
-                     </WhatsappShareButton>
-                     <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
-                        <BiCopy
-                           className={
-                              copied
-                                 ? 'copy-svg color-copy-active'
-                                 : 'copy-svg color-copy'
-                           }
-                           size={ 25 }
-                        />
-                        <span
-                           className={
-                              copied
-                                 ? 'copy-link-text color-copy-active'
-                                 : 'copy-link-text color-copy'
-                           }
-                        >
-                           copy-link
-                        </span>
-                     </div>
-                  </div> */}
                </div>
                <div className="card-wpr-2">
                   <div className="article-item">
@@ -145,22 +136,10 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
                         <WhatsappShareButton size={ 25 } url={ urlCopied }>
                            <WhatsappIcon round={ true } size={ 25 } />
                         </WhatsappShareButton>
+                        <MdIosShare size={ 25 } onClick={ handleShare } />
                         <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
-                           <BiCopy
-                              className={
-                                 copied
-                                    ? 'copy-svg color-copy-active'
-                                    : 'copy-svg color-copy'
-                              }
-                              size={ 25 }
-                           />
-                           <span
-                              className={
-                                 copied
-                                    ? 'copy-link-text color-copy-active'
-                                    : 'copy-link-text color-copy'
-                              }
-                           >
+                           <BiCopy className={ copied ? 'copy-svg color-copy-active' : 'copy-svg color-copy' } size={ 25 } />
+                           <span className={ copied ? 'copy-link-text color-copy-active' : 'copy-link-text color-copy' }          >
                               copy-link
                            </span>
                         </div>

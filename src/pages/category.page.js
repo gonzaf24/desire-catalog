@@ -34,6 +34,7 @@ export const Category = ({ params }) => {
    const [categoryNamePage, setCategoryNamePage] = useState('')
    const [isLoading, setIsLoading] = useState(false)
 
+
    const {
       isOpen: isOpenModal,
       open: openModal,

@@ -44,6 +44,7 @@
 .copy-link-warpper-cop {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .links-copy-constainer {
@@ -54,16 +55,17 @@
   align-items: center;
   justify-content: center;
 }
+
 .copy-link-text {
+  top: 25px;
   font-size: 6px;
+  position: absolute;
   font-weight: 900;
 }
 
 .copy-svg {
   width: 35px;
 }
-
-
 
 .form-check-st {
   width: 100px;
