@@ -8,6 +8,7 @@ import { TiMinus } from 'react-icons/ti';
 import { Link } from 'wouter';
 import useTitle from '../hooks/useSEO';
 import PropTypes from 'prop-types'
+import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
 
 const propTypes = {
   params: PropTypes.shape({
@@ -26,8 +27,9 @@ export const Item = ({ params }) => {
   const { getProductByIdHook } = useProduct();
   const [articleToShow, setArticleToShow] = useState({});
   const [copied, setCopied] = useState(false);
+  const [urlCopied, setUrlCopied] = useState('');
 
-  useTitle('', '');
+  useTitle('Chaleco prueba', ' la prueba del chaleco');
 
   const onCopyLink = () => {
     setCopied(false);
@@ -45,6 +47,8 @@ export const Item = ({ params }) => {
         setIsLoading(true);
         const productToShow = await getProductByIdHook(params.id);
         setArticleToShow(productToShow);
+        const url = window.location.href;
+        setUrlCopied(url);
         setIsLoading(false);
       } catch (error) {
         setArticleToShow({});
@@ -83,29 +87,39 @@ export const Item = ({ params }) => {
                   );
                 }) }
                 </Slider>
-                <div className="link-copy-wrapper" onClick={ () => onCopyLink() }>
-                  <BiCopy
-                    className={
-                      copied
-                        ? 'copy-svg color-copy-active'
-                        : 'copy-svg color-copy'
-                    }
-                    size={ 25 }
-                  />
-                  <span
-                    className={
-                      copied
-                        ? 'copy-link-text color-copy-active'
-                        : 'copy-link-text color-copy'
-                    }
-                  >
-                    copy-link
-                  </span>
-                </div>
               </div>
               <div className="card-wpr-2">
-                <span className="article-item">REF. { articleToShow.ref } </span>
-                <span className="article-item price-style">
+                <div className="article-item">
+                  <span>REF. { articleToShow.ref }</span>
+                  <div className="links-copy-constainer">
+                    <FacebookShareButton size={ 25 } url={ urlCopied }>
+                      <FacebookIcon round={ true } size={ 25 } />
+                    </FacebookShareButton>
+                    <WhatsappShareButton size={ 25 } url={ urlCopied }>
+                      <WhatsappIcon round={ true } size={ 25 } />
+                    </WhatsappShareButton>
+                    <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
+                      <BiCopy
+                        className={
+                          copied
+                            ? 'copy-svg color-copy-active'
+                            : 'copy-svg color-copy'
+                        }
+                        size={ 25 }
+                      />
+                      <span
+                        className={
+                          copied
+                            ? 'copy-link-text color-copy-active'
+                            : 'copy-link-text color-copy'
+                        }
+                      >
+                        copy-link
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <span className="article-item-price">
                   { articleToShow.precioUY } $U
                 </span>
                 <span className="article-item">

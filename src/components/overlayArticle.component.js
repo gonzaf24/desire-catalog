@@ -37,6 +37,11 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
    const [article, setArticle] = useState(articleToShow)
    const [urlCopied, setUrlCopied] = useState('')
 
+   useEffect(() => {
+      const url = window.location.host + '/item/' + articleToShow.id
+      setUrlCopied(url);
+   }, []);
+
    const onCopyLink = async () => {
       setCopied(false)
       setCopied(true)
@@ -46,8 +51,6 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
       setTimeout(() => {
          setCopied(false)
       }, 500)
-      console.log('url ---- ', url)
-      return url
    }
 
    useEffect(() => {
@@ -103,15 +106,15 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
                         )
                      }) }
                   </Slider>
-                  <div className="links-copy-constainer" onClick={ async () => onCopyLink() }>
-                     <FacebookShareButton round={ true } size={ 32 } url={ urlCopied }>
-                        <FacebookIcon round={ true } size={ 32 } />
+                  {/* <div className="links-copy-constainer">
+                     <FacebookShareButton size={ 25 } url={ urlCopied }>
+                        <FacebookIcon round={ true } size={ 25 } />
                      </FacebookShareButton>
 
-                     <WhatsappShareButton round={ true } size={ 32 } url={ urlCopied }>
-                        <WhatsappIcon round={ true } size={ 32 } />
+                     <WhatsappShareButton size={ 25 } url={ urlCopied }>
+                        <WhatsappIcon round={ true } size={ 25 } />
                      </WhatsappShareButton>
-                     <div className='copy-link-warpper-cop' >
+                     <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
                         <BiCopy
                            className={
                               copied
@@ -130,11 +133,40 @@ const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, 
                            copy-link
                         </span>
                      </div>
-                  </div>
+                  </div> */}
                </div>
                <div className="card-wpr-2">
-                  <span className="article-item">REF. { article.ref } </span>
-                  <span className="article-item price-style">
+                  <div className="article-item">
+                     <span>REF. { article.ref }</span>
+                     <div className="links-copy-constainer">
+                        <FacebookShareButton size={ 25 } url={ urlCopied }>
+                           <FacebookIcon round={ true } size={ 25 } />
+                        </FacebookShareButton>
+                        <WhatsappShareButton size={ 25 } url={ urlCopied }>
+                           <WhatsappIcon round={ true } size={ 25 } />
+                        </WhatsappShareButton>
+                        <div className='copy-link-warpper-cop' onClick={ async () => onCopyLink() }>
+                           <BiCopy
+                              className={
+                                 copied
+                                    ? 'copy-svg color-copy-active'
+                                    : 'copy-svg color-copy'
+                              }
+                              size={ 25 }
+                           />
+                           <span
+                              className={
+                                 copied
+                                    ? 'copy-link-text color-copy-active'
+                                    : 'copy-link-text color-copy'
+                              }
+                           >
+                              copy-link
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+                  <span className="article-item-price">
                      { article.precioUY } $U
                   </span>
                   <span className="article-item">
