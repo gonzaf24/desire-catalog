@@ -5,25 +5,27 @@
 }
 .overlay-article-container-item-page {
   background-color: white;
-  overflow: scroll;
+/*   overflow: scroll; */
   display: flex;
   justify-content: center;
   padding-top: 10px;
 }
 
-.overlay-article-container-item-page::-webkit-scrollbar,
+/* .overlay-article-container-item-page::-webkit-scrollbar,
 .overlay-article-container::-webkit-scrollbar {
   display: none;
 }
 
+*/
 .overlay-article-wrapper-item {
   max-width: 650px;
   width: 100%;
   height: max-content;
   margin-bottom: 50px;
-  -webkit-box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 75%);
+/*  -webkit-box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 75%);
   -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 75%);
+    */
   border-radius: 10px;
   padding: 50px;
 }

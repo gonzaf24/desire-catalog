@@ -91,19 +91,19 @@ export const Item = ({ params }) => {
         { isLoading ? (
           <Loading size={ 'xl' } />
         ) : Object.keys(articleToShow).length > 0 ? (
-          <Fragment>
-            <div className="card-wpr-1">
-              <Slider { ...settings } id="slider">
-                { articleToShow.photos.map((imagen, index) => {
-                  return (
-                    <img
-                      key={ index }
-                      alt=""
-                      className="img-card-article-overlay"
-                      src={ imagen }
-                    />
-                  );
-                }) }
+            <Fragment>
+              <div className="card-wpr-1">
+                <Slider { ...settings } id="slider">
+                  { articleToShow.photos.map((imagen, index) => {
+                    return (
+                      <img
+                        key={ index }
+                        alt=""
+                        className="img-card-article-overlay"
+                        src={ imagen }
+                      />
+                    );
+                  }) }
                 </Slider>
               </div>
               <div className="card-wpr-2">
@@ -171,27 +171,23 @@ export const Item = ({ params }) => {
                           </span>
                         );
                       }) }
-                  </section>  
+                  </section>
                   ) }
               </div>
               <h6>info@anastassa.com</h6>
             </Fragment>
           ) : (
             <div className="article-not-exist">
-              <span className="txt-article-not-exist mb-4">
-                { ' ' }
-                El artículo que buscas no existe.
-              </span>
+                <span className="txt-article-not-exist mb-4">
+                  El artículo que buscas no existe.
+                </span>
               <Link to="/">
-                <span className="btn-go-home"> ir a Home</span>
+                  <span className="btn-go-home">ir a Home</span>
             </Link>
           </div>
         ) }
       </article>
-      <span
-        className={ copied ? 'copy-link-url-active' : 'copy-link-url' }
-        id="copy-id"
-      >
+      <span className={ copied ? 'copy-link-url-active' : 'copy-link-url' } id="copy-id"   >
         link copiado
       </span>
     </section>
