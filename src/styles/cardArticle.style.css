@@ -6,9 +6,8 @@
   -webkit-box-shadow: 0px 0px 10px -4px #828282;
   box-shadow: 0px 0px 10px -4px #828282;
   border-radius: 5px;
-max-width: 220px;
-width: 100%;
-
+  max-width: 220px;
+  width: 100%;
 }
 
 .card-container:hover {
@@ -123,17 +122,17 @@ color: rgb(236 98 95 / 90%);
 }
 
 .price-card {
-  font-family: 'arial-black';
-  text-align: right;
-  width: 100%;
-  font-size: 12px;
-  margin-bottom: 5px;
-  margin-top: 10px;
-  color: rgb(0 0 0 / 30%);
+font-family: 'arial-black';
+text-align: right;
+width: 100%;
+font-size: 12px;
+margin-bottom: 5px;
+margin-top: 10px;
+color: rgb(0 0 0 / 30%);
 }
 
 .ver-prenda {
-  content: 'VER PRENDA';
+content: 'VER PRENDA';
 background: transparent;
 border: none;
 text-align: center;
@@ -141,17 +140,13 @@ width: 100%;
 cursor: pointer;
 font-size: 12px;
 color: rgb(153 70 68 / 50%);
-
-
 }
 
 .section-article {
-  width: 100%;
+width: 100%;
 display: flex !important;
 justify-content: center;
 align-items: center;
-
-
 }
 
 @media (max-width: 1500px) {
@@ -159,12 +154,11 @@ align-items: center;
    height: auto;
 }
 
-
 }
 
 @media (max-width: 812px) {
 .card-container {
-   max-width: 125px;
+   max-width: 150px;
 }
 
 .card-container-single {
@@ -175,12 +169,10 @@ align-items: center;
    font-size: 12px;
 }
 
-
 .img-card-article {
    height: auto;
    max-height: 700px;
    width: 100% !important;
 }
-
 
 }

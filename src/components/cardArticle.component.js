@@ -50,7 +50,7 @@ export function CardArticle({ article, onClickArticle, isMode1Active }) {
    }
 
    return (
-      <section className={ isMode1Active ? 'card-container' : 'card-container card-container-single' }>
+      <section className={ !isMode1Active ? 'card-container' : 'card-container card-container-single' }>
          <div ref={ imgRef } className="card-wpr-1">
             { isInView && (
                <Slider { ...settings } id="slider">
