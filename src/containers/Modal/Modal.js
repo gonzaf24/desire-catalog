@@ -53,7 +53,7 @@ const Modal = ({
       <ModalBoostrap
          aria-labelledby="modal-center"
          centered
-         className={ !header ? 'Empty' : 'Modal' }
+         className="ModalContainer"
          id={ id }
          show={ isOpen }
          size={ size }

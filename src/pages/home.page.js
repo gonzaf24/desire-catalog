@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import '../styles/lino.style.css'
+import '../styles/CategoryPage.style.css'
 import OverlayArticle from '../components/overlayArticle.component'
 import { FaPlay } from 'react-icons/fa'
 import { HiPlusSm } from 'react-icons/hi'

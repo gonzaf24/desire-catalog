@@ -1,7 +1,10 @@
 .modal-content {
-  border-radius: 50px !important;
-  padding: 10px;
-  overflow: auto;
+border-radius: 50px !important;
+overflow: auto;
+}
+
+.ModalContainer::-webkit-scrollbar {
+display: none;
 }
 
 .Header {

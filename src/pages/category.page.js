@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import '../styles/lino.style.css'
+import '../styles/CategoryPage.style.css'
 import { FaPlay } from 'react-icons/fa'
 import { HiPlusSm } from 'react-icons/hi'
 import OverlayArticle from '../components/overlayArticle.component'
@@ -105,7 +105,7 @@ export const Category = ({ params }) => {
                   </Dropdown.Menu>
                </Dropdown>
                <h1 className="h1-title-span"> { categoryNamePage } </h1>
-               <div className="icons-wrapper flex-center">
+               <div className="icons-wrapper flex-center" id="select-model-view">
                   { isMode1Active && (
                      <>
                         <img alt="" className="icon-card-show" src={ Mode1Active } width={ 5 } />

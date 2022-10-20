@@ -35,10 +35,11 @@ h2 {
 
 .app-container {
   text-align: center;
+  flex: 1;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  justify-content: stretch;
 }
 
 .card-main::-webkit-scrollbar,

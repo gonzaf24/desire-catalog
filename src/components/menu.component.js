@@ -59,8 +59,9 @@ export const Menu = ({ showMenu, onShowMenu }) => {
       >
          { womanList.length > 0 && (
             <>
-               <span className="menu-title">MUJER</span>
+
                <section className="menu-subtitle-container">
+                  <span className="menu-title">MUJER</span>
                   { womanList.map((element, index) => {
                      return (
                         <Link
@@ -79,8 +80,9 @@ export const Menu = ({ showMenu, onShowMenu }) => {
          ) }
          { mensList.length > 0 && (
             <>
-               <span className="menu-title">HOMBRE</span>
+
                <section className="menu-subtitle-container">
+                  <span className="menu-title">HOMBRE</span>
                   { mensList.map((element, index) => {
                      return (
                         <Link

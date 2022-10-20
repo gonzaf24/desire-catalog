@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/lino.style.css'
+import '../styles/CategoryPage.style.css'
 import '../styles/listCardArticle.style.css'
 import CardArticle from './cardArticle.component'
 import PropTypes from 'prop-types'
@@ -26,13 +26,14 @@ export const ListCardArticle = ({ isMode1Active, onClickArticle, productsList, }
 
    return (
       <article className="card-main">
-         <div className={ isMode1Active ? 'grid-main ' : 'grid-main grid-main-double-active' }>
+         <div className={ 'grid-main ' }>
             { listOfProducts.length > 0 &&
                listOfProducts.map((prenda, index) => {
                   return prenda.isActive ? (
                      <CardArticle
                         key={ index }
                         article={ prenda }
+                        isMode1Active={ isMode1Active }
                         onClickArticle={ () => onClickArticle(prenda) }
                      />
                   ) : null

@@ -11,6 +11,7 @@ const propTypes = {
       photos: PropTypes.arrayOf(PropTypes.string),
       precioUY: PropTypes.string,
    }),
+   isMode1Active: PropTypes.bool,
    onClickArticle: PropTypes.func,
 }
 
@@ -20,6 +21,7 @@ const defaultProps = {
       photos: [],
       precioUY: '',
    },
+   isMode1Active: false,
    onClickArticle: undefined,
 }
 
@@ -32,7 +34,7 @@ const settings = {
    swipeToSlide: true,
 }
 
-export function CardArticle({ article, onClickArticle }) {
+export function CardArticle({ article, onClickArticle, isMode1Active }) {
 
    const [isInView, setIsInView] = useState(false);
    const imgRef = useRef();
@@ -48,7 +50,7 @@ export function CardArticle({ article, onClickArticle }) {
    }
 
    return (
-      <section className="card-container">
+      <section className={ isMode1Active ? 'card-container' : 'card-container card-container-single' }>
          <div ref={ imgRef } className="card-wpr-1">
             { isInView && (
                <Slider { ...settings } id="slider">

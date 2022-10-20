@@ -1,5 +1,7 @@
 
 .card-main{
   overflow: scroll;
-  height: calc(100vh - 175px);
+  justify-content: center;
+  height: calc(100vh - 200px);
+  display: flex;
 }
