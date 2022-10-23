@@ -175,7 +175,7 @@ export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
                      />
                   </FloatingLabel>
 
-                  <div style="height:20px"></div>
+                  <br />
 
                   <section className="mt-4 buttons-container">
                      <Button

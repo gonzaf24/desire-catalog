@@ -32,5 +32,6 @@
 
 .buttons-container {
   display: flex;
+  gap: 25px;
   justify-content: space-between;
 }
