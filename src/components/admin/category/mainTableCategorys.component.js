@@ -33,6 +33,14 @@ export const MainTableCategorys = () => {
       setShowAlertConfirm(true)
    }
 
+
+   const {
+      isOpen: isOpenModalEdit,
+      open: openModalEdit,
+      close: onCloseModalEdit,
+   } = useOpenToggle(false)
+
+
    const {
       isOpen: isOpenModal,
       open: openModal,
@@ -62,6 +70,7 @@ export const MainTableCategorys = () => {
    const onEditCategory = async (element) => {
       setSelectedCategory(element)
       setShowEditCategoryOverlay(true)
+      openModalEdit();
    }
 
    const callbackCloseError = (param) => {
@@ -108,16 +117,12 @@ export const MainTableCategorys = () => {
       }, 500)
    }
 
-   const newCategory = () => {
-      openModal();
-   }
-
    return (
       <div className="">
          <div className="bar-wrapper">
             <Button
                className="flex-gap-button-icon"
-               onClick={ newCategory }
+               onClick={ () => openModal() }
             >
                <TiPlus /> CATEGORIA
             </Button>
@@ -230,14 +235,14 @@ export const MainTableCategorys = () => {
                </tbody>
             </Table>
          </section>
-         { showEditCategoryOverlay && (
-            <EditCategoryOverlay
-               callbackShowCategory={ setShowEditCategoryOverlay }
-               categoryToEdit={ selectedCategory }
-               show={ showEditCategoryOverlay }
-               onSuccessEditCategory={ onSuccesCategory }
-            />
-         ) }
+         <EditCategoryOverlay
+            callbackShowCategory={ setShowEditCategoryOverlay }
+            categoryToEdit={ selectedCategory }
+            isLoading={ isLoading }
+            isOpenModal={ isOpenModalEdit }
+            onCloseModal={ onCloseModalEdit }
+            onSuccessEditCategory={ onSuccesCategory }
+         />
 
          <NewCategoryOverlay
             isLoading={ isLoading }

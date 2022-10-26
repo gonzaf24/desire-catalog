@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import '../../../styles/categoryOverlay.style.css'
 import { Button, FloatingLabel, Form } from 'react-bootstrap'
-import { BiX } from 'react-icons/bi'
 import useCategory from '../../../hooks/useCategory'
 import AlertDismissible from '../../alertDismissible.component'
 import PropTypes from 'prop-types'
+import Modal from '../../../containers/Modal/Modal'
+import AnastassaLogo from '../../../images/logo-anastassa.jpg'
 
 const propTypes = {
    callbackShowCategory: PropTypes.func,
@@ -18,7 +19,10 @@ const propTypes = {
       position: PropTypes.number,
       type: PropTypes.string,
    }),
+   isLoading: PropTypes.bool,
+   isOpenModal: PropTypes.bool,
    show: PropTypes.bool,
+   onCloseModal: PropTypes.func,
    onSuccessEditCategory: PropTypes.func,
 }
 
@@ -34,7 +38,10 @@ const defaultProps = {
       position: 0,
       type: '',
    },
+   isLoading: false,
+   isOpenModal: false,
    show: false,
+   onCloseModal: undefined,
    onSuccessEditCategory: undefined,
 }
 
@@ -42,7 +49,10 @@ export const EditCategoryOverlay = ({
    show,
    callbackShowCategory,
    onSuccessEditCategory,
+   isOpenModal,
    categoryToEdit,
+   isLoading,
+   onCloseModal,
 }) => {
    const { editCategoryHook } = useCategory()
    const [name, setName] = useState('')
@@ -107,10 +117,8 @@ export const EditCategoryOverlay = ({
                setTypeError('danger')
             })
          if (categoryEdited) {
-            setShowAlert(true)
-            setMessageError('Categoría editada!.')
-            setTypeError('succes')
             onSuccessEditCategory()
+            onCloseModal();
          }
       } catch (error) {
          console.log('error nueva categoria', error)
@@ -118,15 +126,19 @@ export const EditCategoryOverlay = ({
    }
 
    return (
-      show && (
-         <div className="category-overlay-container">
-            <section className="category-overlay-section">
-               <BiX
-                  className="close-overlay-category"
-                  size={ 50 }
-                  onClick={ () => callbackShowCategory(false) }
-               />
+      <Modal
+         header={
+            <>
+               <img alt="www.anastassa.com" className="main-logo" src={ AnastassaLogo } />
                <span className="title-new-category">EDITAR CATEGORIA</span>
+            </>
+         }
+         isLoading={ isLoading }
+         isOpen={ isOpenModal }
+         onClose={ onCloseModal }
+         onHide={ onCloseModal }
+      >
+         <section className="category-overlay-section">
                <Form className="mt-5" onSubmit={ handleSubmit }>
                   <FloatingLabel
                      className="mt-4"
@@ -210,7 +222,6 @@ export const EditCategoryOverlay = ({
                      />
                   </FloatingLabel>
 
-
                   <section className="mt-4 buttons-container">
                      <Button
                         className="submitbutton"
@@ -237,8 +248,7 @@ export const EditCategoryOverlay = ({
                show={ showAlert }
                type={ typeError }
             />
-         </div>
-      )
+      </Modal>
    )
 }
 
