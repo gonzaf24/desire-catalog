@@ -1,23 +1,28 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import '../../../styles/categoryOverlay.style.css'
 import { Button, FloatingLabel, Form } from 'react-bootstrap'
-import { BiX } from 'react-icons/bi'
 import useCategory from '../../../hooks/useCategory'
 import AlertDismissible from '../../alertDismissible.component'
 import PropTypes from 'prop-types'
+import Modal from '../../../containers/Modal/Modal'
+import AnastassaLogo from '../../../images/logo-anastassa.jpg'
 
 
 const propTypes = {
-   callbackShowCategory: PropTypes.func,
-   show: PropTypes.bool,
+   isLoading: PropTypes.bool,
+   isOpenModal: PropTypes.bool,
+   onCloseModal: PropTypes.func,
+   onSuccessCreatedCategory: PropTypes.func,
 }
 
 const defaultProps = {
-   callbackShowCategory: undefined,
-   show: false,
+   isLoading: false,
+   isOpenModal: false,
+   onCloseModal: undefined,
+   onSuccessCreatedCategory: undefined,
 }
 
-export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
+export const NewCategoryOverlay = ({ isOpenModal, isLoading, onCloseModal, onSuccessCreatedCategory }) => {
    const { newCategoryHook } = useCategory()
    const [name, setName] = useState('')
    const [categoryType, setCategoryType] = useState('MUJER')
@@ -43,6 +48,7 @@ export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
    const callbackCloseError = (param) => {
       setShowAlert(param)
    }
+
 
    async function handleSubmit(event) {
       try {
@@ -71,8 +77,9 @@ export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
             setMessageError(
                `Creada nueva categoria ${categoryCreated.categoryName}`,
             )
-            setTypeError('succes')
-            callbackShowCategory(false)
+            setTypeError('succes');
+            onSuccessCreatedCategory();
+            onCloseModal();
          }
       } catch (error) {
          console.log('error nueva categoria', error)
@@ -80,16 +87,21 @@ export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
    }
 
    return (
-      show && (
-         <div className="category-overlay-container">
-            <section className="category-overlay-section">
-               <BiX
-                  className="close-overlay-category"
-                  size={ 50 }
-                  onClick={ () => callbackShowCategory(false) }
-               />
+
+      <Modal
+         header={
+            <>
+               <img alt="www.anastassa.com" className="main-logo" src={ AnastassaLogo } />
                <span className="title-new-category">NUEVA CATEGORIA</span>
-               <Form className="mt-5" onSubmit={ handleSubmit }>
+            </>
+         }
+         isLoading={ isLoading }
+         isOpen={ isOpenModal }
+         onClose={ onCloseModal }
+         onHide={ onCloseModal }
+      >
+         <section className="category-overlay-section">
+            <Form onSubmit={ handleSubmit }>
                   <FloatingLabel
                      className="mt-4"
                      controlId="floatingSelect"
@@ -178,11 +190,11 @@ export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
                   <br />
 
                   <section className="mt-4 buttons-container">
-                     <Button
-                        className="submitbutton"
-                        variant="secondary"
-                        onClick={ () => callbackShowCategory(false) }
-                     >
+                  <Button
+                     className="submitbutton"
+                     variant="secondary"
+                     onClick={ onCloseModal }
+                  >
                         Cancelar
                      </Button>
 
@@ -203,8 +215,9 @@ export const NewCategoryOverlay = ({ show, callbackShowCategory }) => {
                show={ showAlert }
                type={ typeError }
             />
-         </div>
-      )
+
+      </Modal>
+
    )
 }
 

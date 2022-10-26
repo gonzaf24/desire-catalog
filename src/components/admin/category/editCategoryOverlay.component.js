@@ -10,7 +10,7 @@ const propTypes = {
    callbackShowCategory: PropTypes.func,
    categoryToEdit: PropTypes.shape({
       categoryName: PropTypes.string,
-      discount: PropTypes.number,
+      discount: PropTypes.boolean,
       id: PropTypes.string,
       idName: PropTypes.string,
       isActive: PropTypes.bool,
@@ -26,7 +26,7 @@ const defaultProps = {
    callbackShowCategory: undefined,
    categoryToEdit: {
       categoryName: '',
-      discount: 0,
+      discount: false,
       id: '',
       idName: '',
       isActive: false,
@@ -210,7 +210,6 @@ export const EditCategoryOverlay = ({
                      />
                   </FloatingLabel>
 
-                  <div style="height:20px"></div>
 
                   <section className="mt-4 buttons-container">
                      <Button

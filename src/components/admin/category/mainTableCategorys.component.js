@@ -11,6 +11,7 @@ import EditCategoryOverlay from './editCategoryOverlay.component'
 import NewCategoryOverlay from './newCategoryOverlay.component'
 import AlertDismissible from '../../alertDismissible.component'
 import AlertConfirm from '../../alertConfirm.component'
+import useOpenToggle from '../../../hooks/useOpenToggle'
 
 export const MainTableCategorys = () => {
    // eslint-disable-next-line no-unused-vars
@@ -21,16 +22,22 @@ export const MainTableCategorys = () => {
    const [showAlertConfirm, setShowAlertConfirm] = useState(false)
    const [messageError, setMessageError] = useState()
    const [categoryList, setCategoryList] = useState([])
-   const [showNewCategoryOverlay, setShowNewCategoryOverlay] = useState(false)
    const [showEditCategoryOverlay, setShowEditCategoryOverlay] = useState(false)
    const [selectedCategory, setSelectedCategory] = useState()
    const [isSortingCategorys, setIsSortingCategorys] = useState(false)
    const [idDeleteCategory, setIdDeleteCategory] = useState()
+   const [isLoading, setIsLoading] = useState(false)
 
    const onDeleteCategory = (idCategory) => {
       setIdDeleteCategory(idCategory)
       setShowAlertConfirm(true)
    }
+
+   const {
+      isOpen: isOpenModal,
+      open: openModal,
+      close: onCloseModal,
+   } = useOpenToggle(false)
 
    const confirmDeleteCategory = async () => {
       try {
@@ -61,9 +68,11 @@ export const MainTableCategorys = () => {
       setShowAlert(param)
    }
 
-   const onSuccessEditCategory = async () => {
+   const onSuccesCategory = async () => {
+      setIsLoading(true)
       const categorysOut = await getCategorysHook()
       setCategoryList(categorysOut)
+      setIsLoading(false)
    }
 
    useEffect(() => {
@@ -73,7 +82,6 @@ export const MainTableCategorys = () => {
       }
       exect()
    }, [
-      showNewCategoryOverlay,
       showAlert,
       showEditCategoryOverlay,
       getCategorysHook,
@@ -100,12 +108,16 @@ export const MainTableCategorys = () => {
       }, 500)
    }
 
+   const newCategory = () => {
+      openModal();
+   }
+
    return (
       <div className="">
          <div className="bar-wrapper">
             <Button
                className="flex-gap-button-icon"
-               onClick={ () => setShowNewCategoryOverlay(true) }
+               onClick={ newCategory }
             >
                <TiPlus /> CATEGORIA
             </Button>
@@ -223,15 +235,17 @@ export const MainTableCategorys = () => {
                callbackShowCategory={ setShowEditCategoryOverlay }
                categoryToEdit={ selectedCategory }
                show={ showEditCategoryOverlay }
-               onSuccessEditCategory={ onSuccessEditCategory }
+               onSuccessEditCategory={ onSuccesCategory }
             />
          ) }
-         { showNewCategoryOverlay && (
-            <NewCategoryOverlay
-               callbackShowCategory={ setShowNewCategoryOverlay }
-               show={ showNewCategoryOverlay }
-            />
-         ) }
+
+         <NewCategoryOverlay
+            isLoading={ isLoading }
+            isOpenModal={ isOpenModal }
+            onCloseModal={ onCloseModal }
+            onSuccessCreatedCategory={ onSuccesCategory }
+         />
+
          { showAlert && (
             <AlertDismissible
                callbackCloseError={ callbackCloseError }

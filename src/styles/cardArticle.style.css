@@ -11,8 +11,9 @@
 }
 
 .card-container:hover {
-  -webkit-box-shadow: 0px 0px 20px 2px #828282;
-  box-shadow: 0px 0px 20px 2px #828282;
+  -webkit-box-shadow: 0px 0px 10px 2px #828282;
+  box-shadow: 0px 0px 10px 2px #828282;
+  transform: scale(1.05);
 }
 
 .card-wpr-1 {

@@ -34,7 +34,7 @@ const defaultProps = {
    },
 }
 
-const OverlayArticle = ({ isOpenModal = false, isLoading = false, onCloseModal, articleToShow, }) => {
+const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }) => {
    const [copied, setCopied] = useState(false)
    const [article, setArticle] = useState(articleToShow)
    const [urlCopied, setUrlCopied] = useState('')
