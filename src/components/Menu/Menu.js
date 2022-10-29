@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../styles/menu.style.css'
-import useCategory from '../hooks/useCategory'
+import './Menu.css'
+import useCategory from '../../hooks/useCategory'
 import { Link } from 'wouter'
 
 import PropTypes from 'prop-types'

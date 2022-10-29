@@ -4,7 +4,7 @@ import { Route, Switch } from 'wouter'
 import { UserContextProvider } from './context/UserContext'
 
 import NavBar from './components/navBar.component'
-import Menu from './components/menu.component'
+import { Menu } from './components/index'
 
 import Home from './pages/home.page'
 import Category from './pages/category.page'
@@ -14,8 +14,7 @@ import Admin from './pages/admin.page'
 import ErrorPage from './pages/error.page'
 
 function App() {
-   /*   const [isAppLoading, setIsAppLoading] = useState(false);
-    */ const [showMenu, setShowMenu] = useState(false)
+   const [showMenu, setShowMenu] = useState(false)
 
    const onShowMenu = () => {
       setShowMenu(!showMenu)
