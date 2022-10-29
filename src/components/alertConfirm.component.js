@@ -33,7 +33,7 @@ export const AlertConfirm = ({ show, msg, callbackCancel, callbackConfirm, type,
             >
                { msg }
                <hr />
-               <div className="d-flex justify-content-between">
+               <div className="footer-group">
                   <Button
                      onClick={ () => {
                         callbackCancel()

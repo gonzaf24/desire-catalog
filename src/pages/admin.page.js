@@ -31,9 +31,9 @@ export const Admin = ({ onAdmin }) => {
 
    return (
       <div className="admin-container">
-         <h1 className="h1-title-admin mb-5">ADMINISTRACION</h1>
+         <h1 className="h1-title-admin mb-2">ADMINISTRACION</h1>
          <Tabs
-            className="mb-5"
+            className="mb-2 admin-tabs"
             defaultActiveKey="productos"
             fill
             id="admin-tab-table"

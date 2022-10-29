@@ -3,11 +3,15 @@
   font-size: 20px;
 }
 
+.admin-tabs{
+  gap: 15px;
+}
+
 .admin-container {
   display: flex;
   flex-direction: column;
-  padding: 25px;
-  overflow: scroll;
+  padding: 0px 25px;
+  overflow: auto;
 }
 
 .admin-container::-webkit-scrollbar {
@@ -31,6 +35,10 @@
 
 .admin-container::-webkit-scrollbar-corner {
   display: none;
+}
+
+.input-group-product-admin{
+  gap: 10px;
 }
 
 
@@ -64,7 +72,7 @@
 
 .table-responsive {
   position: relative;
-  max-height: 700px;
+  max-height: 55vh;
   min-height: 300px;
 }
 
@@ -115,6 +123,11 @@ tbody > tr:hover > td {
   flex-direction: row;
 }
 
+.bar-wrapper-category{
+  width: 100%;
+  margin: 10px 0px;
+}
+
 .select-search {
   max-width: 150px;
   font-weight: 700 !important;
@@ -162,5 +175,6 @@ tbody > tr:hover > td {
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-  font-size: 10px !important;
+  font-size: 12px !important;
+  border-radius: 5px !important;
 }

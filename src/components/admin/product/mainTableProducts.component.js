@@ -185,7 +185,7 @@ export const MainTableProducts = () => {
             >
                <TiPlus /> PRODUCTO
             </Button>
-            <InputGroup>
+            <InputGroup className='input-group-product-admin'>
                <Form.Select
                   aria-label="Default select example"
                   className="select-search"
@@ -206,6 +206,7 @@ export const MainTableProducts = () => {
                   onChange={ (e) => setTextSearchProduct(e.target.value) }
                />
                <Button
+                  className="refreshTable"
                   disabled={
                      selectedSearch === 'BUSCAR POR' ||
                         selectedSearch === '' ||

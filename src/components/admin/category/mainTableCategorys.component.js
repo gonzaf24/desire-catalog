@@ -116,7 +116,7 @@ export const MainTableCategorys = () => {
 
    return (
       <div className="">
-         <div className="bar-wrapper">
+         <div className="bar-wrapper-category">
             <Button
                className="flex-gap-button-icon"
                onClick={ () => openModal() }

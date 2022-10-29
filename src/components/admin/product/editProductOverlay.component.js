@@ -123,21 +123,23 @@ export const EditProductOverlay = ({
    const [srcImageToDelete, setSrcImageToDelete] = useState()
 
    useEffect(() => {
-      setReferenceId(productToEdit.ref)
-      setCategoryName(productToEdit.nameCategory)
-      setDescription(productToEdit.description)
-      setDetail(productToEdit.detail)
-      setColors(productToEdit.colors)
-      setSizes(productToEdit.sizes)
-      setSizesDescriptions(productToEdit.sizesDescriptions)
-      setPhotos(productToEdit.photos)
-      setActiveProduct(productToEdit.isActive)
-      setIsNewProduct(productToEdit.newProduct)
-      setDiscountProduct(productToEdit.discount)
-      setPosition(productToEdit.position)
-      setPriceUY(productToEdit.precioUY)
-      setPriceES(productToEdit.priceES)
-      setPriceUSD(productToEdit.precioUSD)
+      if (productToEdit) {
+         setReferenceId(productToEdit.ref)
+         setCategoryName(productToEdit.nameCategory)
+         setDescription(productToEdit.description)
+         setDetail(productToEdit.detail)
+         setColors(productToEdit.colors)
+         setSizes(productToEdit.sizes)
+         setSizesDescriptions(productToEdit.sizesDescriptions)
+         setPhotos(productToEdit.photos)
+         setActiveProduct(productToEdit.isActive)
+         setIsNewProduct(productToEdit.newProduct)
+         setDiscountProduct(productToEdit.discount)
+         setPosition(productToEdit.position)
+         setPriceUY(productToEdit.precioUY)
+         setPriceES(productToEdit.priceES)
+         setPriceUSD(productToEdit.precioUSD)
+      }
    }, [productToEdit]);
 
    function validateForm() {
@@ -300,10 +302,8 @@ export const EditProductOverlay = ({
                setTypeError('danger')
             })
          if (productCreated) {
-            setShowAlert(true)
-            setMessageError('Producto editado!')
-            setTypeError('succes')
             onSuccessEditProduct()
+            onCloseModal()
          }
       } catch (error) {
          console.log('error nueva categoria', error)
