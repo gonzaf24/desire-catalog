@@ -84,7 +84,7 @@ export const Category = ({ params }) => {
          }
       }
       exect()
-   }, [getProductByCategoryHook, params.category, productSelected])
+   }, [getProductByCategoryHook, params.category])
 
    return (
       <Fragment>
