@@ -8,10 +8,9 @@ import Modal from '../../../containers/Modal/Modal'
 import AnastassaLogo from '../../../images/logo-anastassa.jpg'
 
 const propTypes = {
-   callbackShowCategory: PropTypes.func,
    categoryToEdit: PropTypes.shape({
       categoryName: PropTypes.string,
-      discount: PropTypes.boolean,
+      discount: PropTypes.bool,
       id: PropTypes.string,
       idName: PropTypes.string,
       isActive: PropTypes.bool,
@@ -21,13 +20,11 @@ const propTypes = {
    }),
    isLoading: PropTypes.bool,
    isOpenModal: PropTypes.bool,
-   show: PropTypes.bool,
    onCloseModal: PropTypes.func,
    onSuccessEditCategory: PropTypes.func,
 }
 
 const defaultProps = {
-   callbackShowCategory: undefined,
    categoryToEdit: {
       categoryName: '',
       discount: false,
@@ -40,14 +37,11 @@ const defaultProps = {
    },
    isLoading: false,
    isOpenModal: false,
-   show: false,
    onCloseModal: undefined,
    onSuccessEditCategory: undefined,
 }
 
 export const EditCategoryOverlay = ({
-   show,
-   callbackShowCategory,
    onSuccessEditCategory,
    isOpenModal,
    categoryToEdit,
@@ -74,7 +68,7 @@ export const EditCategoryOverlay = ({
          setHasDiscountCategory(categoryToEdit.discount)
          setPosition(categoryToEdit.position)
       }
-   }, [categoryToEdit, show])
+   }, [categoryToEdit])
 
    function validateForm() {
       let isValid = true
@@ -89,7 +83,7 @@ export const EditCategoryOverlay = ({
 
    const callbackCloseError = (param) => {
       setShowAlert(param)
-      callbackShowCategory(false)
+      onCloseModal()
    }
 
    async function handleSubmit(event) {
@@ -226,9 +220,9 @@ export const EditCategoryOverlay = ({
                      <Button
                         className="submitbutton"
                         variant="secondary"
-                        onClick={ () => callbackShowCategory(false) }
+                     onClick={ () => onCloseModal() }
                      >
-                        Cerrar
+                     Cancelar
                      </Button>
 
                      <Button

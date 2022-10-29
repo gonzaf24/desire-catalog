@@ -1,13 +1,9 @@
-.product-overlay-container{
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: hsla(0, 0%, 0%, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.modal-admin{
+  max-height: 95vh !important;
+}
+
+.form-new-product{
+  padding: 25px;
 }
 
 .product-overlay-section{
@@ -15,21 +11,9 @@
   max-height: 90vh;
   width: 100%;
   background-color: white;
-  padding: 25px;
+  padding-bottom: 25px;
   position: relative;
   overflow: scroll;
-}
-
-.close-overlay-product{
-  color: rgb(236 98 95 / 80%);
-  cursor: pointer;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.title-new-product{
-  font-family: "arial-black";
 }
 
 .item-group{

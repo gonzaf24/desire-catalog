@@ -10,6 +10,7 @@ const propTypes = {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
    ]),
+   className: PropTypes.string,
    footer: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
@@ -28,6 +29,7 @@ const propTypes = {
 
 const defaultProps = {
    children: undefined,
+   className: '',
    footer: undefined,
    header: undefined,
    id: undefined,
@@ -48,12 +50,16 @@ const Modal = ({
    isLoading = false,
    header = undefined,
    size = 'md',
+   className = '',
 }) => {
+
+   const classNameModal = ['ModalContainer', className]
+
    return (
       <ModalBoostrap
          aria-labelledby="modal-center"
          centered
-         className="ModalContainer"
+         className={ classNameModal }
          id={ id }
          show={ isOpen }
          size={ size }

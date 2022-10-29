@@ -8,7 +8,6 @@ import {
    ListGroup,
 } from 'react-bootstrap'
 import '../../../styles/productOverlay.style.css'
-import { BiX } from 'react-icons/bi'
 import { MdDeleteForever } from 'react-icons/md'
 import { FaPlus } from 'react-icons/fa'
 import { ImImage } from 'react-icons/im'
@@ -21,24 +20,28 @@ import { formatFileNameToShow } from '../../../utils/formatters'
 import ShowFullSizeImage from '../../showFullSizeImage'
 import AlertConfirm from '../../alertConfirm.component'
 import PropTypes from 'prop-types'
-
+import Modal from '../../../containers/Modal/Modal'
+import AnastassaLogo from '../../../images/logo-anastassa.jpg'
 
 const propTypes = {
-   callbackShowProduct: PropTypes.func,
-   show: PropTypes.bool,
+   isLoading: PropTypes.bool,
+   isOpenModal: PropTypes.bool,
+   onCloseModal: PropTypes.func,
    onSuccessNewProduct: PropTypes.func,
 }
 
 const defaultProps = {
-   callbackShowProduct: undefined,
-   show: false,
    onSuccessNewProduct: undefined,
+   isLoading: false,
+   isOpenModal: false,
+   onCloseModal: undefined,
 }
 
 export const NewProductOverlay = ({
-   show,
-   callbackShowProduct,
    onSuccessNewProduct,
+   isOpenModal,
+   isLoading,
+   onCloseModal,
 }) => {
    const { newProductHook } = useProduct()
    const { deleteImageHook } = useImage()
@@ -169,7 +172,6 @@ export const NewProductOverlay = ({
    }
 
    const closeOverlay = () => {
-      callbackShowProduct(false)
       photos.length > 0 &&
          photos.forEach(async (elementos) => {
             await deleteImageHook(formatFileNameToShow(elementos))
@@ -181,6 +183,7 @@ export const NewProductOverlay = ({
                   console.log('error al eliminar foto ', error)
                })
          })
+      onCloseModal();
    }
 
    async function handleSubmit(event) {
@@ -242,21 +245,26 @@ export const NewProductOverlay = ({
          setCategoryList(categorysOut)
       }
       exect()
-   }, [getCategorysHook, show])
+   }, [])
 
    return (
-      show && (
-         <div className="product-overlay-container">
-            <section className="product-overlay-section">
-               <span className="title-new-product">NUEVO PRODUCTO</span>
-               <BiX
-                  className="close-overlay-product"
-                  size={ 50 }
-                  onClick={ () => closeOverlay() }
-               />
-               <Form className="mt-5" onSubmit={ handleSubmit }>
-                  <FloatingLabel
-                     className="mt-4"
+      <Modal
+         className="modal-admin"
+         header={
+            <>
+               <img alt="www.anastassa.com" className="main-logo" src={ AnastassaLogo } />
+               <span className="title-new-category">NUEVO PRODUCTO</span>
+            </>
+         }
+         id="modal-new-product"
+         isLoading={ isLoading }
+         isOpen={ isOpenModal }
+         onClose={ onCloseModal }
+         onHide={ onCloseModal }
+      >
+         <section className="product-overlay-section">
+            <Form className='form-new-product' onSubmit={ handleSubmit }>
+               <FloatingLabel
                      controlId="floatingSelect"
                      label="Categoria"
                   >
@@ -573,7 +581,7 @@ export const NewProductOverlay = ({
                      <Button
                         className="submitbutton"
                         variant="secondary"
-                        onClick={ () => callbackShowProduct(false) }
+                     onClick={ () => closeOverlay() }
                      >
                         Cerrar
                      </Button>
@@ -615,8 +623,7 @@ export const NewProductOverlay = ({
                show={ showConfirm }
                type={ 'succes' }
             />
-         </div>
-      )
+      </Modal>
    )
 }
 

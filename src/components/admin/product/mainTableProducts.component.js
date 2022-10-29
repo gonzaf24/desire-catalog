@@ -9,30 +9,28 @@ import { TiPlus } from 'react-icons/ti'
 import { HiRefresh } from 'react-icons/hi'
 import useProduct from '../../../hooks/useProduct'
 import EditProductOverlay from '../../../components/admin/product/editProductOverlay.component'
-import ProductOverlay from './newProductOverlay.component'
+import NewProductOverlay from './newProductOverlay.component'
 import AlertDismissible from '../../alertDismissible.component'
 import ShowCarouselFullSizeImages from '../../showCarouselFullSizeImages'
 import AlertConfirm from '../../alertConfirm.component'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel'
+import useOpenToggle from '../../../hooks/useOpenToggle'
 
 export const MainTableProducts = () => {
    const { getProductsHook, deleteProductHook } = useProduct()
+   const [isLoading, setIsLoading] = useState(false)
    const [isLoadingProducts, setIsLoadingProducts] = useState(false)
    const [selectedSearch, setSelectedSearch] = useState('')
    const [textSearchProduct, setTextSearchProduct] = useState('')
    const [selectedProduct, setSelectedProduct] = useState()
-   const [showCarouselFullSizeImages, setShowCarouselFullSizeImages] =
-      useState(false)
+   const [showCarouselFullSizeImages, setShowCarouselFullSizeImages] = useState(false)
    const [arrayImages, setArrayImages] = useState([])
    const [productsList, setProductsList] = useState([])
-   const [showNewProductOverlay, setShowNewProductOverlay] = useState(false)
-   const [showEditProductOverlay, setShowEditProductOverlay] = useState(false)
    const [showAlert, setShowAlert] = useState(false)
    const [messageError, setMessageError] = useState()
    const [typeError, setTypeError] = useState('succes')
    const [showAlertConfirm, setShowAlertConfirm] = useState(false)
    const [idDeleteProduct, setIdDeleteProduct] = useState()
-
    const [detailsInTable, setDetailsInTable] = useState(false)
    const [editInTable, setEditInTable] = useState(true)
    const [deleteInTable, setDeleteInTable] = useState(true)
@@ -49,6 +47,18 @@ export const MainTableProducts = () => {
       setIdDeleteProduct(idProduct)
       setShowAlertConfirm(true)
    }
+
+   const {
+      isOpen: isOpenModal,
+      open: openModal,
+      close: onCloseModal,
+   } = useOpenToggle(false)
+
+   const {
+      isOpen: isOpenModalEditProduct,
+      open: openModalEditProduct,
+      close: onCloseModalEditProduct,
+   } = useOpenToggle(false)
 
    const confirmDeleteProduct = async () => {
       try {
@@ -83,13 +93,16 @@ export const MainTableProducts = () => {
    }
 
    const onSuccessNewProduct = async () => {
+      setIsLoading(true);
       const productsOut = await getProductsHook()
       setProductsList(productsOut)
+      setIsLoading(false);
    }
 
-   const onEditProduct = async (element) => {
-      setSelectedProduct(element)
-      setShowEditProductOverlay(true)
+   const onEditProduct = async (product) => {
+      setSelectedProduct(product)
+      console.log('product ', product)
+      openModalEditProduct()
    }
 
    const onShowFullSizeCarouselImages = (arrayImages) => {
@@ -160,8 +173,6 @@ export const MainTableProducts = () => {
       exect()
    }, [
       showAlert,
-      showNewProductOverlay,
-      showEditProductOverlay,
       getProductsHook,
    ])
 
@@ -170,9 +181,8 @@ export const MainTableProducts = () => {
          <div className="bar-wrapper mb-4">
             <Button
                className="flex-gap-button-icon mr-10p"
-               onClick={ () => setShowNewProductOverlay(true) }
+               onClick={ () => openModal() }
             >
-               { ' ' }
                <TiPlus /> PRODUCTO
             </Button>
             <InputGroup>
@@ -540,21 +550,22 @@ export const MainTableProducts = () => {
                </tbody>
             </Table>
          </section>
-         { showEditProductOverlay && (
-            <EditProductOverlay
-               callbackShowEditProduct={ setShowEditProductOverlay }
-               productToEdit={ selectedProduct }
-               show={ showEditProductOverlay }
-               onSuccessEditProduct={ onSuccessEditProduct }
-            />
-         ) }
-         { showNewProductOverlay && (
-            <ProductOverlay
-               callbackShowProduct={ setShowNewProductOverlay }
-               show={ showNewProductOverlay }
-               onSuccessNewProduct={ onSuccessNewProduct }
-            />
-         ) }
+
+         <EditProductOverlay
+            isLoading={ isLoading }
+            isOpenModal={ isOpenModalEditProduct }
+            productToEdit={ selectedProduct }
+            onCloseModal={ onCloseModalEditProduct }
+            onSuccessEditProduct={ onSuccessEditProduct }
+         />
+
+         <NewProductOverlay
+            isLoading={ isLoading }
+            isOpenModal={ isOpenModal }
+            onCloseModal={ onCloseModal }
+            onSuccessNewProduct={ onSuccessNewProduct }
+         />
+
          { showCarouselFullSizeImages && (
             <ShowCarouselFullSizeImages
                imgSrcArray={ arrayImages }

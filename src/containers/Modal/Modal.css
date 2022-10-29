@@ -1,10 +1,14 @@
 .modal-content {
-border-radius: 50px !important;
-overflow: auto;
+  border-radius: 50px !important;
+  overflow: auto;
+}
+
+#modal-new-product > .modal-content{
+  max-height: 90vh;
 }
 
 .ModalContainer::-webkit-scrollbar {
-display: none;
+  display: none;
 }
 
 .Header {

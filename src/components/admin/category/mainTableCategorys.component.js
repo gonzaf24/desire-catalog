@@ -22,7 +22,6 @@ export const MainTableCategorys = () => {
    const [showAlertConfirm, setShowAlertConfirm] = useState(false)
    const [messageError, setMessageError] = useState()
    const [categoryList, setCategoryList] = useState([])
-   const [showEditCategoryOverlay, setShowEditCategoryOverlay] = useState(false)
    const [selectedCategory, setSelectedCategory] = useState()
    const [isSortingCategorys, setIsSortingCategorys] = useState(false)
    const [idDeleteCategory, setIdDeleteCategory] = useState()
@@ -69,7 +68,6 @@ export const MainTableCategorys = () => {
 
    const onEditCategory = async (element) => {
       setSelectedCategory(element)
-      setShowEditCategoryOverlay(true)
       openModalEdit();
    }
 
@@ -92,7 +90,6 @@ export const MainTableCategorys = () => {
       exect()
    }, [
       showAlert,
-      showEditCategoryOverlay,
       getCategorysHook,
    ])
 
@@ -236,7 +233,6 @@ export const MainTableCategorys = () => {
             </Table>
          </section>
          <EditCategoryOverlay
-            callbackShowCategory={ setShowEditCategoryOverlay }
             categoryToEdit={ selectedCategory }
             isLoading={ isLoading }
             isOpenModal={ isOpenModalEdit }
