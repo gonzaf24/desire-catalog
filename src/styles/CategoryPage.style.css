@@ -113,7 +113,6 @@ display: flex;
 flex-wrap: wrap;
 gap: 25px;
 max-width: 1000px;
-justify-content: center;
 }
 
 .article-item-portada {

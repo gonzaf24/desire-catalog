@@ -15,7 +15,7 @@ const propTypes = {
       description: PropTypes.string,
       id: PropTypes.string,
       photos: PropTypes.arrayOf(PropTypes.string),
-      precioUY: PropTypes.number,
+      precioUY: PropTypes.string,
    }),
    isLoading: PropTypes.bool,
    isOpenModal: PropTypes.bool,
@@ -30,8 +30,17 @@ const defaultProps = {
       description: '',
       photos: [],
       id: '',
-      precioUY: 0,
+      precioUY: '',
    },
+}
+
+const settingsArticle = {
+   dots: true,
+   infinite: true,
+   speed: 500,
+   slidesToShow: 1,
+   slidesToScroll: 1,
+   swipeToSlide: true,
 }
 
 const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }) => {
@@ -45,7 +54,6 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
    }, []);
 
    const onCopyLink = async () => {
-      console.log('entro')
       setCopied(false)
       setCopied(true)
       const url = window.location.host + '/item/' + articleToShow.id
@@ -85,15 +93,6 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
       setArticle(null)
    }
 
-   var settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      swipeToSlide: true,
-   }
-
    return (
       <Modal
          header={
@@ -107,7 +106,7 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
          { article && (
             <>
                <div className="card-wpr-1">
-                  <Slider { ...settings }>
+                  <Slider { ...settingsArticle }>
                      { article.photos.map((imagen, index) => {
                         return (
                            <section key={ index } className="article-section">

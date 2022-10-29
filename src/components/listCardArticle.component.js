@@ -34,7 +34,7 @@ export const ListCardArticle = ({ isMode1Active, onClickArticle, productsList, }
                         key={ index }
                         article={ prenda }
                         isMode1Active={ isMode1Active }
-                        onClickArticle={ () => onClickArticle(prenda) }
+                        onClickArticle={ (e) => onClickArticle(e, prenda) }
                      />
                   ) : null
                }) }

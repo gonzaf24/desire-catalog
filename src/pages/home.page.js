@@ -26,7 +26,8 @@ export const Home = () => {
       close: onCloseModal,
    } = useOpenToggle(false)
 
-   const onClickProduct = (product) => {
+   const onClickProduct = (e, product) => {
+      e.preventDefault();
       setIsLoading(true)
       setProductSelected(product)
       openModal()

@@ -34,16 +34,18 @@ export const Category = ({ params }) => {
    const [categoryNamePage, setCategoryNamePage] = useState('')
    const [isLoading, setIsLoading] = useState(false)
 
-
    const {
       isOpen: isOpenModal,
       open: openModal,
       close: onCloseModal,
    } = useOpenToggle(false)
 
-   const onClickProduct = (product) => {
+   const onClickProduct = (e, product) => {
+      e.preventDefault();
+      setIsLoading(true)
       setProductSelected(product)
       openModal()
+      setIsLoading(false)
    }
 
    const ordenarBaratos = async () => {
@@ -133,6 +135,7 @@ export const Category = ({ params }) => {
 
          <OverlayArticle
             articleToShow={ productSelected }
+            isLoading={ isLoading }
             isOpenModal={ isOpenModal }
             onCloseModal={ onCloseModal }
          />

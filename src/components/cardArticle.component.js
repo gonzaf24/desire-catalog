@@ -43,9 +43,9 @@ export function CardArticle({ article, onClickArticle, isMode1Active }) {
       setIsInView(true);
    });
 
-   const handleClickArticle = () => {
+   const handleClickArticle = (e) => {
       if (onClickArticle) {
-         onClickArticle(article)
+         onClickArticle(e, article)
       }
    }
 
