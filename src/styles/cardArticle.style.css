@@ -79,11 +79,9 @@
 
 .slick-prev {
   left: 10px;
-z-index: 1;
-width: 35px;
-height: 35px;
-
-
+  z-index: 1;
+  width: 35px;
+  height: 35px;
 }
 
 .slick-next {
@@ -101,10 +99,8 @@ height: 35px;
 }
 
 .slick-dots li.slick-active button:before {
-opacity: 0.75;
-color: rgb(236 98 95 / 90%);
-
-
+  opacity: 0.75;
+  color: rgb(236 98 95 / 90%);
 }
 
 .expand-button {
@@ -123,57 +119,56 @@ color: rgb(236 98 95 / 90%);
 }
 
 .price-card {
-font-family: 'arial-black';
-text-align: right;
-width: 100%;
-font-size: 12px;
-margin-bottom: 5px;
-margin-top: 10px;
-color: rgb(0 0 0 / 30%);
+  font-family: 'arial-black';
+  text-align: right;
+  width: 100%;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  color: rgb(0 0 0 / 30%);
 }
 
 .ver-prenda {
-content: 'VER PRENDA';
-background: transparent;
-border: none;
-text-align: center;
-width: 100%;
-cursor: pointer;
-font-size: 12px;
-color: rgb(153 70 68 / 50%);
+  content: 'VER PRENDA';
+  background: transparent;
+  border: none;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  font-size: 12px;
+  color: rgb(153 70 68 / 50%);
 }
 
 .section-article {
-width: 100%;
-display: flex !important;
-justify-content: center;
-align-items: center;
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1500px) {
-.img-card-article {
-   height: auto;
-}
-
+  .img-card-article {
+    height: auto;
+  }
 }
 
 @media (max-width: 812px) {
-.card-container {
-   max-width: 150px;
-}
+  .card-container {
+    max-width: 150px;
+  }
 
-.card-container-single {
-   max-width: 300px;
-}
+  .card-container-single {
+    max-width: 300px;
+  }
 
-.card-wpr-2 {
-   font-size: 12px;
-}
+  .card-wpr-2 {
+    font-size: 12px;
+  }
 
-.img-card-article {
-   height: auto;
-   max-height: 700px;
-   width: 100% !important;
-}
+  .img-card-article {
+    height: auto;
+    max-height: 700px;
+    width: 100% !important;
+  }
 
 }
