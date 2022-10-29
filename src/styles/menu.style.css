@@ -54,3 +54,13 @@
 .menu-subtitle:hover{
   color: rgb(255 255 255 / 50%);
 }
+
+@media (max-width: 812px) { 
+  .menu-container{
+    top: 90px;
+  }
+
+  .menu-container-show{
+    top: 90px;
+  }
+}
