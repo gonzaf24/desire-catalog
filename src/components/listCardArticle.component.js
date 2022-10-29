@@ -25,8 +25,9 @@ export const ListCardArticle = ({ isMode1Active, onClickArticle, productsList, }
    }, [productsList])
 
    return (
-      <article className="card-main">
-         <div className={ 'grid-main ' }>
+      <article className='card-main'>
+         <section>
+            <div className='grid-main'>
             { listOfProducts.length > 0 &&
                listOfProducts.map((prenda, index) => {
                   return prenda.isActive ? (
@@ -38,7 +39,8 @@ export const ListCardArticle = ({ isMode1Active, onClickArticle, productsList, }
                      />
                   ) : null
                }) }
-         </div>
+            </div>
+         </section>
       </article>
    )
 }
