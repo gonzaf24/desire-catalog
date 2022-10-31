@@ -99,6 +99,7 @@ background-image: none !important; ;
 
 .icons-wrapper {
   margin-right: 20px;
+  z-index: 1;
 }
 
 .icon-active {

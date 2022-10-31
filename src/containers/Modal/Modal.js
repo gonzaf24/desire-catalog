@@ -1,7 +1,6 @@
 import React from 'react'
 import { Modal as ModalBoostrap } from 'react-bootstrap'
 import { BiX } from 'react-icons/bi'
-import Loader from '../../components/loader.component'
 import PropTypes from 'prop-types'
 import './Modal.css'
 
@@ -77,7 +76,7 @@ const Modal = ({
             <ModalBoostrap.Body className="Body">
                { isLoading && (
                   <div className="LoaderContainer">
-                     <Loader size={ 'xl' } />
+
                   </div>
                ) }
                { !isLoading && children }

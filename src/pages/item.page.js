@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import '../styles/overlayArticle.style.css';
-import Loading from '../components/loader.component';
 import useProduct from '../hooks/useProduct';
 import Slider from 'react-slick';
 import { BiCopy } from 'react-icons/bi';
@@ -10,6 +9,7 @@ import { Link } from 'wouter';
 import PropTypes from 'prop-types'
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
 import { isMobile } from 'react-device-detect';
+import { LoaderSkeleton } from '../components';
 
 const propTypes = {
   params: PropTypes.shape({
@@ -89,7 +89,7 @@ export const Item = ({ params }) => {
     <section className="overlay-article-container-item-page">
       <article className="overlay-article-wrapper-item">
         { isLoading ? (
-          <Loading size={ 'xl' } />
+          <LoaderSkeleton />
         ) : Object.keys(articleToShow).length > 0 ? (
             <Fragment>
               <div className="card-wpr-1">

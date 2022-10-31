@@ -9,10 +9,10 @@ import Mode1Active from '../images/mode-1-active.png'
 import Mode2Active from '../images/mode-2-active.png'
 import useProduct from '../hooks/useProduct'
 import ListCardArticle from '../components/listCardArticle.component'
-import Loader from '../components/loader.component'
 import Dropdown from 'react-bootstrap/Dropdown'
 import useOpenToggle from '../hooks/useOpenToggle'
 import PropTypes from 'prop-types'
+import { LoaderSkeleton } from '../components'
 
 const propTypes = {
    params: PropTypes.shape({
@@ -123,7 +123,7 @@ export const Category = ({ params }) => {
                </div>
             </section>
             { isLoading ? (
-               <Loader size={ 'xl' } />
+               <LoaderSkeleton />
             ) : (
                <ListCardArticle
                   isMode1Active={ isMode1Active }
