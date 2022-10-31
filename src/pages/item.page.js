@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/overlayArticle.style.css';
 import useProduct from '../hooks/useProduct';
 import Slider from 'react-slick';
@@ -87,11 +87,10 @@ export const Item = ({ params }) => {
 
   return (
     <section className="overlay-article-container-item-page">
-      <article className="overlay-article-wrapper-item">
         { isLoading ? (
-          <LoaderSkeleton />
+        <LoaderSkeleton size={ 1 } />
         ) : Object.keys(articleToShow).length > 0 ? (
-            <Fragment>
+          <article className="overlay-article-wrapper-item">
               <div className="card-wpr-1">
                 <Slider { ...settings } id="slider">
                   { articleToShow.photos.map((imagen, index) => {
@@ -175,7 +174,7 @@ export const Item = ({ params }) => {
                   ) }
               </div>
               <h6>info@anastassa.com</h6>
-            </Fragment>
+          </article>
           ) : (
             <div className="article-not-exist">
                 <span className="txt-article-not-exist mb-4">
@@ -186,7 +185,7 @@ export const Item = ({ params }) => {
             </Link>
           </div>
         ) }
-      </article>
+
       <span className={ copied ? 'copy-link-url-active' : 'copy-link-url' } id="copy-id"   >
         link copiado
       </span>

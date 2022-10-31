@@ -7,18 +7,22 @@ import './LoaderSkeleton.css';
 const propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
+  size: PropTypes.number,
 };
 
 const defaultProps = {
   className: '',
   id: undefined,
+  size: 12,
 };
 
-const totalSkeletonArray = Array(12).fill({})
 
-const LoaderSkeleton = ({ className, id }) => {
+const LoaderSkeleton = ({ className, id, size }) => {
   const classComponent = className ? ['LoaderSkeleton', className] : ['LoaderSkeleton'];
+  const totalSkeletonArray = Array(size).fill({})
 
+  const classSize = size > 10 ? 'max-width-12' : 'max-width-1';
+  const classHeader = size > 10 ? 'HeaderSkeleton-12' : 'HeaderSkeleton-1';
   return (
     <div
       className={ classComponent }
@@ -27,11 +31,11 @@ const LoaderSkeleton = ({ className, id }) => {
       <section>
         <div className='SkeletonContainer'>
           { totalSkeletonArray.map((value, index) => {
-            return <div key={ index } className="d-flex justify-content-around  max-width">
-              <Card style={ { width: '18rem' } }>
+            return <div key={ index } className={ classSize }>
+              <Card style={ { width: '70rem' } }>
                 <Card.Body>
                   <Placeholder animation="glow" as={ Card.Title }>
-                    <Placeholder className='HeaderSkeleton' xs={ 12 } />
+                    <Placeholder className={ classHeader } xs={ 12 } />
                     <Placeholder xs={ 12 } />
                     <Placeholder xs={ 12 } />
                     <Placeholder xs={ 12 } />

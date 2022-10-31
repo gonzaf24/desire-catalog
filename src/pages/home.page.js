@@ -10,7 +10,6 @@ import Mode2Active from '../images/mode-2-active.png'
 import useProduct from '../hooks/useProduct'
 import Dropdown from 'react-bootstrap/Dropdown'
 import ListCardArticle from '../components/listCardArticle.component'
-/* import Loader from '../components/loader.component' */
 import useOpenToggle from '../hooks/useOpenToggle'
 import { LoaderSkeleton } from '../components'
 
