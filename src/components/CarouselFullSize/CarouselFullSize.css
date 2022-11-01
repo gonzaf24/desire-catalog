@@ -1,0 +1,62 @@
+.CarouselFullSize {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.CarouselFullSizeOverlay{
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  width: 100%;
+  background-color: #ffff;
+  padding: 45px;
+  position: relative;
+  text-align: center;
+   z-index: 3;
+}
+
+.CarouselFullSizeCloseButton{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: rgb(236 98 95 / 80%);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.CarouselFullSizeImageCard {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  max-height: 450px;
+  cursor: pointer;
+  width: 100% !important;
+  max-width: 300px;
+}
+
+@media (max-width: 1500px) {
+  .CarouselFullSizeImageCard {
+    height: auto;
+  }
+}
+
+@media (max-width: 812px) {
+  .CarouselFullSizeImageCard {
+    height: auto;
+    max-height: 700px;
+    width: 100% !important;
+  }
+}
+

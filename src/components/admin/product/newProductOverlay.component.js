@@ -17,11 +17,11 @@ import useCategory from '../../../hooks/useCategory'
 import AlertDismissible from '../../alertDismissible.component'
 import UploadFile from '../../fileUpload/fileUpload'
 import { formatFileNameToShow } from '../../../utils/formatters'
-import ShowFullSizeImage from '../../showFullSizeImage'
 import AlertConfirm from '../../alertConfirm.component'
 import PropTypes from 'prop-types'
 import Modal from '../../../containers/Modal/Modal'
 import AnastassaLogo from '../../../images/logo-anastassa.jpg'
+import FullSizeImage from '../../FullSizeImage'
 
 const propTypes = {
    isLoading: PropTypes.bool,
@@ -265,364 +265,364 @@ export const NewProductOverlay = ({
          <section className="product-overlay-section">
             <Form className='form-new-product' onSubmit={ handleSubmit }>
                <FloatingLabel
-                     controlId="floatingSelect"
-                     label="Categoria"
-                  >
-                     <Form.Select
-                        aria-label="Floating label select example"
-                        value={ categoryName }
-                        onChange={ (e) => {
-                           setCategoryName(e.target.value)
-                        } }
-                     >
-                        <option>Selecciona una categoria</option>
-                        { categoryList.map((el, index) => {
-                           return (
-                              <option key={ index } value={ el.idName }>
-                                 { el.idName }
-                              </option>
-                           )
-                        }) }
-                     </Form.Select>
-                  </FloatingLabel>
-
-                  <FloatingLabel
-                     className="mt-4 mb-3"
-                     controlId="floatingInput"
-                     label="Referencia #"
-                  >
-                     <Form.Control
-                        placeholder="Pon aqui un numero de referencia # de la prenda"
-                        type="text"
-                        value={ referenceId.toUpperCase() }
-                        onChange={ (e) => {
-                           setReferenceId(e.target.value.toUpperCase())
-                        } }
-                     />
-                  </FloatingLabel>
-
-                  <FloatingLabel
-                     className="mt-4 mb-3"
-                     controlId="floatingInput"
-                     label="Descripcion"
-                  >
-                     <Form.Control
-                        placeholder="Pon aqui una descripcion de la prenda"
-                        type="text"
-                        value={ description }
-                        onChange={ (e) => {
-                           setDescription(e.target.value)
-                        } }
-                     />
-                  </FloatingLabel>
-
-                  <div className="form-floating mt-4 mb-3">
-                     <textarea
-                        className="form-control"
-                        id="floatingTextarea2"
-                        placeholder="Pon aqui el detalle de la prenda"
-                        style={ { height: '100px' } }
-                        value={ detail }
-                        onChange={ (e) => {
-                           setDetail(e.target.value)
-                        } }
-                     ></textarea>
-                     <label htmlFor="floatingTextarea2">Detalle</label>
-                  </div>
-
-                  <InputGroup className="mt-4">
-                     <FormControl
-                        aria-label="Lista de colores disponibles para la prenda."
-                        placeholder="Colores 1"
-                        value={ colorDescription }
-                        onChange={ (e) => {
-                           setColorDescription(e.target.value.toUpperCase())
-                        } }
-                     />
-                     <Button
-                        disabled={ !colorDescription }
-                        variant="outline-primary"
-                        onClick={ () => onAddToColors(colorDescription) }
-                     >
-                        <FaPlus />
-                     </Button>
-                  </InputGroup>
-
-                  <ListGroup horizontal>
-                     { colors.map((el, index) => {
-                        return (
-                           <ListGroup.Item key={ index } className="item-group">
-                              { el }
-                              <MdDeleteForever
-                                 className="delete-item-group"
-                                 onClick={ () => onRemoveFromColors(el) }
-                              />
-                           </ListGroup.Item>
-                        )
-                     }) }
-                  </ListGroup>
-
-                  <InputGroup className="mt-4">
-                     <FormControl
-                        aria-label="Lista de talles disponibles para la prenda."
-                        placeholder="Talles"
-                        value={ sizeDescription }
-                        onChange={ (e) => {
-                           setSizeDescription(e.target.value.toUpperCase())
-                        } }
-                     />
-                     <Button
-                        disabled={ !sizeDescription }
-                        variant="outline-primary"
-                        onClick={ () => onAddToSizes(sizeDescription) }
-                     >
-                        <FaPlus />
-                     </Button>
-                  </InputGroup>
-
-                  <ListGroup horizontal>
-                     { sizes.map((el, index) => {
-                        return (
-                           <ListGroup.Item key={ index } className="item-group">
-                              { el }
-                              <MdDeleteForever
-                                 className="delete-item-group"
-                                 onClick={ () => onRemoveFromSizes(el) }
-                              />
-                           </ListGroup.Item>
-                        )
-                     }) }
-                  </ListGroup>
-
-                  <InputGroup className="mt-4">
-                     <FormControl
-                        aria-label="Lista de talles disponibles para la prenda."
-                        placeholder="Desc"
-                        value={ sizesDescr1 }
-                        onChange={ (e) => {
-                           setSizesDescr1(e.target.value.toUpperCase())
-                        } }
-                     />
-                     <FormControl
-                        aria-label="Lista de talles disponibles para la prenda."
-                        placeholder="Valor"
-                        value={ sizesDescr2 }
-                        onChange={ (e) => {
-                           setSizesDescr2(e.target.value)
-                        } }
-                     />
-                     <Button
-                        disabled={ !sizesDescr1 || !sizesDescr2 }
-                        variant="outline-primary"
-                        onClick={ () =>
-                           onAddToSizesDescriptions(sizesDescr1, sizesDescr2)
-                        }
-                     >
-                        <FaPlus />
-                     </Button>
-                  </InputGroup>
-
-                  <ListGroup>
-                     { sizesDescriptions.map((el, index) => {
-                        return (
-                           <ListGroup.Item key={ index } className="item-group">
-                              { `${el.data} :   ${el.description}` }
-                              <MdDeleteForever
-                                 className="delete-item-group"
-                                 onClick={ () =>
-                                    onRemoveFromSizesDescriptions(el)
-                                 }
-                              />
-                           </ListGroup.Item>
-                        )
-                     }) }
-                  </ListGroup>
-
-                  <InputGroup className="mt-4">
-                     <FormControl
-                        aria-label="Lista de fotos de la prenda."
-                        disabled
-                        placeholder="Fotos"
-                     />
-                     <UploadFile
-                        categoryName={ categoryName }
-                        disabled={
-                           categoryName === '' ||
-                              categoryName === 'Selecciona una categoria'
-                              ? true
-                              : false
-                        }
-                        onSuccesUpload={ onSuccesUpload }
-                     />
-                  </InputGroup>
-                  <ListGroup>
-                     { photos &&
-                        photos.length > 0 &&
-                        photos.map((el, index) => {
-                           return (
-                              <ListGroup.Item
-                                 key={ index }
-                                 className="d-flex justify-content-between item-group"
-                              >
-                                 <ImImage
-                                    className="delete-item-group"
-                                    onClick={ () => onShowImageFullSize(el) }
-                                 />
-                                 { formatFileNameToShow(el) }
-                                 <MdDeleteForever
-                                    className="delete-item-group"
-                                    onClick={ () => onDeletePhoto(el) }
-                                 />
-                              </ListGroup.Item>
-                           )
-                        }) }
-                  </ListGroup>
-
-                  <FloatingLabel
-                     className="mt-4"
-                     controlId="floatingInput"
-                     label="Precio UY $U"
-                  >
-                     <Form.Control
-                        placeholder="Precio en pesos uruguayos"
-                        type="number"
-                        value={ priceUY }
-                        onChange={ (e) => {
-                           setPriceUY(e.target.value)
-                        } }
-                     />
-                  </FloatingLabel>
-
-                  <FloatingLabel
-                     className="mt-4"
-                     controlId="floatingInput"
-                     label="Precio ES €"
-                  >
-                     <Form.Control
-                        placeholder="Precio en euros"
-                        type="number"
-                        value={ priceES }
-                        onChange={ (e) => {
-                           setPriceES(e.target.value)
-                        } }
-                     />
-                  </FloatingLabel>
-
-                  <FloatingLabel
-                     className="mt-4"
-                     controlId="floatingInput"
-                     label="Precio USD $"
-                  >
-                     <Form.Control
-                        placeholder="Precio en dolares"
-                        type="number"
-                        value={ priceUSD }
-                        onChange={ (e) => {
-                           setPriceUSD(e.target.value)
-                        } }
-                     />
-                  </FloatingLabel>
-
-                  <Form.Check
-                     checked={ activeProduct }
-                     className="form-check-st"
-                     id="custom-switch"
-                     label="Activo"
-                     type="switch"
-                     value={ activeProduct }
+                  controlId="floatingSelect"
+                  label="Categoria"
+               >
+                  <Form.Select
+                     aria-label="Floating label select example"
+                     value={ categoryName }
                      onChange={ (e) => {
-                        setActiveProduct(e.target.checked)
+                        setCategoryName(e.target.value)
+                     } }
+                  >
+                     <option>Selecciona una categoria</option>
+                     { categoryList.map((el, index) => {
+                        return (
+                           <option key={ index } value={ el.idName }>
+                              { el.idName }
+                           </option>
+                        )
+                     }) }
+                  </Form.Select>
+               </FloatingLabel>
+
+               <FloatingLabel
+                  className="mt-4 mb-3"
+                  controlId="floatingInput"
+                  label="Referencia #"
+               >
+                  <Form.Control
+                     placeholder="Pon aqui un numero de referencia # de la prenda"
+                     type="text"
+                     value={ referenceId.toUpperCase() }
+                     onChange={ (e) => {
+                        setReferenceId(e.target.value.toUpperCase())
                      } }
                   />
+               </FloatingLabel>
 
-                  <Form.Check
-                     checked={ isNewProduct }
-                     className="form-check-st"
-                     id="custom-switch"
-                     label="Es nuevo"
-                     type="switch"
-                     value={ isNewProduct }
+               <FloatingLabel
+                  className="mt-4 mb-3"
+                  controlId="floatingInput"
+                  label="Descripcion"
+               >
+                  <Form.Control
+                     placeholder="Pon aqui una descripcion de la prenda"
+                     type="text"
+                     value={ description }
                      onChange={ (e) => {
-                        setIsNewProduct(e.target.checked)
+                        setDescription(e.target.value)
                      } }
                   />
+               </FloatingLabel>
 
-                  <FloatingLabel
-                     className="mt-4"
-                     controlId="floatingInput"
-                     label="Descuento"
+               <div className="form-floating mt-4 mb-3">
+                  <textarea
+                     className="form-control"
+                     id="floatingTextarea2"
+                     placeholder="Pon aqui el detalle de la prenda"
+                     style={ { height: '100px' } }
+                     value={ detail }
+                     onChange={ (e) => {
+                        setDetail(e.target.value)
+                     } }
+                  ></textarea>
+                  <label htmlFor="floatingTextarea2">Detalle</label>
+               </div>
+
+               <InputGroup className="mt-4">
+                  <FormControl
+                     aria-label="Lista de colores disponibles para la prenda."
+                     placeholder="Colores 1"
+                     value={ colorDescription }
+                     onChange={ (e) => {
+                        setColorDescription(e.target.value.toUpperCase())
+                     } }
+                  />
+                  <Button
+                     disabled={ !colorDescription }
+                     variant="outline-primary"
+                     onClick={ () => onAddToColors(colorDescription) }
                   >
-                     <Form.Control
-                        placeholder="Descuento a mostrar"
-                        type="text"
-                        value={ discountProduct }
-                        onChange={ (e) => {
-                           setDiscountProduct(e.target.value)
-                        } }
-                     />
-                  </FloatingLabel>
+                     <FaPlus />
+                  </Button>
+               </InputGroup>
 
-                  <FloatingLabel
-                     className="mt-4"
-                     controlId="floatingInput"
-                     label="Posicion"
+               <ListGroup horizontal>
+                  { colors.map((el, index) => {
+                     return (
+                        <ListGroup.Item key={ index } className="item-group">
+                           { el }
+                           <MdDeleteForever
+                              className="delete-item-group"
+                              onClick={ () => onRemoveFromColors(el) }
+                           />
+                        </ListGroup.Item>
+                     )
+                  }) }
+               </ListGroup>
+
+               <InputGroup className="mt-4">
+                  <FormControl
+                     aria-label="Lista de talles disponibles para la prenda."
+                     placeholder="Talles"
+                     value={ sizeDescription }
+                     onChange={ (e) => {
+                        setSizeDescription(e.target.value.toUpperCase())
+                     } }
+                  />
+                  <Button
+                     disabled={ !sizeDescription }
+                     variant="outline-primary"
+                     onClick={ () => onAddToSizes(sizeDescription) }
                   >
-                     <Form.Control
-                        placeholder="Posicion del producto dentro de su categoria en el catalogo"
-                        type="number"
-                        value={ position }
-                        onChange={ (e) => {
-                           setPosition(e.target.value)
-                        } }
-                     />
-                  </FloatingLabel>
+                     <FaPlus />
+                  </Button>
+               </InputGroup>
 
-                  <section className="mt-4 buttons-container">
-                     <Button
-                        className="submitbutton"
-                        variant="secondary"
-                     onClick={ () => closeOverlay() }
-                     >
-                        Cerrar
-                     </Button>
+               <ListGroup horizontal>
+                  { sizes.map((el, index) => {
+                     return (
+                        <ListGroup.Item key={ index } className="item-group">
+                           { el }
+                           <MdDeleteForever
+                              className="delete-item-group"
+                              onClick={ () => onRemoveFromSizes(el) }
+                           />
+                        </ListGroup.Item>
+                     )
+                  }) }
+               </ListGroup>
 
-                     <Button
-                        className="submitbutton"
-                        disabled={ !validateForm() }
-                        type="submit"
-                     >
-                        Crear producto
-                     </Button>
-                  </section>
-               </Form>
-            </section>
+               <InputGroup className="mt-4">
+                  <FormControl
+                     aria-label="Lista de talles disponibles para la prenda."
+                     placeholder="Desc"
+                     value={ sizesDescr1 }
+                     onChange={ (e) => {
+                        setSizesDescr1(e.target.value.toUpperCase())
+                     } }
+                  />
+                  <FormControl
+                     aria-label="Lista de talles disponibles para la prenda."
+                     placeholder="Valor"
+                     value={ sizesDescr2 }
+                     onChange={ (e) => {
+                        setSizesDescr2(e.target.value)
+                     } }
+                  />
+                  <Button
+                     disabled={ !sizesDescr1 || !sizesDescr2 }
+                     variant="outline-primary"
+                     onClick={ () =>
+                        onAddToSizesDescriptions(sizesDescr1, sizesDescr2)
+                     }
+                  >
+                     <FaPlus />
+                  </Button>
+               </InputGroup>
 
-            { showUpload && (
-               <UploadFile
-                  callbackShowUploadFile={ callbackShowUploadFile }
-                  categoryName={ categoryName }
-                  show={ showUpload }
-                  onSuccesUpload={ onSuccesUpload }
+               <ListGroup>
+                  { sizesDescriptions.map((el, index) => {
+                     return (
+                        <ListGroup.Item key={ index } className="item-group">
+                           { `${el.data} :   ${el.description}` }
+                           <MdDeleteForever
+                              className="delete-item-group"
+                              onClick={ () =>
+                                 onRemoveFromSizesDescriptions(el)
+                              }
+                           />
+                        </ListGroup.Item>
+                     )
+                  }) }
+               </ListGroup>
+
+               <InputGroup className="mt-4">
+                  <FormControl
+                     aria-label="Lista de fotos de la prenda."
+                     disabled
+                     placeholder="Fotos"
+                  />
+                  <UploadFile
+                     categoryName={ categoryName }
+                     disabled={
+                        categoryName === '' ||
+                           categoryName === 'Selecciona una categoria'
+                           ? true
+                           : false
+                     }
+                     onSuccesUpload={ onSuccesUpload }
+                  />
+               </InputGroup>
+               <ListGroup>
+                  { photos &&
+                     photos.length > 0 &&
+                     photos.map((el, index) => {
+                        return (
+                           <ListGroup.Item
+                              key={ index }
+                              className="d-flex justify-content-between item-group"
+                           >
+                              <ImImage
+                                 className="delete-item-group"
+                                 onClick={ () => onShowImageFullSize(el) }
+                              />
+                              { formatFileNameToShow(el) }
+                              <MdDeleteForever
+                                 className="delete-item-group"
+                                 onClick={ () => onDeletePhoto(el) }
+                              />
+                           </ListGroup.Item>
+                        )
+                     }) }
+               </ListGroup>
+
+               <FloatingLabel
+                  className="mt-4"
+                  controlId="floatingInput"
+                  label="Precio UY $U"
+               >
+                  <Form.Control
+                     placeholder="Precio en pesos uruguayos"
+                     type="number"
+                     value={ priceUY }
+                     onChange={ (e) => {
+                        setPriceUY(e.target.value)
+                     } }
+                  />
+               </FloatingLabel>
+
+               <FloatingLabel
+                  className="mt-4"
+                  controlId="floatingInput"
+                  label="Precio ES €"
+               >
+                  <Form.Control
+                     placeholder="Precio en euros"
+                     type="number"
+                     value={ priceES }
+                     onChange={ (e) => {
+                        setPriceES(e.target.value)
+                     } }
+                  />
+               </FloatingLabel>
+
+               <FloatingLabel
+                  className="mt-4"
+                  controlId="floatingInput"
+                  label="Precio USD $"
+               >
+                  <Form.Control
+                     placeholder="Precio en dolares"
+                     type="number"
+                     value={ priceUSD }
+                     onChange={ (e) => {
+                        setPriceUSD(e.target.value)
+                     } }
+                  />
+               </FloatingLabel>
+
+               <Form.Check
+                  checked={ activeProduct }
+                  className="form-check-st"
+                  id="custom-switch"
+                  label="Activo"
+                  type="switch"
+                  value={ activeProduct }
+                  onChange={ (e) => {
+                     setActiveProduct(e.target.checked)
+                  } }
                />
-            ) }
-            <AlertDismissible
-               callbackCloseError={ callbackCloseError }
-               msg={ messageError }
-               show={ showAlert }
-               type={ typeError }
+
+               <Form.Check
+                  checked={ isNewProduct }
+                  className="form-check-st"
+                  id="custom-switch"
+                  label="Es nuevo"
+                  type="switch"
+                  value={ isNewProduct }
+                  onChange={ (e) => {
+                     setIsNewProduct(e.target.checked)
+                  } }
+               />
+
+               <FloatingLabel
+                  className="mt-4"
+                  controlId="floatingInput"
+                  label="Descuento"
+               >
+                  <Form.Control
+                     placeholder="Descuento a mostrar"
+                     type="text"
+                     value={ discountProduct }
+                     onChange={ (e) => {
+                        setDiscountProduct(e.target.value)
+                     } }
+                  />
+               </FloatingLabel>
+
+               <FloatingLabel
+                  className="mt-4"
+                  controlId="floatingInput"
+                  label="Posicion"
+               >
+                  <Form.Control
+                     placeholder="Posicion del producto dentro de su categoria en el catalogo"
+                     type="number"
+                     value={ position }
+                     onChange={ (e) => {
+                        setPosition(e.target.value)
+                     } }
+                  />
+               </FloatingLabel>
+
+               <section className="mt-4 buttons-container">
+                  <Button
+                     className="submitbutton"
+                     variant="secondary"
+                     onClick={ () => closeOverlay() }
+                  >
+                     Cerrar
+                  </Button>
+
+                  <Button
+                     className="submitbutton"
+                     disabled={ !validateForm() }
+                     type="submit"
+                  >
+                     Crear producto
+                  </Button>
+               </section>
+            </Form>
+         </section>
+
+         { showUpload && (
+            <UploadFile
+               callbackShowUploadFile={ callbackShowUploadFile }
+               categoryName={ categoryName }
+               show={ showUpload }
+               onSuccesUpload={ onSuccesUpload }
             />
-            <ShowFullSizeImage
-               imgSrc={ imgSrcFullSize }
-               setShowFullSizeImage={ setShowFullSizeImage }
-               show={ showFullSizeImage }
-            />
-            <AlertConfirm
-               callbackCancel={ callbackCancelDelete }
-               callbackConfirm={ callbackConfirmDelete }
-               msg={ 'Seguro quieres eliminar la imagen?' }
-               show={ showConfirm }
-               type={ 'succes' }
-            />
+         ) }
+         <AlertDismissible
+            callbackCloseError={ callbackCloseError }
+            msg={ messageError }
+            show={ showAlert }
+            type={ typeError }
+         />
+         <FullSizeImage
+            imgSrc={ imgSrcFullSize }
+            setShowFullSizeImage={ setShowFullSizeImage }
+            show={ showFullSizeImage }
+         />
+         <AlertConfirm
+            callbackCancel={ callbackCancelDelete }
+            callbackConfirm={ callbackConfirmDelete }
+            msg={ 'Seguro quieres eliminar la imagen?' }
+            show={ showConfirm }
+            type={ 'succes' }
+         />
       </Modal>
    )
 }

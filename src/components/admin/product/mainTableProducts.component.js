@@ -11,10 +11,10 @@ import useProduct from '../../../hooks/useProduct'
 import EditProductOverlay from '../../../components/admin/product/editProductOverlay.component'
 import NewProductOverlay from './newProductOverlay.component'
 import AlertDismissible from '../../alertDismissible.component'
-import ShowCarouselFullSizeImages from '../../showCarouselFullSizeImages'
 import AlertConfirm from '../../alertConfirm.component'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel'
 import useOpenToggle from '../../../hooks/useOpenToggle'
+import CarouselFullSize from '../../CarouselFullSize'
 
 export const MainTableProducts = () => {
    const { getProductsHook, deleteProductHook } = useProduct()
@@ -565,14 +565,10 @@ export const MainTableProducts = () => {
             onCloseModal={ onCloseModal }
             onSuccessNewProduct={ onSuccessNewProduct }
          />
-
-         { showCarouselFullSizeImages && (
-            <ShowCarouselFullSizeImages
-               imgSrcArray={ arrayImages }
-               setShowCarouselFullSizeImages={ setShowCarouselFullSizeImages }
-               show={ showCarouselFullSizeImages }
-            />
-         ) }
+         <CarouselFullSize imgSrcArray={ arrayImages }
+            setShowCarouselFullSizeImages={ setShowCarouselFullSizeImages }
+            show={ showCarouselFullSizeImages }
+         />
          { showAlert && (
             <AlertDismissible
                callbackCloseError={ callbackCloseError }

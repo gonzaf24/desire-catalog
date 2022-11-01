@@ -17,12 +17,12 @@ import useCategory from '../../../hooks/useCategory'
 import AlertDismissible from '../../alertDismissible.component'
 import UploadFile from '../../fileUpload/fileUpload'
 import { formatFileNameToShow } from '../../../utils/formatters'
-import ShowFullSizeImage from '../../showFullSizeImage'
 import AlertConfirm from '../../alertConfirm.component'
 import PropTypes from 'prop-types'
 import Modal from '../../../containers/Modal/Modal'
 import AnastassaLogo from '../../../images/logo-anastassa.jpg'
 import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
+import FullSizeImage from '../../FullSizeImage'
 
 
 const propTypes = {
@@ -578,7 +578,7 @@ export const EditProductOverlay = ({
                            <MdDeleteForever
                               className="delete-item-group"
                               title='Eliminar foto'
-                              onClick={ () => onDeletePhoto(el) } 
+                              onClick={ () => onDeletePhoto(el) }
                            />
                         </ListGroup.Item>
                      )
@@ -718,7 +718,7 @@ export const EditProductOverlay = ({
             show={ showAlert }
             type={ typeError }
          />
-         <ShowFullSizeImage
+         <FullSizeImage
             imgSrc={ imgSrcFullSize }
             setShowFullSizeImage={ setShowFullSizeImage }
             show={ showFullSizeImage }
