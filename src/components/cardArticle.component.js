@@ -74,7 +74,7 @@ export function CardArticle({ article, onClickArticle, isMode1Active }) {
             className="card-wpr-2-portada cursor"
             onClick={ handleClickArticle }
          >
-            <span className="price-card">{ `${article.precioUY} $U` }</span>
+            { article.precioUY != 0 ? <span className="price-card">{ `${article.precioUY} $U` }</span> : <span className="price-card"></span> }
             <span className="article-item-portada">{ article.description }</span>
          </div>
       </section>
