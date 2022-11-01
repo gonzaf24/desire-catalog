@@ -32,7 +32,7 @@ const CardArticleList = ({ className, id, isMode1Active, onClickArticle, product
   return (
     <article className={ classComponent } id={ id }>
       <section>
-        <div className='CardArticleWrapper'>
+        <div className='CardArticleListWrapper'>
           { listOfProducts.length > 0 &&
             listOfProducts.map((prenda, index) => {
               return prenda.isActive ? (
