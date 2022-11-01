@@ -140,7 +140,6 @@ max-width: 1000px;
   .grid-main {
     grid-gap: 1.5rem;
     justify-content: center;
-    align-items: center;
   }
 
   .article-item-portada {

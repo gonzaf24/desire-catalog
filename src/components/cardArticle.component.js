@@ -58,16 +58,17 @@ export function CardArticle({ article, onClickArticle, isMode1Active }) {
                      return (
                         <section key={ index } className="section-article">
                            <img alt="" className="img-card-article" src={ imagen } onClick={ handleClickArticle } />
+                           <HiOutlineArrowsExpand
+                              className="expand-button"
+                              size={ 35 }
+                              onClick={ handleClickArticle }
+                           />
                         </section>
                      )
                   }) }
                </Slider>
             ) }
-            <HiOutlineArrowsExpand
-               className="expand-button"
-               size={ 35 }
-               onClick={ handleClickArticle }
-            />
+
          </div>
          <div
             className="card-wpr-2-portada cursor"

@@ -8,6 +8,7 @@
   border-radius: 5px;
   max-width: 220px;
   width: 100%;
+  height: fit-content;
 }
 
 .card-container:hover {
@@ -19,7 +20,7 @@
 .card-wpr-1 {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   background-color: white;
   height: 100%;
@@ -74,7 +75,7 @@
 
 .slick-track {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .slick-prev {
@@ -140,6 +141,7 @@
 }
 
 .section-article {
+  position: relative;
   width: 100%;
   display: flex !important;
   justify-content: center;
