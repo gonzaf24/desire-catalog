@@ -1,0 +1,30 @@
+.AlertDismissible {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+
+.AlertDismissibleSucces {
+  max-width: 300px;
+  width: 100%;
+  background-color: #72f9d3;
+  padding: 25px;
+  position: relative;
+}
+
+.AlertDismissibleError {
+  max-width: 300px;
+  width: 100%;
+  background-color: #f97272;
+  padding: 25px;
+  position: relative;
+  text-align: center;
+}

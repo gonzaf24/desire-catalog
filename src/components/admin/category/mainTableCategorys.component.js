@@ -9,8 +9,8 @@ import { TiPlus } from 'react-icons/ti'
 import useCategory from '../../../hooks/useCategory'
 import EditCategoryOverlay from './editCategoryOverlay.component'
 import NewCategoryOverlay from './newCategoryOverlay.component'
-import AlertDismissible from '../../alertDismissible.component'
-import AlertConfirm from '../../alertConfirm.component'
+import AlertDismissible from '../../AlertDismissible'
+import AlertConfirm from '../../AlertConfirm'
 import useOpenToggle from '../../../hooks/useOpenToggle'
 
 export const MainTableCategorys = () => {
