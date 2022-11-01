@@ -121,8 +121,8 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
                   </Slider>
                </div>
                <div className="card-wpr-2">
-                  <div className="article-item">
-                     <span>REF. { article.ref }</span>
+                  <div className="article-item-shared">
+                     <span className='article-w-800'>REF. { article.ref }</span>
                      <div className="links-copy-constainer">
                         <FacebookShareButton size={ 25 } url={ urlCopied }>
                            <FacebookIcon round={ true } size={ 25 } />
@@ -148,11 +148,11 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
                   </span>
                   { article.sizes && article.sizes.length > 0 && (
                      <section className="article-item">
-                        <span className="mb-2">Talles</span>
-                        <div>
+                        <span className="mb-2 article-w-800">Talles</span>
+                        <div className='article-pill-wrapper'>
                            { article.sizes.map((el, index) => (
                               <span key={ index } className="pill-wrapper">
-                                 { el.trim().toUpperCase() }{ ' ' }
+                                 { el.trim().toUpperCase() }
                               </span>
                            )) }
                         </div>
@@ -160,12 +160,12 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
                   ) }
                   { article.colors && article.colors.length > 0 && (
                      <section className="article-item">
-                        <span className="mb-2">Colores</span>
-                        <div>
+                        <span className="mb-2 article-w-800">Colores</span>
+                        <div className='article-pill-wrapper'>
                            { article.colors.map((el, index) =>
                               el ? (
                                  <span key={ index } className="pill-wrapper">
-                                    { el.trim().toUpperCase() }{ ' ' }
+                                    { el.trim().toUpperCase() }
                                  </span>
                               ) : null,
                            ) }
@@ -175,13 +175,12 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
                   { article.sizesDescriptions &&
                      article.sizesDescriptions.length > 0 && (
                         <section className="details-product">
-                           <span className="mb-2">Detalles</span>
+                        <span className="mb-2 article-w-800">Detalles</span>
                            { article.sizesDescriptions.map((element, index) => {
                               return (
                                  <span key={ index } className="flex-center">
-                                    { ' ' }
                                     <TiMinus className="mr-5p" />
-                                    { element.data } { element.description }{ ' ' }
+                                    { element.data } { element.description }
                                  </span>
                               )
                            }) }
