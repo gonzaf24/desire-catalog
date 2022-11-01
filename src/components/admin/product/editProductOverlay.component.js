@@ -312,7 +312,6 @@ export const EditProductOverlay = ({
    }
 
    const swapDownPhotos = (array, a) => {
-      console.log(' array es : ', array);
       const arrayAux = [...array];
       const b = (a + 1);
       [arrayAux[a], arrayAux[b]] = [arrayAux[b], arrayAux[a]]
@@ -320,7 +319,6 @@ export const EditProductOverlay = ({
    }
 
    const swapUpPhotos = (array, a) => {
-      console.log(' array es : ', array);
       const arrayAux = [...array];
       let b = (a - 1);
       [arrayAux[b], arrayAux[a]] = [arrayAux[a], arrayAux[b]]
@@ -330,11 +328,9 @@ export const EditProductOverlay = ({
    const handleSwap = (array, a) => {
 
       if (a === array.length - 1) {
-         console.log(' up ')
          swapUpPhotos(array, a)
       }
       else {
-         console.log(' down ')
          swapDownPhotos(array, a)
       }
    }
@@ -347,9 +343,6 @@ export const EditProductOverlay = ({
       exect()
    }, [])
 
-   useEffect(() => {
-      console.log('photos ', photos)
-   }, [photos])
 
    return (
       <Modal
@@ -568,10 +561,15 @@ export const EditProductOverlay = ({
                            key={ index }
                            className="d-flex justify-content-between item-group"
                         >
-                           <Button onClick={ () => handleSwap(photos, index) }>
-                              { index === photos.length - 1 ? <BiUpArrowAlt /> : <BiDownArrowAlt /> }
-                           </Button>
-                           { index }
+                           { photos.length > 1 &&
+                              <>
+                                 <div onClick={ () => handleSwap(photos, index) }>
+                                    { index === photos.length - 1 ? <BiUpArrowAlt /> : <BiDownArrowAlt /> }
+                              </div>
+                              { index }
+                              </>
+                           }
+
                            <ImImage
                               className="delete-item-group"
                               onClick={ () => onShowImageFullSize(el) }

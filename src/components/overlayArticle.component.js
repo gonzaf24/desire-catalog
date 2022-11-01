@@ -139,9 +139,10 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
                         </div>
                      </div>
                   </div>
-                  <span className="article-item-price">
+                  { article.precioUY != 0 && <span className="article-item-price">
                      { article.precioUY } $U
-                  </span>
+                  </span> 
+                  }
                   <span className="article-item">
                      { article.detail && article.detail }
                   </span>
