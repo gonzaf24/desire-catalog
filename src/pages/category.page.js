@@ -8,7 +8,7 @@ import Mode2 from '../images/mode-2.png'
 import Mode1Active from '../images/mode-1-active.png'
 import Mode2Active from '../images/mode-2-active.png'
 import useProduct from '../hooks/useProduct'
-import ListCardArticle from '../components/listCardArticle.component'
+import CardArticleList from '../components/CardArticleList'
 import Dropdown from 'react-bootstrap/Dropdown'
 import useOpenToggle from '../hooks/useOpenToggle'
 import PropTypes from 'prop-types'
@@ -125,11 +125,11 @@ export const Category = ({ params }) => {
             { isLoading ? (
                <LoaderSkeleton />
             ) : (
-               <ListCardArticle
-                  isMode1Active={ isMode1Active }
-                  productsList={ productsList }
-                  onClickArticle={ onClickProduct }
-               />
+                  <CardArticleList
+                     isMode1Active={ isMode1Active }
+                     productsList={ productsList }
+                     onClickArticle={ onClickProduct }
+                  />
             ) }
          </section>
 

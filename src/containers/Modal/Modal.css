@@ -60,6 +60,10 @@ h6 {
   overflow: auto;
 }
 
+.Body::-webkit-scrollbar {
+  display: none;
+}
+
 .Footer {
   border-top: 0px;
   justify-content: center;
