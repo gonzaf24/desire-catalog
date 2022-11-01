@@ -1,4 +1,4 @@
-import Menu from './Menu/Menu';
-import LoaderSkeleton from './LoaderSkeleton/LoaderSkeleton';
+import Menu from './Menu';
+import LoaderSkeleton from './LoaderSkeleton';
 
 export { Menu, LoaderSkeleton };
