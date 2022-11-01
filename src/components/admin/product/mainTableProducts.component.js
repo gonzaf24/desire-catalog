@@ -101,7 +101,6 @@ export const MainTableProducts = () => {
 
    const onEditProduct = async (product) => {
       setSelectedProduct(product)
-      console.log('product ', product)
       openModalEditProduct()
    }
 

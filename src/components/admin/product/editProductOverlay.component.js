@@ -563,8 +563,8 @@ export const EditProductOverlay = ({
                         >
                            { photos.length > 1 &&
                               <>
-                                 <div onClick={ () => handleSwap(photos, index) }>
-                                    { index === photos.length - 1 ? <BiUpArrowAlt /> : <BiDownArrowAlt /> }
+                              <div title='Mover foto arriba/abajo' onClick={ () => handleSwap(photos, index) }>
+                                 { index === photos.length - 1 ? <BiUpArrowAlt className='cursor' /> : <BiDownArrowAlt className='cursor' /> }
                               </div>
                               { index }
                               </>
@@ -577,7 +577,8 @@ export const EditProductOverlay = ({
                            { formatFileNameToShow(el) }
                            <MdDeleteForever
                               className="delete-item-group"
-                              onClick={ () => onDeletePhoto(el) }
+                              title='Eliminar foto'
+                              onClick={ () => onDeletePhoto(el) } 
                            />
                         </ListGroup.Item>
                      )
