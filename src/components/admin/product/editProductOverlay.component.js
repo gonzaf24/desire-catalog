@@ -323,7 +323,7 @@ export const EditProductOverlay = ({
          className="modal-admin"
          header={
             <>
-               <img alt="www.anastassa.com" className="main-logo" src={ AnastassaLogo } />
+               <img alt="www.anastassa.com" className="main-logo-modal" src={ AnastassaLogo } />
                <span className="title-new-category">EDITAR PRODUCTO</span>
             </>
          }

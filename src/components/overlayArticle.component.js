@@ -96,7 +96,7 @@ const OverlayArticle = ({ isOpenModal, isLoading, onCloseModal, articleToShow, }
    return (
       <Modal
          header={
-            <><img alt="www.anastassa.com" className="main-logo" src={ AnastassaLogo } /><Fragment></Fragment></>
+            <><img alt="www.anastassa.com" className="main-logo-modal" src={ AnastassaLogo } /><Fragment></Fragment></>
          }
          isLoading={ isLoading }
          isOpen={ isOpenModal }

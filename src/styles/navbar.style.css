@@ -90,9 +90,18 @@
   transform: translate(-50%,-50%);
 }
 
+.main-logo-modal{
+  width: 120px;
+}
+
 @media (max-width: 500px) { 
   .main-logo {
-      width: 90px;
-      cursor: pointer;
-    }
+    width: 90px;
+    cursor: pointer;
+  }
+
+  .main-logo-modal{
+    width: 90px;
+    cursor: pointer;
+  }
 }

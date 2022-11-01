@@ -123,7 +123,7 @@ export const EditCategoryOverlay = ({
       <Modal
          header={
             <>
-               <img alt="www.anastassa.com" className="main-logo" src={ AnastassaLogo } />
+               <img alt="www.anastassa.com" className="main-logo-modal" src={ AnastassaLogo } />
                <span className="title-new-category">EDITAR CATEGORIA</span>
             </>
          }
