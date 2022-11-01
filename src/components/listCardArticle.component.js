@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/CategoryPage.style.css'
 import '../styles/listCardArticle.style.css'
-import CardArticle from './cardArticle.component'
+import CardArticle from './CardArticle'
 import PropTypes from 'prop-types'
 
 const propTypes = {

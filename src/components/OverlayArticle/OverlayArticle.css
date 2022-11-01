@@ -1,0 +1,203 @@
+.OverlayArticlWrapper-1 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.OverlayArticlWrapper-2{
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-weight: 800;
+  color: #313131;
+  text-align: left;
+  padding: 35px 15px 35px 15px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.OverlayArticleModalLogo{
+  width: 120px;
+}
+
+.OverlayArticleSection {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.OverlayArticleImgCard {
+  display: block;
+  max-width: 100%;
+  max-height: 580px;
+  width: auto !important;
+  height: auto;
+}
+
+.OverlayArticleShared{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.OverlayArticleFontW800{
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.OverlayArticleLinkCopy {
+  gap: 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.OverlayArticleLinkCopyCop {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.OverlayArticleBiCopy{
+  width: 35px;
+  color: #ef8482;
+}
+
+.OverlayArticleBiCopied{
+  width: 35px;
+  color: var(--bs-primary);
+}
+
+.OverlayArticleIconCopy{
+  top: 25px;
+  font-size: 6px;
+  position: absolute;
+  font-weight: 900;
+  color: #ef8482;
+}
+
+.OverlayArticleIconCopied{
+  top: 25px;
+  font-size: 6px;
+  position: absolute;
+  font-weight: 900; 
+  color: var(--bs-primary);
+}
+
+.OverlayArticlePrice {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+  width: 100%;
+  font-family: "arial-black";
+  font-size: 16px;
+  font-weight: 900;
+  text-align: right;
+}
+
+.OverlayArticleItem {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.OverlayArticlePillWrapper{
+  display: flex;
+  gap: 5px;
+}
+
+.OverlayArticleWrapperPill {
+  border: 1px solid rgb(122 130 136 / 50%);
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
+.OverlayArticleDetailProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.OverlayArticleFlexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.OverlayArticleMarginRight5 {
+  margin-right: 5px;
+}
+
+.OverlayArticleUrlActive {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border: 1px solid black;
+  padding: 2px 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgb(0 0 0 / 30%);
+  color: white;
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.OverlayArticleCopyUrl {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border: 1px solid black;
+  padding: 2px 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgb(0 0 0 / 30%);
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
+
+@media (max-width: 812px) {
+  .OverlayArticleImgCard {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  .OverlayArticlWrapper-2 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) { 
+
+  .OverlayArticleModalLogo{
+    width: 90px;
+    cursor: pointer;
+  }
+}
