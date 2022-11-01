@@ -22,6 +22,7 @@ import AlertConfirm from '../../alertConfirm.component'
 import PropTypes from 'prop-types'
 import Modal from '../../../containers/Modal/Modal'
 import AnastassaLogo from '../../../images/logo-anastassa.jpg'
+import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
 
 
 const propTypes = {
@@ -310,6 +311,34 @@ export const EditProductOverlay = ({
       }
    }
 
+   const swapDownPhotos = (array, a) => {
+      console.log(' array es : ', array);
+      const arrayAux = [...array];
+      const b = (a + 1);
+      [arrayAux[a], arrayAux[b]] = [arrayAux[b], arrayAux[a]]
+      setPhotos(arrayAux)
+   }
+
+   const swapUpPhotos = (array, a) => {
+      console.log(' array es : ', array);
+      const arrayAux = [...array];
+      let b = (a - 1);
+      [arrayAux[b], arrayAux[a]] = [arrayAux[a], arrayAux[b]]
+      setPhotos(arrayAux)
+   }
+
+   const handleSwap = (array, a) => {
+
+      if (a === array.length - 1) {
+         console.log(' up ')
+         swapUpPhotos(array, a)
+      }
+      else {
+         console.log(' down ')
+         swapDownPhotos(array, a)
+      }
+   }
+
    useEffect(() => {
       const exect = async () => {
          const categorysOut = await getCategorysHook()
@@ -317,6 +346,10 @@ export const EditProductOverlay = ({
       }
       exect()
    }, [])
+
+   useEffect(() => {
+      console.log('photos ', photos)
+   }, [photos])
 
    return (
       <Modal
@@ -530,10 +563,15 @@ export const EditProductOverlay = ({
                <ListGroup>
                   { photos.map((el, index) => {
                      return (
+
                         <ListGroup.Item
                            key={ index }
                            className="d-flex justify-content-between item-group"
                         >
+                           <Button onClick={ () => handleSwap(photos, index) }>
+                              { index === photos.length - 1 ? <BiUpArrowAlt /> : <BiDownArrowAlt /> }
+                           </Button>
+                           { index }
                            <ImImage
                               className="delete-item-group"
                               onClick={ () => onShowImageFullSize(el) }
