@@ -1,0 +1,40 @@
+.CategoryTable {
+}
+
+
+.CategoryTableWrapper{
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.CategoryTableButtonIcon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700 !important;
+}
+
+.CategoryTableAdminTable {
+  text-align: left;
+  color: #313131 !important;
+  border-color: rgb(0 0 0 / 40%) !important;
+}
+
+.CategoryTableAscendingIcon {
+  float: right;
+  width: 15px;
+  height: 21px;
+}
+
+.CategoryTableSpinner {
+  background-color: var(--bs-primary) !important;
+}
+
+.CategoryTableIconAdmin {
+  font-size: 25px;
+}
+
+.CategoryTableIconAdmin:hover {
+  color: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,22 @@
+.NewCategory {
+}
+
+.NewCategorySection {
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  position: relative;
+}
+
+.NewCategoryFormCheck {
+  width: 100px;
+  text-align: left;
+  padding-top: 15px;
+}
+
+.NewCategoryButtonsContainer {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  margin-top: 25px;
+}
