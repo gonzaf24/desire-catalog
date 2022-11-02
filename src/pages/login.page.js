@@ -1,5 +1,6 @@
 import React from 'react'
-import Login from '../components/login.component'
+import Login from '../components/Login'
+import '../styles/login.style.css'
 
 export default function LoginPage() {
    return (

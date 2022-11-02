@@ -7,6 +7,7 @@ import AlertConfirm from './AlertConfirm';
 import CardArticle from './CardArticle';
 import CardArticleList from './CardArticleList';
 import OverlayArticle from './OverlayArticle';
+import Login from './Login';
 
 export {
   AlertConfirm,
@@ -16,6 +17,7 @@ export {
   CarouselFullSize,
   FullSizeImage,
   LoaderSkeleton,
+  Login,
   Menu,
   OverlayArticle,
 };
