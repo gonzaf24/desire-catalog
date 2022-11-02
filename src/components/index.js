@@ -8,6 +8,14 @@ import CardArticle from './CardArticle';
 import CardArticleList from './CardArticleList';
 import OverlayArticle from './OverlayArticle';
 import Login from './Login';
+import NewProduct from './Admin/Product/NewProduct';
+import EditProduct from './Admin/Product/EditProduct';
+import ProductTable from './Admin/Product/ProductTable';
+import EditCategory from './Admin/Category/EditCategory';
+import NewCategory from './Admin/Category/NewCategory';
+import CategoryTable from './Admin/Category/CategoryTable';
+import UploadFile from './FileUpload/UploadFile';
+import DeleteFile from './FileUpload/DeleteFile';
 
 export {
   AlertConfirm,
@@ -20,4 +28,12 @@ export {
   Login,
   Menu,
   OverlayArticle,
+  NewProduct,
+  EditProduct,
+  ProductTable,
+  EditCategory,
+  NewCategory,
+  CategoryTable,
+  UploadFile,
+  DeleteFile,
 };

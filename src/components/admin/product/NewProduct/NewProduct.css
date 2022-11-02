@@ -1,0 +1,57 @@
+.NewProduct {
+  max-height: 95vh !important;
+}
+
+#NewProductID > .modal-content{
+  max-height: 90vh;
+}
+
+.NewProductSection{
+  max-width: 450px;
+  max-height: 90vh;
+  width: 100%;
+  background-color: white;
+  padding-bottom: 25px;
+  position: relative;
+  overflow: scroll;
+}
+
+.NewProductForm{
+  padding: 25px;
+}
+
+.NewProductItemGroup{
+ background-color: rgb(107 182 107 / 30%) !important;
+ text-align: right;
+}
+
+.NewProductDeleteItem{
+  margin-left: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.NewProductFormCheck {
+  width: 100px;
+  text-align: left;
+  padding-top: 15px;
+}
+
+.NewProductButtonsContainer {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+}
+
+@media (max-width: 812px) { 
+  .NewProductSection{
+    max-width: 400px;
+    max-height: 70vh;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    position: relative;
+    overflow: scroll;
+  }
+}

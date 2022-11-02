@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Slider from 'react-slick'
 import { HiOutlineArrowsExpand } from 'react-icons/hi'
 import PropTypes from 'prop-types'
-import { useIntersection } from '../../hooks/useIntersectionObserver'
+import useIntersection from '../../hooks/useIntersectionObserver'
 import './CardArticle.css';
 
 const propTypes = {

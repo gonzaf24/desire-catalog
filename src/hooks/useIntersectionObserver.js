@@ -28,7 +28,7 @@ function getIntersectionObserver() {
   return observer;
 }
 
-export function useIntersection(elem, callback) {
+export default function useIntersection(elem, callback) {
   useEffect(() => {
     let target = elem.current;
     let observer = getIntersectionObserver();

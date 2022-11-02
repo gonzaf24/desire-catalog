@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, FloatingLabel, Form } from 'react-bootstrap'
-import useCategory from '../../../../hooks/useCategory'
-import AlertDismissible from '../../../AlertDismissible'
-import Modal from '../../../../containers/Modal'
 import AnastassaLogo from '../../../../images/logo-anastassa.jpg'
+import { Modal } from '../../../../containers/index'
+import { useCategory } from '../../../../hooks/index'
+import { AlertDismissible } from '../../../index'
+import { Button, FloatingLabel, Form } from 'react-bootstrap'
 import './NewCategory.css';
 
 const propTypes = {
@@ -26,7 +26,7 @@ const defaultProps = {
 };
 
 const NewCategory = ({ className, id, isOpenModal, isLoading, onCloseModal, onSuccessCreatedCategory }) => {
-  const classComponent = [NewCategory, className].join(' ').trim();
+  const classComponent = ['NewCategory', className].join(' ').trim();
   const { newCategoryHook } = useCategory()
   const [name, setName] = useState('')
   const [categoryType, setCategoryType] = useState('MUJER')

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Button, FloatingLabel, Form } from 'react-bootstrap'
-import useCategory from '../../../../hooks/useCategory'
-import AlertDismissible from '../../../AlertDismissible'
 import PropTypes from 'prop-types'
 import AnastassaLogo from '../../../../images/logo-anastassa.jpg'
-import Modal from '../../../../containers/Modal'
+import { Modal } from '../../../../containers/index'
+import { useCategory } from '../../../../hooks/index'
+import { AlertDismissible } from '../../../index'
+import { Button, FloatingLabel, Form } from 'react-bootstrap'
 import './EditCategory.css';
 
 const propTypes = {

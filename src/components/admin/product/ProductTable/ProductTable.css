@@ -1,0 +1,84 @@
+.ProductTable {
+}
+
+.ProductTableBarWrapper {
+  width: 100%;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-top: 25px;
+}
+
+.ProductTableButtonIcon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700 !important;
+  margin-right: 10px;
+}
+
+.ProductTableGap10{
+  gap: 10px;
+}
+
+.ProductTableSearch {
+  max-width: 150px;
+  font-weight: 700 !important;
+}
+
+.ProductTableRefreshTable {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 12px !important;
+  border-radius: 5px !important;
+}
+
+.ProductTableMR10 {
+  margin-right: 10px;
+}
+
+.ProductTableBarWrapper {
+  width: 100%;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-bottom: 25px;
+}
+
+.ProductTableExportExcel {
+  background-color: var(--bs-green);
+  color: white;
+  font-weight: 800;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.ProductTableTableID {
+  text-align: left;
+  color: #313131 !important;
+  border-color: rgb(0 0 0 / 40%) !important;
+}
+
+.ProductTableAscendingIcon {
+  float: right;
+  width: 15px;
+  height: 21px;
+}
+
+.ProductTableSpinner {
+  background-color: var(--bs-primary) !important;
+}
+
+.ProductTableIconAdmin {
+  font-size: 25px;
+}
+
+.ProductTableIconAdmin:hover {
+  color: rgba(255, 255, 255, 0.7);
+}

@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 import { Button, Spinner, Table } from 'react-bootstrap'
 import { MdDeleteForever } from 'react-icons/md'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import { TbSortAscending } from 'react-icons/tb'
 import { TiPlus } from 'react-icons/ti'
-import useCategory from '../../../../hooks/useCategory'
-import EditCategory from '../EditCategory'
-import NewCategory from '../NewCategory'
-import AlertDismissible from '../../../AlertDismissible'
-import AlertConfirm from '../../../AlertConfirm'
-import useOpenToggle from '../../../../hooks/useOpenToggle'
-import PropTypes from 'prop-types'
+import { useCategory, useOpenToggle } from '../../../../hooks/index'
+import { NewCategory, EditCategory, AlertDismissible, AlertConfirm } from '../../../index'
 
 import './CategoryTable.css';
 
@@ -26,7 +22,7 @@ const defaultProps = {
 };
 
 const CategoryTable = ({ className, id }) => {
-  const classComponent = [CategoryTable, className].join(' ').trim();
+  const classComponent = ['CategoryTable', className].join(' ').trim();
   // eslint-disable-next-line no-unused-vars
   const [location, setLocation] = useLocation()
   const { getCategorysHook, deleteCategoryHook } = useCategory()

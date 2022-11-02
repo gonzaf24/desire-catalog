@@ -1,0 +1,58 @@
+.EditProduct {
+  max-height: 95vh !important;
+}
+
+#EditProductID > .modal-content{
+  max-height: 90vh;
+}
+
+.EditProductSection{
+  max-width: 450px;
+  max-height: 90vh;
+  width: 100%;
+  background-color: white;
+  padding-bottom: 25px;
+  position: relative;
+  overflow: scroll;
+}
+
+.EditProductForm{
+  padding: 25px;
+}
+
+.EditProductDeleteItem{
+  margin-left: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.EditProductItemGroup{
+ background-color: rgb(107 182 107 / 30%) !important;
+ text-align: right;
+}
+
+.EditProductCheck {
+  width: 100px;
+  text-align: left;
+  padding-top: 15px;
+}
+
+.EditProductButtonsContainer {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+@media (max-width: 812px) { 
+  .EditProductSection{
+    max-width: 400px;
+    max-height: 70vh;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    position: relative;
+    overflow: scroll;
+  }
+}
