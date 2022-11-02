@@ -66,7 +66,7 @@ const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) 
                 <section key={ index } className="CardArticleSection">
                   <img alt="" className="CardArticleImage" src={ imagen } onClick={ handleClickArticle } />
                   <HiOutlineArrowsExpand
-                    className="expand-button"
+                    className="CardArticleExpandButton"
                     size={ 35 }
                     onClick={ handleClickArticle }
                   />

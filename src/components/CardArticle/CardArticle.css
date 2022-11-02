@@ -73,6 +73,53 @@
   cursor: pointer;
 }
 
+.CardArticleExpandButton {
+  width: 25px;
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  right: 5px;
+  z-index: 1;
+  color: rgb(236 98 95 / 30%);
+  cursor: pointer;
+}
+
+.CardArticleExpandButton:hover {
+  color: rgb(236 98 95 / 60%);
+}
+
+.slick-track {
+  display: flex;
+  align-items: flex-start;
+}
+
+.slick-prev {
+  left: 10px;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+}
+
+.slick-next {
+  right: 10px;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  font-size: 30px;
+  line-height: 1;
+  color: rgb(236 98 95 / 60%);
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 0.75;
+  color: rgb(236 98 95 / 90%);
+}
+
+
 @media (max-width: 1500px) {
   .CardArticleImage {
     height: auto;
