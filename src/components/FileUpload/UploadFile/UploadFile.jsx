@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react'
 import { Button, Spinner } from 'react-bootstrap'
-import { FaPlus } from 'react-icons/fa'
 import { useImage } from '../../../hooks/index'
 // eslint-disable-next-line no-undef
 window.Buffer = window.Buffer || require('buffer').Buffer
@@ -55,14 +54,11 @@ const UploadFile = ({ className, id, disabled, categoryName, onSuccesUpload }) =
       { isUploading ? (
         <Spinner animation="grow" className="UploadFileSpinner" />
       ) : (
-        <Fragment>
-          <label className="UploadFilePointer" htmlFor="file-upload">
-            <FaPlus className="UploadFileFaPlus" />
-          </label>
+          <Fragment>
           <input
-            accept="image/*"
-            id="file-upload"
-            style={ { display: 'none' } }
+              accept="image/*"
+              className='UploadFileInput'
+              id="file-upload"
             type="file"
             onChange={ onSelectFile }
           />

@@ -529,11 +529,6 @@ const EditProduct = ({
           </ListGroup>
 
           <InputGroup className="mt-4">
-            <FormControl
-              aria-label="Lista de fotos de la prenda."
-              disabled
-              placeholder="Fotos"
-            />
             <UploadFile
               categoryName={ categoryName }
               disabled={

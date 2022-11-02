@@ -1,4 +1,6 @@
 .UploadFile {
+  cursor: pointer;
+  z-index: 0;
 }
 
 .UploadFileSpinner{
@@ -16,4 +18,9 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+.UploadFileInput{
+  cursor: pointer;
+  z-index: 0;
 }
