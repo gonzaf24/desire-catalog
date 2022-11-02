@@ -18,7 +18,7 @@ const defaultProps = {
 
 
 const LoaderSkeleton = ({ className, id, size }) => {
-  const classComponent = className ? ['LoaderSkeleton', className] : ['LoaderSkeleton'];
+  const classComponent = ['LoaderSkeleton', className].join(' ').trim();
   const totalSkeletonArray = Array(size).fill({})
 
   const classSize = size > 10 ? 'max-width-12' : 'max-width-1';

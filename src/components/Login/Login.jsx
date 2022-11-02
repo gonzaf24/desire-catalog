@@ -19,7 +19,7 @@ const defaultProps = {
 };
 
 const Login = ({ className, id, onLogin }) => {
-  const classComponent = className ? ['Login', className] : ['Login'];
+  const classComponent = ['Login', className].join(' ').trim();
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 

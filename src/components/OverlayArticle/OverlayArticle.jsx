@@ -102,7 +102,10 @@ const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToSho
   return (
     <Modal
       header={
-        <><img alt="www.anastassa.com" className="OverlayArticleModalLogo" src={ AnastassaLogo } /><Fragment></Fragment></>
+        <>
+          <img alt="www.anastassa.com" className="OverlayArticleModalLogo" src={ AnastassaLogo } />
+          <Fragment></Fragment>
+        </>
       }
       id={ id }
       isLoading={ isLoading }

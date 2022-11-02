@@ -40,8 +40,8 @@ const settings = {
 }
 
 const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) => {
-  const classComponent = className ? 'CardArticle '.concat(className) : 'CardArticle';
-  let classModelActive = !isMode1Active ? classComponent : classComponent.concat(' CardArticleSingle');
+  const classComponent = ['CardArticle', className].join(' ').trim()
+  const classModelActive = !isMode1Active ? classComponent : [classComponent, 'CardArticleSingle'].join(' ');
 
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef();
@@ -66,7 +66,7 @@ const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) 
                 <section key={ index } className="CardArticleSection">
                   <img alt="" className="CardArticleImage" src={ imagen } onClick={ handleClickArticle } />
                   <HiOutlineArrowsExpand
-                    className="CardArticleExpandButton"
+                    className="expand-button"
                     size={ 35 }
                     onClick={ handleClickArticle }
                   />

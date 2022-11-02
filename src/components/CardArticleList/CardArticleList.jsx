@@ -21,7 +21,7 @@ const defaultProps = {
 };
 
 const CardArticleList = ({ className, id, isMode1Active, onClickArticle, productsList }) => {
-  const classComponent = className ? ['CardArticleList', className] : ['CardArticleList'];
+  const classComponent = ['CardArticleList', className].join(' ').trim();
   const [listOfProducts, setlistOfProducts] = useState([])
 
   useEffect(() => {

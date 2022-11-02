@@ -23,7 +23,7 @@ const defaultProps = {
 };
 
 const AlertDismissible = ({ className, id, show, msg, callbackCloseError, type }) => {
-  const classComponent = className ? ['AlertDismissible', className] : ['AlertDismissible'];
+  const classComponent = ['AlertDismissible', className].join(' ').trim();
 
   return show && (
     <div className={ classComponent } id={ id } >

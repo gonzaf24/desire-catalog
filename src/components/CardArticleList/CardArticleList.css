@@ -15,7 +15,7 @@
   max-width: 1000px;
 }
 
-@media (max-width: 812px) {
+@media (max-width: 1000px) {
   .CardArticleListWrapper {
     grid-gap: 1.5rem;
     justify-content: center;

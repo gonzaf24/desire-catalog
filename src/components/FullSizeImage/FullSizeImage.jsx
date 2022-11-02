@@ -21,7 +21,7 @@ const defaultProps = {
 };
 
 const FullSizeImage = ({ className, id, show, imgSrc, setShowFullSizeImage }) => {
-  const classComponent = className ? ['FullSizeImage', className] : ['FullSizeImage'];
+  const classComponent = ['FullSizeImage', className].join(' ').trim();
 
   return (
     show && (

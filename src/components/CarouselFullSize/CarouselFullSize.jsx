@@ -32,7 +32,7 @@ const settings = {
 }
 
 const CarouselFullSize = ({ className, id, show, imgSrcArray, setShowCarouselFullSizeImages, }) => {
-  const classComponent = className ? ['CarouselFullSize', className] : ['CarouselFullSize'];
+  const classComponent = ['CarouselFullSize', className].join(' ').trim();
 
   return (
     show && (

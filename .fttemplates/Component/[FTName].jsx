@@ -14,7 +14,7 @@ const defaultProps = {
 };
 
 const [FTName] = ({ className, id }) => {
-  const classComponent = className ? [[FTName], className] : [[FTName]];
+  const classComponent = [[FTName], className].join(' ').trim();
 
   return (
     <div

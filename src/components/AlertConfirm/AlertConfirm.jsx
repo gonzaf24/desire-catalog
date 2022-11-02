@@ -25,7 +25,7 @@ const defaultProps = {
 };
 
 const AlertConfirm = ({ className, id, show, msg, callbackCancel, callbackConfirm, type }) => {
-  const classComponent = className ? ['AlertConfirm', className] : ['AlertConfirm'];
+  const classComponent = ['AlertConfirm', className].join(' ').trim();
 
   return show && (
     <div className={ classComponent } id={ id }>
