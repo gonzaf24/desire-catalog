@@ -40,8 +40,8 @@ const settings = {
 }
 
 const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) => {
-  const classComponent = className ? ['CardArticle', className] : ['CardArticle'];
-  const classModelActive = !isMode1Active ? classComponent : [classComponent, ' CardArticleSingle'];
+  const classComponent = className ? 'CardArticle '.concat(className) : 'CardArticle';
+  let classModelActive = !isMode1Active ? classComponent : classComponent.concat(' CardArticleSingle');
 
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef();
