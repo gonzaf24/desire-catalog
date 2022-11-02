@@ -1,0 +1,19 @@
+.UploadFile {
+}
+
+.UploadFileSpinner{
+  width: 1rem !important;
+  height: 1rem !important;
+  margin: 0 auto;
+}
+
+.UploadFilePointer{
+  cursor: pointer;
+}
+
+.UploadFileFaPlus{
+  color: var(--bs-primary);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}

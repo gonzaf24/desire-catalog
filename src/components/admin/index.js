@@ -5,7 +5,7 @@ import EditProduct from './Product/EditProduct';
 import ProductTable from './Product/ProductTable';
 import NewProduct from './Product/NewProduct';
 
-export {
+export default {
   CategoryTable,
   EditCategory,
   NewCategory,
