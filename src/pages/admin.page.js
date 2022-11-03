@@ -3,7 +3,7 @@ import '../styles/admin.style.css'
 import { useLocation } from 'wouter'
 import { Tab, Tabs } from 'react-bootstrap'
 import { useCategory } from '../hooks/index'
-import { /* CategoryTable, */ ProductTable } from '../components/index';
+import { CategoryTable, ProductTable } from '../components/index';
 import PropTypes from 'prop-types'
 
 const propTypes = {
@@ -41,7 +41,7 @@ export const Admin = ({ onAdmin }) => {
                <ProductTable /> 
             </Tab>
             <Tab eventKey="categorias" title="CATEGORIAS">
-               {/* <CategoryTable /> */ }
+               <CategoryTable /> 
             </Tab>
          </Tabs>
       </div>
