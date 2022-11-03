@@ -10,12 +10,12 @@ import OverlayArticle from './OverlayArticle';
 import Login from './Login';
 import UploadFile from './FileUpload/UploadFile';
 import DeleteFile from './FileUpload/DeleteFile';
-import NewProduct from './Admin/Product/NewProduct';
-import EditProduct from './Admin/Product/EditProduct';
-import ProductTable from './Admin/Product/ProductTable';
-import EditCategory from './Admin/Category/EditCategory';
-import NewCategory from './Admin/Category/NewCategory';
-import CategoryTable from './Admin/Category/CategoryTable';
+import NewProduct from './Admin/Product/NewProduct/index';
+import EditProduct from './Admin/Product/EditProduct/index';
+import ProductTable from './Admin/Product/ProductTable/index';
+import EditCategory from './Admin/Category/EditCategory/index';
+import NewCategory from './Admin/Category/NewCategory/index';
+import CategoryTable from './Admin/Category/CategoryTable/index';
 
 export {
   AlertConfirm,
