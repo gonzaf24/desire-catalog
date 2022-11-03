@@ -107,7 +107,6 @@ const NewCategory = ({ className, id, isOpenModal, isLoading, onCloseModal, onSu
       <section className="NewCategorySection">
         <Form onSubmit={ handleSubmit }>
           <FloatingLabel
-            className="mt-4"
             controlId="floatingSelect"
             label="Tipo de categoria"
           >
@@ -190,8 +189,6 @@ const NewCategory = ({ className, id, isOpenModal, isLoading, onCloseModal, onSu
               } }
             />
           </FloatingLabel>
-
-          <br />
 
           <section className="NewCategoryButtonsContainer">
             <Button

@@ -142,9 +142,8 @@ const EditCategory = ({
       onHide={ onCloseModal }
     >
       <section className="EditCategorySection">
-        <Form className="mt-5" onSubmit={ handleSubmit }>
+        <Form onSubmit={ handleSubmit }>
           <FloatingLabel
-            className="mt-4"
             controlId="floatingSelect"
             label="Tipo de categoria"
           >
