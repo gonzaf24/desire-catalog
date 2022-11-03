@@ -2,7 +2,7 @@ import EditProduct from './EditProduct';
 import ProductTable from './ProductTable';
 import NewProduct from './NewProduct';
 
-export {
+export default {
   EditProduct,
   ProductTable,
   NewProduct,
