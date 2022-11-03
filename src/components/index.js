@@ -10,8 +10,8 @@ import OverlayArticle from './OverlayArticle';
 import Login from './Login';
 import UploadFile from './FileUpload/UploadFile';
 import DeleteFile from './FileUpload/DeleteFile';
-import { NewProduct, EditProduct, ProductTable } from './Admin/Product/index';
-import { EditCategory, NewCategory, CategoryTable } from './Admin/Category/index';
+import { NewProduct, EditProduct, ProductTable } from './Admin/Product';
+import { EditCategory, NewCategory, CategoryTable } from './Admin/Category';
 
 export {
   AlertConfirm,
