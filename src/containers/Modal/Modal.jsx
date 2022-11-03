@@ -52,32 +52,31 @@ const Modal = ({
    size = 'md',
    className = '',
 }) => {
-
-   const classNameModal = ['ModalContainer', className]
+   const classComponent = ['Modal', className].join(' ').trim();
 
    return (
       <ModalBoostrap
-         aria-labelledby="modal-center"
+         aria-labelledby="Modal"
          centered
-         className={ classNameModal }
+         className={ classComponent }
          id={ id }
          show={ isOpen }
          size={ size }
          onHide={ onHide }
       >
          { (header || onClose) && (
-            <ModalBoostrap.Header className="Header">
+            <ModalBoostrap.Header className="ModalHeader">
                <img alt="www.anastassa.com" className="ModalLogo" src={ AnastassaLogo } />
                { header }
                { onClose && (
-                  <BiX className="CloseIcon" size={ 75 } onClick={ onClose }></BiX>
+                  <BiX className="ModalCloseIcon" size={ 75 } onClick={ onClose } />
                ) }
             </ModalBoostrap.Header>
          ) }
          { children && (
-            <ModalBoostrap.Body className="Body">
+            <ModalBoostrap.Body className="ModalBody">
                { isLoading && (
-                  <div className="LoaderContainer">
+                  <div className="ModalLoaderContainer">
 
                   </div>
                ) }
@@ -85,7 +84,7 @@ const Modal = ({
             </ModalBoostrap.Body>
          ) }
          { footer && (
-            <ModalBoostrap.Footer className="Footer">
+            <ModalBoostrap.Footer className="ModalFooter">
                { footer }
             </ModalBoostrap.Footer>
          ) }

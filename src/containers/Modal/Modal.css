@@ -1,63 +1,30 @@
+
+.Modal{
+
+}
+
 .modal-content {
   border-radius: 50px !important;
   overflow: auto;
 }
 
-#modal-new-product > .modal-content{
-  max-height: 90vh;
-}
-
-.ModalContainer::-webkit-scrollbar {
+.Modal::-webkit-scrollbar {
   display: none;
 }
 
-.Header {
+.ModalHeader {
   gap: 25px;
   display: flex !important;
   border-bottom: 0px !important;
   justify-content: space-between;
 }
 
-.EmptyHeader {
-  justify-content: flex-end;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-align: center;
-  width: 100%;
-  margin-bottom: 0px;
-}
-
-.CloseIcon {
+.ModalCloseIcon {
   cursor: pointer;
   color: #ef8482;
 }
 
-.ModalLogo {
-   width: 120px;
-}
-
-
-
-.LoaderContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-}
-
-.Loader {
-  width: 45px;
-  height: 45px;
-}
-
-.Body {
+.ModalBody {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,15 +32,26 @@ h6 {
   overflow: auto;
 }
 
-.Body::-webkit-scrollbar {
+.ModalBody::-webkit-scrollbar {
   display: none;
 }
 
-.Footer {
+.ModalLoaderContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.ModalFooter {
   border-top: 0px;
   justify-content: center;
   flex-direction: row;
+}
 
+.ModalLogo {
+   width: 120px;
 }
 
 Button {
