@@ -1,66 +1,111 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
-import AnastassaLogo from '../../../../images/logo-anastassa.jpg'
+import AnastassaLogo from '../../../images/logo-anastassa.jpg'
+import { Modal } from '../../../containers/index'
 import { FaPlus } from 'react-icons/fa'
 import { ImImage } from 'react-icons/im'
-import { Modal } from '../../../../containers/index'
 import { MdDeleteForever } from 'react-icons/md'
-import { formatFileNameToShow } from '../../../../utils/formatters'
-import { useProduct, useImage, useCategory } from '../../../../hooks/index'
-import { AlertDismissible, AlertConfirm, FullSizeImage, UploadFile } from '../../../index'
+import { formatFileNameToShow } from '../../../utils/formatters'
+import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
+import { useProduct, useImage, useCategory } from '../../../hooks/index'
+import { AlertDismissible, AlertConfirm, FullSizeImage, UploadFile } from '../../index'
 import { Button, FloatingLabel, Form, FormControl, InputGroup, ListGroup, } from 'react-bootstrap'
 
-import './NewProduct.css';
+import './EditProduct.css';
 
 const propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   isLoading: PropTypes.bool,
   isOpenModal: PropTypes.bool,
+  productToEdit: PropTypes.shape({
+    colors: PropTypes.arrayOf(PropTypes.string),
+    description: PropTypes.string,
+    detail: PropTypes.string,
+    discount: PropTypes.string,
+    id: PropTypes.string,
+    isActive: PropTypes.bool,
+    name: PropTypes.string,
+    nameCategory: PropTypes.string,
+    newProduct: PropTypes.bool,
+    photos: PropTypes.arrayOf(PropTypes.string),
+    position: PropTypes.number,
+    precioUSD: PropTypes.string,
+    precioUY: PropTypes.string,
+    price: PropTypes.number,
+    priceES: PropTypes.number,
+    ref: PropTypes.string,
+    sizes: PropTypes.arrayOf(PropTypes.string),
+    sizesDescriptions: PropTypes.arrayOf(PropTypes.string),
+    stock: PropTypes.number,
+
+  }),
   onCloseModal: PropTypes.func,
-  onSuccessNewProduct: PropTypes.func,
+  onSuccessEditProduct: PropTypes.func,
 };
 
 const defaultProps = {
   className: '',
-  id: 'NewProductID',
-  onSuccessNewProduct: undefined,
+  id: 'EditProductID',
+  productToEdit: {
+    colors: [],
+    description: '',
+    detail: '',
+    discount: '',
+    id: '',
+    isActive: false,
+    name: '',
+    nameCategory: '',
+    newProduct: false,
+    photos: [],
+    position: 0,
+    precioUSD: '',
+    precioUY: '',
+    price: 0,
+    priceES: 0,
+    ref: '',
+    sizes: [],
+    sizesDescriptions: [],
+    stock: 0,
+  },
   isLoading: false,
   isOpenModal: false,
   onCloseModal: undefined,
+  onSuccessEditProduct: undefined,
 };
 
-const NewProduct = ({
+const EditProduct = ({
   className,
   id,
-  onSuccessNewProduct,
   isOpenModal,
   isLoading,
-  onCloseModal, }) => {
-  const classComponent = [NewProduct, className].join(' ').trim();
-  const { newProductHook } = useProduct()
+  onCloseModal,
+  onSuccessEditProduct,
+  productToEdit, }) => {
+  const classComponent = ['EditProduct', className].join(' ').trim();
+  const { editProductHook } = useProduct()
   const { deleteImageHook } = useImage()
   const { getCategorysHook } = useCategory()
-  const [referenceId, setReferenceId] = useState('')
-  const [categoryName, setCategoryName] = useState('')
-  const [description, setDescription] = useState('')
-  const [detail, setDetail] = useState('')
-  const [colors, setColors] = useState([])
+  const [referenceId, setReferenceId] = useState(productToEdit.ref)
+  const [categoryName, setCategoryName] = useState(productToEdit.nameCategory)
+  const [description, setDescription] = useState(productToEdit.description)
+  const [detail, setDetail] = useState(productToEdit.detail)
+  const [colors, setColors] = useState(productToEdit.colors)
   const [colorDescription, setColorDescription] = useState('')
-  const [sizes, setSizes] = useState([])
+  const [sizes, setSizes] = useState(productToEdit.sizes)
   const [sizeDescription, setSizeDescription] = useState('')
-  const [sizesDescriptions, setSizesDescriptions] = useState([])
+  const [sizesDescriptions, setSizesDescriptions] = useState(productToEdit.sizesDescriptions)
   const [sizesDescr1, setSizesDescr1] = useState('')
   const [sizesDescr2, setSizesDescr2] = useState('')
-  const [photos, setPhotos] = useState([])
+  const [photos, setPhotos] = useState(productToEdit.photos)
   const [deletedPhotos, setDeletedPhotos] = useState([])
-  const [activeProduct, setActiveProduct] = useState(true)
-  const [isNewProduct, setIsNewProduct] = useState(false)
-  const [discountProduct, setDiscountProduct] = useState(0)
-  const [position, setPosition] = useState(0)
-  const [priceUY, setPriceUY] = useState(0)
-  const [priceES, setPriceES] = useState(0)
-  const [priceUSD, setPriceUSD] = useState(0)
+  const [activeProduct, setActiveProduct] = useState(productToEdit.isActive)
+  const [isNewProduct, setIsNewProduct] = useState(productToEdit.newProduct)
+  const [discountProduct, setDiscountProduct] = useState(productToEdit.discount)
+  const [position, setPosition] = useState(productToEdit.position)
+  const [priceUY, setPriceUY] = useState(productToEdit.precioUY)
+  const [priceES, setPriceES] = useState(productToEdit.priceES)
+  const [priceUSD, setPriceUSD] = useState(productToEdit.precioUSD)
   const [typeError, setTypeError] = useState('succes')
   const [showAlert, setShowAlert] = useState(false)
   const [messageError, setMessageError] = useState('')
@@ -70,6 +115,26 @@ const NewProduct = ({
   const [imgSrcFullSize, setImgSrcFullSize] = useState()
   const [showConfirm, setShowConfirm] = useState(false)
   const [srcImageToDelete, setSrcImageToDelete] = useState()
+
+  useEffect(() => {
+    if (productToEdit) {
+      setReferenceId(productToEdit.ref)
+      setCategoryName(productToEdit.nameCategory)
+      setDescription(productToEdit.description)
+      setDetail(productToEdit.detail)
+      setColors(productToEdit.colors)
+      setSizes(productToEdit.sizes)
+      setSizesDescriptions(productToEdit.sizesDescriptions)
+      setPhotos(productToEdit.photos)
+      setActiveProduct(productToEdit.isActive)
+      setIsNewProduct(productToEdit.newProduct)
+      setDiscountProduct(productToEdit.discount)
+      setPosition(productToEdit.position)
+      setPriceUY(productToEdit.precioUY)
+      setPriceES(productToEdit.priceES)
+      setPriceUSD(productToEdit.precioUSD)
+    }
+  }, [productToEdit]);
 
   function validateForm() {
     let isValid = true
@@ -91,6 +156,7 @@ const NewProduct = ({
 
   const callbackCloseError = (param) => {
     setShowAlert(param)
+    onCloseModal()
   }
 
   const onAddToColors = (element) => {
@@ -148,6 +214,26 @@ const NewProduct = ({
     setPhotos(arrayAuxPhotos)
   }
 
+  /*   const onSuccesDeleted = async (src) => {
+     let arrayAuxPhotos = photos.filter((el) => el !== src)
+     setPhotos(arrayAuxPhotos);
+   }
+ 
+   const onDeleteImage = async (src) => {
+     await deleteImageHook(formatFileNameToShow(src))
+       .then((element) => {
+         let arrayAuxPhotos = photos.filter((el) => el !== src)
+         setPhotos(arrayAuxPhotos);
+         return element;
+       })
+       .catch((error) => {
+         setShowAlert(true);
+         setMessageError(error.message)
+         setTypeError("danger")
+       })
+   }
+  */
+
   const onDeletePhoto = (imgSrc) => {
     setShowConfirm(true)
     setSrcImageToDelete(imgSrc)
@@ -166,25 +252,11 @@ const NewProduct = ({
     setPhotos(arrayAuxPhotos)
   }
 
-  const closeOverlay = () => {
-    photos.length > 0 &&
-      photos.forEach(async (elementos) => {
-        await deleteImageHook(formatFileNameToShow(elementos))
-          .then((element) => {
-            console.log('eliminado ok ', element)
-            return element
-          })
-          .catch((error) => {
-            console.log('error al eliminar foto ', error)
-          })
-      })
-    onCloseModal();
-  }
-
   async function handleSubmit(event) {
     try {
       event.preventDefault()
-      const ProductToRegister = {
+      const ProductToUpdate = {
+        id: productToEdit.id,
         ref: referenceId,
         nameCategory: categoryName,
         description: description,
@@ -201,8 +273,9 @@ const NewProduct = ({
         precioES: priceES,
         precioUSD: priceUSD,
       }
-      const productCreated = await newProductHook(ProductToRegister)
-        .then((element) => {
+
+      const productCreated = await editProductHook(ProductToUpdate)
+        .then(async (element) => {
           deletedPhotos.length > 0 &&
             deletedPhotos.forEach(async (elementos) => {
               await deleteImageHook(formatFileNameToShow(elementos))
@@ -217,20 +290,41 @@ const NewProduct = ({
           return element
         })
         .catch((error) => {
-          //console.log("el error ", error.message)
+          console.log('el error ', error.message)
           setShowAlert(true)
           setMessageError(error.message)
           setTypeError('danger')
         })
       if (productCreated) {
-        setShowAlert(true)
-        setMessageError('Creado nuevo producto/item !')
-        setTypeError('succes')
-        onSuccessNewProduct()
-        setPhotos([])
+        onSuccessEditProduct()
+        onCloseModal()
       }
     } catch (error) {
       console.log('error nueva categoria', error)
+    }
+  }
+
+  const swapDownPhotos = (array, a) => {
+    const arrayAux = [...array];
+    const b = (a + 1);
+    [arrayAux[a], arrayAux[b]] = [arrayAux[b], arrayAux[a]]
+    setPhotos(arrayAux)
+  }
+
+  const swapUpPhotos = (array, a) => {
+    const arrayAux = [...array];
+    let b = (a - 1);
+    [arrayAux[b], arrayAux[a]] = [arrayAux[a], arrayAux[b]]
+    setPhotos(arrayAux)
+  }
+
+  const handleSwap = (array, a) => {
+
+    if (a === array.length - 1) {
+      swapUpPhotos(array, a)
+    }
+    else {
+      swapDownPhotos(array, a)
     }
   }
 
@@ -248,7 +342,7 @@ const NewProduct = ({
       header={
         <>
           <img alt="www.anastassa.com" className="main-logo-modal" src={ AnastassaLogo } />
-          <span className="title-new-category">NUEVO PRODUCTO</span>
+          <span className="title-new-category">EDITAR PRODUCTO</span>
         </>
       }
       id={ id }
@@ -257,9 +351,10 @@ const NewProduct = ({
       onClose={ onCloseModal }
       onHide={ onCloseModal }
     >
-      <section className="NewProductSection">
-        <Form className='NewProductForm' onSubmit={ handleSubmit }>
+      <section className="EditProductSection">
+        <Form className='EditProductForm' onSubmit={ handleSubmit }>
           <FloatingLabel
+            className="mt-4"
             controlId="floatingSelect"
             label="Categoria"
           >
@@ -314,7 +409,7 @@ const NewProduct = ({
           <div className="form-floating mt-4 mb-3">
             <textarea
               className="form-control"
-              id="floatingTextarea2"
+              id="floatingTextarea3"
               placeholder="Pon aqui el detalle de la prenda"
               style={ { height: '100px' } }
               value={ detail }
@@ -322,13 +417,13 @@ const NewProduct = ({
                 setDetail(e.target.value)
               } }
             ></textarea>
-            <label htmlFor="floatingTextarea2">Detalle</label>
+            <label htmlFor="floatingTextarea3">Detalle</label>
           </div>
 
           <InputGroup className="mt-4">
             <FormControl
               aria-label="Lista de colores disponibles para la prenda."
-              placeholder="Colores 1"
+              placeholder="Colores"
               value={ colorDescription }
               onChange={ (e) => {
                 setColorDescription(e.target.value.toUpperCase())
@@ -346,10 +441,10 @@ const NewProduct = ({
           <ListGroup horizontal>
             { colors.map((el, index) => {
               return (
-                <ListGroup.Item key={ index } className="NewProductItemGroup">
+                <ListGroup.Item key={ index } className="EditProductItemGroup">
                   { el }
                   <MdDeleteForever
-                    className="NewProductDeleteItem"
+                    className="EditProductDeleteItem"
                     onClick={ () => onRemoveFromColors(el) }
                   />
                 </ListGroup.Item>
@@ -378,10 +473,10 @@ const NewProduct = ({
           <ListGroup horizontal>
             { sizes.map((el, index) => {
               return (
-                <ListGroup.Item key={ index } className="NewProductItemGroup">
+                <ListGroup.Item key={ index } className="EditProductItemGroup">
                   { el }
                   <MdDeleteForever
-                    className="NewProductDeleteItem"
+                    className="EditProductDeleteItem"
                     onClick={ () => onRemoveFromSizes(el) }
                   />
                 </ListGroup.Item>
@@ -391,15 +486,15 @@ const NewProduct = ({
 
           <InputGroup className="mt-4">
             <FormControl
-              aria-label="Lista de talles disponibles para la prenda."
-              placeholder="Desc"
+              aria-label=""
+              placeholder="Descripcion"
               value={ sizesDescr1 }
               onChange={ (e) => {
                 setSizesDescr1(e.target.value.toUpperCase())
               } }
             />
             <FormControl
-              aria-label="Lista de talles disponibles para la prenda."
+              aria-label=""
               placeholder="Valor"
               value={ sizesDescr2 }
               onChange={ (e) => {
@@ -420,10 +515,10 @@ const NewProduct = ({
           <ListGroup>
             { sizesDescriptions.map((el, index) => {
               return (
-                <ListGroup.Item key={ index } className="NewProductItemGroup">
+                <ListGroup.Item key={ index } className="EditProductItemGroup">
                   { `${el.data} :   ${el.description}` }
                   <MdDeleteForever
-                    className="NewProductDeleteItem"
+                    className="EditProductDeleteItem"
                     onClick={ () =>
                       onRemoveFromSizesDescriptions(el)
                     }
@@ -434,7 +529,6 @@ const NewProduct = ({
           </ListGroup>
 
           <InputGroup className="mt-4">
-
             <UploadFile
               categoryName={ categoryName }
               disabled={
@@ -447,26 +541,35 @@ const NewProduct = ({
             />
           </InputGroup>
           <ListGroup>
-            { photos &&
-              photos.length > 0 &&
-              photos.map((el, index) => {
-                return (
-                  <ListGroup.Item
-                    key={ index }
-                    className="d-flex justify-content-between NewProductItemGroup"
-                  >
-                    <ImImage
-                      className="NewProductDeleteItem"
-                      onClick={ () => onShowImageFullSize(el) }
-                    />
-                    { formatFileNameToShow(el) }
-                    <MdDeleteForever
-                      className="NewProductDeleteItem"
-                      onClick={ () => onDeletePhoto(el) }
-                    />
-                  </ListGroup.Item>
-                )
-              }) }
+            { photos.map((el, index) => {
+              return (
+
+                <ListGroup.Item
+                  key={ index }
+                  className="d-flex justify-content-between item-group"
+                >
+                  { photos.length > 1 &&
+                    <>
+                      <div title='Mover foto arriba/abajo' onClick={ () => handleSwap(photos, index) }>
+                        { index === photos.length - 1 ? <BiUpArrowAlt className='cursor' /> : <BiDownArrowAlt className='cursor' /> }
+                      </div>
+                      { index }
+                    </>
+                  }
+
+                  <ImImage
+                    className="EditProductDeleteItem"
+                    onClick={ () => onShowImageFullSize(el) }
+                  />
+                  { formatFileNameToShow(el) }
+                  <MdDeleteForever
+                    className="EditProductDeleteItem"
+                    title='Eliminar foto'
+                    onClick={ () => onDeletePhoto(el) }
+                  />
+                </ListGroup.Item>
+              )
+            }) }
           </ListGroup>
 
           <FloatingLabel
@@ -516,7 +619,7 @@ const NewProduct = ({
 
           <Form.Check
             checked={ activeProduct }
-            className="NewProductFormCheck"
+            className="EditProductCheck"
             id="custom-switch"
             label="Activo"
             type="switch"
@@ -528,8 +631,8 @@ const NewProduct = ({
 
           <Form.Check
             checked={ isNewProduct }
-            className="NewProductFormCheck"
-            id="custom-switch-1"
+            className="EditProductCheck"
+            id="custom-switch"
             label="Es nuevo"
             type="switch"
             value={ isNewProduct }
@@ -568,10 +671,10 @@ const NewProduct = ({
             />
           </FloatingLabel>
 
-          <section className="NewProductButtonsContainer">
+          <section className="EditProductButtonsContainer">
             <Button
               variant="secondary"
-              onClick={ () => closeOverlay() }
+              onClick={ () => onCloseModal() }
             >
               Cerrar
             </Button>
@@ -580,7 +683,7 @@ const NewProduct = ({
               disabled={ !validateForm() }
               type="submit"
             >
-              Crear producto
+              Guardar cambios
             </Button>
           </section>
         </Form>
@@ -616,7 +719,7 @@ const NewProduct = ({
   );
 };
 
-NewProduct.propTypes = propTypes;
-NewProduct.defaultProps = defaultProps;
+EditProduct.propTypes = propTypes;
+EditProduct.defaultProps = defaultProps;
 
-export default NewProduct;
+export default EditProduct;

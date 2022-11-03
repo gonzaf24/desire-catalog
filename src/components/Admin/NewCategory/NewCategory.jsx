@@ -1,80 +1,42 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import AnastassaLogo from '../../../../images/logo-anastassa.jpg'
-import { Modal } from '../../../../containers/index'
-import { useCategory } from '../../../../hooks/index'
-import { AlertDismissible } from '../../../index'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import AnastassaLogo from '../../../images/logo-anastassa.jpg'
+import { Modal } from '../../../containers/index'
+import { useCategory } from '../../../hooks/index'
+import { AlertDismissible } from '../../index'
 import { Button, FloatingLabel, Form } from 'react-bootstrap'
-import './EditCategory.css';
+import './NewCategory.css';
 
 const propTypes = {
-  categoryToEdit: PropTypes.shape({
-    categoryName: PropTypes.string,
-    discount: PropTypes.bool,
-    id: PropTypes.string,
-    idName: PropTypes.string,
-    isActive: PropTypes.bool,
-    newCategory: PropTypes.bool,
-    position: PropTypes.number,
-    type: PropTypes.string,
-  }),
   className: PropTypes.string,
   id: PropTypes.string,
   isLoading: PropTypes.bool,
   isOpenModal: PropTypes.bool,
   onCloseModal: PropTypes.func,
-  onSuccessEditCategory: PropTypes.func,
+  onSuccessCreatedCategory: PropTypes.func,
 };
 
 const defaultProps = {
-  categoryToEdit: {
-    categoryName: '',
-    discount: false,
-    id: '',
-    idName: '',
-    isActive: false,
-    newCategory: false,
-    position: 0,
-    type: '',
-  },
   className: '',
   id: undefined,
   isLoading: false,
   isOpenModal: false,
   onCloseModal: undefined,
-  onSuccessEditCategory: undefined,
+  onSuccessCreatedCategory: undefined,
 };
 
-const EditCategory = ({
-  className,
-  id,
-  onSuccessEditCategory,
-  isOpenModal,
-  categoryToEdit,
-  isLoading,
-  onCloseModal, }) => {
-  const classComponent = ['EditCategory', className].join(' ').trim();
-  const { editCategoryHook } = useCategory()
+const NewCategory = ({ className, id, isOpenModal, isLoading, onCloseModal, onSuccessCreatedCategory }) => {
+  const classComponent = ['NewCategory', className].join(' ').trim();
+  const { newCategoryHook } = useCategory()
   const [name, setName] = useState('')
-  const [categoryType, setCategoryType] = useState('')
+  const [categoryType, setCategoryType] = useState('MUJER')
   const [activeCategory, setActiveCategory] = useState(true)
-  const [isNewCategory, setIsNewCategory] = useState(true)
-  const [hasDiscountCategory, setHasDiscountCategory] = useState(true)
+  const [isNewCategory, setIsNewCategory] = useState(false)
+  const [hasDiscountCategory, setHasDiscountCategory] = useState(false)
   const [position, setPosition] = useState(0)
   const [typeError, setTypeError] = useState('succes')
   const [showAlert, setShowAlert] = useState(false)
-  const [messageError, setMessageError] = useState('')
-
-  useEffect(() => {
-    if (categoryToEdit) {
-      setName(categoryToEdit.categoryName)
-      setCategoryType(categoryToEdit.type)
-      setActiveCategory(categoryToEdit.isActive)
-      setIsNewCategory(categoryToEdit.newCategory)
-      setHasDiscountCategory(categoryToEdit.discount)
-      setPosition(categoryToEdit.position)
-    }
-  }, [categoryToEdit])
+  const [messageError, setMessageError] = useState()
 
   function validateForm() {
     let isValid = true
@@ -89,24 +51,22 @@ const EditCategory = ({
 
   const callbackCloseError = (param) => {
     setShowAlert(param)
-    onCloseModal()
   }
+
 
   async function handleSubmit(event) {
     try {
       event.preventDefault()
-      const categoryToPersist = {
-        idName: categoryToEdit.idName,
+      const categoryToRegister = {
+        idName: `${categoryType}-${name}`,
         categoryName: name,
         type: categoryType,
         isActive: activeCategory,
         newCategory: isNewCategory,
         discount: hasDiscountCategory,
         position: position,
-        id: categoryToEdit.id,
       }
-
-      const categoryEdited = await editCategoryHook(categoryToPersist)
+      const categoryCreated = await newCategoryHook(categoryToRegister)
         .then((element) => {
           return element
         })
@@ -116,23 +76,26 @@ const EditCategory = ({
           setMessageError(error.message)
           setTypeError('danger')
         })
-      if (categoryEdited) {
-        onSuccessEditCategory()
+      if (categoryCreated) {
+        setShowAlert(true)
+        setMessageError(
+          `Creada nueva categoria ${categoryCreated.categoryName}`,
+        )
+        setTypeError('succes');
+        onSuccessCreatedCategory();
         onCloseModal();
       }
     } catch (error) {
       console.log('error nueva categoria', error)
     }
   }
-
-
   return (
     <Modal
       className={ classComponent }
       header={
         <>
           <img alt="www.anastassa.com" className="main-logo-modal" src={ AnastassaLogo } />
-          <span className="title-new-category">EDITAR CATEGORIA</span>
+          <span className="title-new-category">NUEVA CATEGORIA</span>
         </>
       }
       id={ id }
@@ -141,8 +104,8 @@ const EditCategory = ({
       onClose={ onCloseModal }
       onHide={ onCloseModal }
     >
-      <section className="EditCategorySection">
-        <Form className="mt-5" onSubmit={ handleSubmit }>
+      <section className="NewCategorySection">
+        <Form onSubmit={ handleSubmit }>
           <FloatingLabel
             className="mt-4"
             controlId="floatingSelect"
@@ -179,34 +142,37 @@ const EditCategory = ({
 
           <Form.Check
             checked={ activeCategory }
-            className="EditCategoryFormCheck"
-            id="custom-switch-1"
+            className="NewCategoryFormCheck"
+            id="custom-switch"
             label="Activo"
             type="switch"
-            onChange={ (e) => {
-              setActiveCategory(e.target.checked)
+            value={ activeCategory }
+            onChange={ () => {
+              setActiveCategory(!activeCategory)
             } }
           />
 
           <Form.Check
             checked={ isNewCategory }
-            className="EditCategoryFormCheck"
-            id="custom-switch-2"
+            className="NewCategoryFormCheck"
+            id="custom-switch1"
             label="Es nuevo"
             type="switch"
-            onChange={ (e) => {
-              setIsNewCategory(e.target.checked)
+            value={ isNewCategory }
+            onChange={ () => {
+              setIsNewCategory(!isNewCategory)
             } }
           />
 
           <Form.Check
             checked={ hasDiscountCategory }
-            className="EditCategoryFormCheck"
-            id="custom-switch-3"
+            className="NewCategoryFormCheck"
+            id="custom-switch2"
             label="Descuentos"
             type="switch"
-            onChange={ (e) => {
-              setHasDiscountCategory(e.target.checked)
+            value={ hasDiscountCategory }
+            onChange={ () => {
+              setHasDiscountCategory(!hasDiscountCategory)
             } }
           />
 
@@ -225,19 +191,23 @@ const EditCategory = ({
             />
           </FloatingLabel>
 
-          <section className="EditCategoryButtonContainer">
+          <br />
+
+          <section className="NewCategoryButtonsContainer">
             <Button
+              className="submitbutton"
               variant="secondary"
-              onClick={ () => onCloseModal() }
+              onClick={ onCloseModal }
             >
               Cancelar
             </Button>
 
             <Button
+              className="submitbutton"
               disabled={ !validateForm() }
               type="submit"
             >
-              Guardar cambios
+              Crear categoria
             </Button>
           </section>
         </Form>
@@ -249,11 +219,12 @@ const EditCategory = ({
         show={ showAlert }
         type={ typeError }
       />
+
     </Modal>
   );
 };
 
-EditCategory.propTypes = propTypes;
-EditCategory.defaultProps = defaultProps;
+NewCategory.propTypes = propTypes;
+NewCategory.defaultProps = defaultProps;
 
-export default EditCategory;
+export default NewCategory;

@@ -6,9 +6,9 @@ import { TbSortAscending } from 'react-icons/tb'
 import { TiPlus } from 'react-icons/ti'
 import { HiRefresh } from 'react-icons/hi'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel'
-import { useProduct, useOpenToggle } from '../../../../hooks/index'
+import { useProduct, useOpenToggle } from '../../../hooks/index'
 import { Button, Form, InputGroup, Spinner, Table } from 'react-bootstrap'
-import { EditProduct, NewProduct, AlertDismissible, AlertConfirm, CarouselFullSize } from '../../../index';
+import { EditProduct, NewProduct, AlertDismissible, AlertConfirm, CarouselFullSize } from '../../index';
 
 import PropTypes from 'prop-types';
 
