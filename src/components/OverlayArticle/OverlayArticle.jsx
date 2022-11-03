@@ -1,11 +1,11 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick'
-import Modal from '../../containers/Modal/Modal'
 import { BiCopy } from 'react-icons/bi'
 import { TiMinus } from 'react-icons/ti'
 import { MdIosShare } from 'react-icons/md'
 import { isMobile } from 'react-device-detect';
+import { Modal } from '../../containers/index'
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 import './OverlayArticle.css';
