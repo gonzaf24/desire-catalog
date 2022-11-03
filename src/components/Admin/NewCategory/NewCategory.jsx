@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import AnastassaLogo from '../../../images/logo-anastassa.jpg'
 import { Modal } from '../../../containers/index'
 import { useCategory } from '../../../hooks/index'
 import { AlertDismissible } from '../../index'
@@ -92,12 +91,7 @@ const NewCategory = ({ className, id, isOpenModal, isLoading, onCloseModal, onSu
   return (
     <Modal
       className={ classComponent }
-      header={
-        <>
-          <img alt="www.anastassa.com" className="main-logo-modal" src={ AnastassaLogo } />
-          <span className="title-new-category">NUEVA CATEGORIA</span>
-        </>
-      }
+      header={ <span >NUEVA CATEGORIA</span> }
       id={ id }
       isLoading={ isLoading }
       isOpen={ isOpenModal }

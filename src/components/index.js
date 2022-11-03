@@ -1,4 +1,5 @@
 import Menu from './Menu';
+import Navbar from './Navbar';
 import LoaderSkeleton from './LoaderSkeleton';
 import FullSizeImage from './FullSizeImage';
 import CarouselFullSize from './CarouselFullSize';
@@ -36,4 +37,5 @@ export {
   CategoryTable,
   UploadFile,
   DeleteFile,
+  Navbar,
 };

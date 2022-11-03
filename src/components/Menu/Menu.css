@@ -1,66 +1,66 @@
-.menu-container{
-  top: 90px;
-  bottom: 0px;
-  left: -90vw;
-  background: rgb(236 98 95 / 95%);
-  position: fixed;
-  border-top-right-radius: 3px;
-  transition: all 0.5s ease-out;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 25px 35px;
-  z-index: 999;
+.menu-container {
+   top: 90px;
+   bottom: 0px;
+   left: -90vw;
+   background: rgb(236 98 95 / 95%);
+   position: fixed;
+   border-top-right-radius: 3px;
+   transition: all 0.5s ease-out;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   padding: 25px 35px;
+   z-index: 999;
 }
 
-.menu-container-show{
-  top: 90px;
-  left: 0px;
-  bottom: 0px;
-  background: #ef8482;
-  position: fixed;
-  border-top-right-radius: 3px;
-  transition: all 0.5s ease-out;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 25px 35px;
-  overflow: scroll;
-  z-index: 999;
-  justify-content: space-between;
+.menu-container-show {
+   top: 90px;
+   left: 0px;
+   bottom: 0px;
+   background: #ef8482;
+   position: fixed;
+   border-top-right-radius: 3px;
+   transition: all 0.5s ease-out;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   padding: 25px 35px;
+   overflow: scroll;
+   z-index: 999;
+   justify-content: space-between;
 }
 
-.menu-title{
-  color: #313131;
-  margin-bottom: 20px;
-  font-family: 'arial-black';
-  font-weight: 800;
-  font-size: 25px;
+.menu-title {
+   color: #313131;
+   margin-bottom: 20px;
+   font-family: 'arial-black';
+   font-weight: 800;
+   font-size: 25px;
 }
 
-.menu-subtitle-container{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px 0px 15px 0px;
+.menu-subtitle-container {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   padding: 0px 0px 15px 0px;
 }
 
-.menu-subtitle{
-  padding: 15px 0px;
-  color: #414141;
-  font-weight: 700;
+.menu-subtitle {
+   padding: 15px 0px;
+   color: #414141;
+   font-weight: 700;
 }
 
-.menu-subtitle:hover{
-  color: rgb(255 255 255 / 50%);
+.menu-subtitle:hover {
+   color: rgb(255 255 255 / 50%);
 }
 
-@media (max-width: 812px) { 
-  .menu-container{
-    top: 90px;
-  }
+@media (max-width: 812px) {
+   .menu-container {
+      top: 90px;
+   }
 
-  .menu-container-show{
-    top: 90px;
-  }
+   .menu-container-show {
+      top: 90px;
+   }
 }

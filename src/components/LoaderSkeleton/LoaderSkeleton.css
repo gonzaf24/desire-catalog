@@ -1,55 +1,53 @@
 .LoaderSkeleton {
-  justify-content: center;
-  display: flex;
-  margin: 25px;
+   justify-content: center;
+   display: flex;
+   margin: 25px;
 }
 
 .SkeletonContainer {
-  padding-bottom: 100px;
-  transition: all 0.5s ease-out;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  max-width: 1000px;
-  justify-content: center;
-  align-items: center;
+   padding-bottom: 100px;
+   transition: all 0.5s ease-out;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 25px;
+   max-width: 1000px;
+   justify-content: center;
+   align-items: center;
 }
 
-.HeaderSkeleton-12{
-  height: 150px;
-  max-width: 200px;
+.HeaderSkeleton-12 {
+   height: 150px;
+   max-width: 200px;
 }
 
-.HeaderSkeleton-1{
-  height: 450px;
-  max-width: 600px;
+.HeaderSkeleton-1 {
+   height: 450px;
+   max-width: 600px;
 }
 
-.max-width-12{
-  display: flex;
-  justify-content: space-around;
-  max-width: 215px;
+.max-width-12 {
+   display: flex;
+   justify-content: space-around;
+   max-width: 215px;
 }
 
-.max-width-1{
-  display: flex;
-  justify-content: space-around;
-  max-width: 600px;
+.max-width-1 {
+   display: flex;
+   justify-content: space-around;
+   max-width: 600px;
 }
 
 @media (max-width: 812px) {
+   .max-width-12 {
+      max-width: 140px;
+   }
 
-  .max-width-12{
-    max-width: 140px;
-  }
+   .max-width-1 {
+      max-width: 250px;
+   }
 
-  .max-width-1{
-    max-width: 250px;
-  }
-
-  .HeaderSkeleton-1{
-    height: 350px;
-    max-width: 250px;
-  }
-
+   .HeaderSkeleton-1 {
+      height: 350px;
+      max-width: 250px;
+   }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BiX } from 'react-icons/bi';
 
 import './FullSizeImage.css';
-import { BiX } from 'react-icons/bi';
 
 const propTypes = {
   className: PropTypes.string,

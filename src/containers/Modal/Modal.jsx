@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import AnastassaLogo from '../../images/logo-anastassa.jpg'
 import { Modal as ModalBoostrap } from 'react-bootstrap'
 import { BiX } from 'react-icons/bi'
 import PropTypes from 'prop-types'
@@ -47,7 +48,7 @@ const Modal = ({
    onClose,
    footer = undefined,
    isLoading = false,
-   header = undefined,
+   header = <Fragment />,
    size = 'md',
    className = '',
 }) => {
@@ -66,6 +67,7 @@ const Modal = ({
       >
          { (header || onClose) && (
             <ModalBoostrap.Header className="Header">
+               <img alt="www.anastassa.com" className="ModalLogo" src={ AnastassaLogo } />
                { header }
                { onClose && (
                   <BiX className="CloseIcon" size={ 75 } onClick={ onClose }></BiX>

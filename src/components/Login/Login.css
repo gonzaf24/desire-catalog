@@ -5,15 +5,15 @@
    flex-direction: column;
 }
 
-.LoginForm{
-  max-width: 320px;
+.LoginForm {
+   max-width: 320px;
    width: 100%;
    margin: 0 auto;
 }
 
-.LoginLabel{
-  display: block;
-  font-size: 14px;
+.LoginLabel {
+   display: block;
+   font-size: 14px;
 }
 
 .LoginInput {
@@ -29,7 +29,7 @@
    border-radius: 3px;
 }
 
-.LoginButton{
-  width: 100%;
-  margin-top: 50px;
+.LoginButton {
+   width: 100%;
+   margin-top: 50px;
 }

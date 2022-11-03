@@ -3,8 +3,7 @@ import './styles/App.css'
 import { Route, Switch } from 'wouter'
 import { UserContextProvider } from './context/UserContext'
 
-import NavBar from './components/navBar.component'
-import { Menu } from './components/index'
+import { Menu, Navbar } from './components/index'
 
 import Home from './pages/home.page'
 import Category from './pages/category.page'
@@ -24,7 +23,7 @@ function App() {
       <UserContextProvider>
          <div className="app-container" id="app-container">
             <Suspense fallback={ null }>
-               <NavBar showMenu={ showMenu } onShowMenu={ onShowMenu } />
+               <Navbar showMenu={ showMenu } onShowMenu={ onShowMenu } />
                <Menu showMenu={ showMenu } onShowMenu={ onShowMenu } />
                <Switch>
                   <Route component={ Home } path={ '/' } />

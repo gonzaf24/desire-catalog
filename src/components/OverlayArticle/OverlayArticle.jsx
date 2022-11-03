@@ -1,13 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick'
+import Modal from '../../containers/Modal/Modal'
 import { BiCopy } from 'react-icons/bi'
 import { TiMinus } from 'react-icons/ti'
 import { MdIosShare } from 'react-icons/md'
-import AnastassaLogo from '../../images/logo-anastassa.jpg'
-import Modal from '../../containers/Modal/Modal'
-import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 import { isMobile } from 'react-device-detect';
+import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 import './OverlayArticle.css';
 
@@ -97,16 +96,8 @@ const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToSho
     setArticle(null)
   }
 
-
-
   return (
     <Modal
-      header={
-        <>
-          <img alt="www.anastassa.com" className="OverlayArticleModalLogo" src={ AnastassaLogo } />
-          <Fragment></Fragment>
-        </>
-      }
       id={ id }
       isLoading={ isLoading }
       isOpen={ isOpenModal }

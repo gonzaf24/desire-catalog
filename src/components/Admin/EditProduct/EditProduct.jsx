@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
-import AnastassaLogo from '../../../images/logo-anastassa.jpg'
 import { Modal } from '../../../containers/index'
 import { FaPlus } from 'react-icons/fa'
 import { ImImage } from 'react-icons/im'
@@ -339,12 +338,7 @@ const EditProduct = ({
   return (
     <Modal
       className={ classComponent }
-      header={
-        <>
-          <img alt="www.anastassa.com" className="main-logo-modal" src={ AnastassaLogo } />
-          <span className="title-new-category">EDITAR PRODUCTO</span>
-        </>
-      }
+      header={ <span>EDITAR PRODUCTO</span> }
       id={ id }
       isLoading={ isLoading }
       isOpen={ isOpenModal }
