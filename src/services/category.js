@@ -1,6 +1,10 @@
 const ENDPOINT = 'https://desire-catalog.herokuapp.com'
 //const ENDPOINT = 'http://localhost:3001'
 
+const _401_ERROR = '401 Sesion expirada, vuelve a loguearte.';
+const _OPERATION_NOT_POSSIBLE = 'No es posible realizar esta operacion.';
+const _CATEGORY_NAME_ALREADY_EXISTS = 'Nombre de categoria ya existe.'
+
 export async function newCategory(jwt, categoryParam) {
    return await fetch(`${ENDPOINT}/api/categorys`, {
       method: 'POST',
@@ -12,12 +16,12 @@ export async function newCategory(jwt, categoryParam) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
          if (res.status === 422) {
-            throw new Error('Nombre de categoria ya existe.')
+            throw new Error(_CATEGORY_NAME_ALREADY_EXISTS)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.json()
       })
       .then((res) => {
@@ -37,9 +41,9 @@ export async function getCategorys(jwt) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.json()
       })
       .then((res) => {
@@ -57,9 +61,9 @@ export async function deleteCategory(jwt, id) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.ok
       })
       .then((res) => {
@@ -78,9 +82,9 @@ export async function editCategory(jwt, categoryParam) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.ok
       })
       .then((res) => {

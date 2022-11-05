@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { BsImages } from 'react-icons/bs'
-import { MdDeleteForever } from 'react-icons/md'
-import { AiTwotoneEdit } from 'react-icons/ai'
-import { TbSortAscending } from 'react-icons/tb'
+import PropTypes from 'prop-types';
 import { TiPlus } from 'react-icons/ti'
+import { BsImages } from 'react-icons/bs'
 import { HiRefresh } from 'react-icons/hi'
-import ReactHTMLTableToExcel from 'react-html-table-to-excel'
+import { AiTwotoneEdit } from 'react-icons/ai'
+import { MdDeleteForever } from 'react-icons/md'
+import { TbSortAscending } from 'react-icons/tb'
 import { useProduct, useOpenToggle } from '../../../hooks'
+import ReactHTMLTableToExcel from 'react-html-table-to-excel'
 import { Button, Form, InputGroup, Spinner, Table } from 'react-bootstrap'
 import { EditProduct, NewProduct, AlertDismissible, AlertConfirm, CarouselFullSize } from '../../../components';
-
-import PropTypes from 'prop-types';
 
 import './ProductTable.css';
 

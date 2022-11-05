@@ -1,6 +1,6 @@
 import React from 'react';
-import { Login as LoginComponent } from '../../components'
 import PropTypes from 'prop-types';
+import { Login as LoginComponent } from '../../components'
 
 import './Login.css';
 

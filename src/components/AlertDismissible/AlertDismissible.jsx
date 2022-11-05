@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 
 import './AlertDismissible.css';
-import { Button } from 'react-bootstrap';
 
 const propTypes = {
   callbackCloseError: PropTypes.func,

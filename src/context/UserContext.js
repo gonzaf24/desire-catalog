@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-const Context = React.createContext({})
 import PropTypes from 'prop-types'
+const Context = React.createContext({})
 
 const propTypes = {
    children: PropTypes.oneOfType([

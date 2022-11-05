@@ -1,11 +1,6 @@
 import { useCallback, useContext, useState } from 'react'
 import Context from '../context/UserContext'
-import {
-   newCategory,
-   getCategorys,
-   deleteCategory,
-   editCategory,
-} from '../services/category'
+import { newCategory, getCategorys, deleteCategory, editCategory } from '../services/category'
 
 export default function useCategory() {
    const { jwt } = useContext(Context)

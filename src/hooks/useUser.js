@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from 'react'
+import { useLocation } from 'wouter'
 import Context from '../context/UserContext'
 import loginService from '../services/login'
-import { useLocation } from 'wouter'
 
 export default function useUser() {
    const { jwt, setJWT } = useContext(Context)

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
 import { useProduct, useOpenToggle } from '../../hooks'
 import { LoaderSkeleton, CardArticleList, OverlayArticle, Filter } from '../../components'
-import PropTypes from 'prop-types';
 
 import './Home.css';
 

@@ -1,6 +1,10 @@
 const ENDPOINT = 'https://desire-catalog.herokuapp.com'
 //const ENDPOINT = 'http://localhost:3001'
 
+const _401_ERROR = '401 Sesion expirada, vuelve a loguearte.';
+const _OPERATION_NOT_POSSIBLE = 'No es posible realizar esta operacion.';
+const _PRODUCT_REF_ALREADY_EXISTS = 'Ya existe un producto con ese numero de referencia.'
+
 export async function newProduct(jwt, productParam) {
    return await fetch(`${ENDPOINT}/api/products`, {
       method: 'POST',
@@ -12,12 +16,12 @@ export async function newProduct(jwt, productParam) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
          if (res.status === 422) {
-            throw new Error('Referencia de producto ya existe.')
+            throw new Error(_PRODUCT_REF_ALREADY_EXISTS)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.json()
       })
       .then((res) => {
@@ -36,9 +40,9 @@ export async function getProducts() {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.json()
       })
       .then((res) => {
@@ -57,9 +61,9 @@ export async function getProductByCategory(category) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.json()
       })
       .then((res) => {
@@ -78,9 +82,9 @@ export async function getProductById(id) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.json()
       })
       .then((res) => {
@@ -98,9 +102,9 @@ export async function deleteProduct(jwt, id) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.ok
       })
       .then((res) => {
@@ -119,9 +123,9 @@ export async function editProduct(jwt, productParam) {
    })
       .then((res) => {
          if (res.status === 401) {
-            throw new Error('401 Sesion expirada, vuelve a loguearte.')
+            throw new Error(_401_ERROR)
          }
-         if (!res.ok) throw new Error('No es posible realizar esta operacion.')
+         if (!res.ok) throw new Error(_OPERATION_NOT_POSSIBLE)
          return res.ok
       })
       .then((res) => {

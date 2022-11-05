@@ -1,24 +1,18 @@
-import React, { useState, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { Route, Switch } from 'wouter'
-import { Menu, Navbar } from './components'
+import { AppNavbar } from './containers'
 import { UserContextProvider } from './context/UserContext'
 import { Admin, Error, Category, Home, Product, Login } from './pages'
 
 import './styles/App.css'
 
 function App() {
-   const [showMenu, setShowMenu] = useState(false)
-
-   const onShowMenu = () => {
-      setShowMenu(!showMenu)
-   }
 
    return (
       <UserContextProvider>
          <div className="AppContainer">
             <Suspense fallback={ null }>
-               <Navbar showMenu={ showMenu } onShowMenu={ onShowMenu } />
-               <Menu showMenu={ showMenu } onShowMenu={ onShowMenu } />
+               <AppNavbar />
                <Switch>
                   <Route component={ Home } path={ '/' } />
                   <Route component={ Category } path={ '/category/:category' } />

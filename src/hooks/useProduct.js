@@ -1,13 +1,6 @@
 import { useCallback, useContext, useState } from 'react'
 import Context from '../context/UserContext'
-import {
-   newProduct,
-   getProducts,
-   getProductById,
-   deleteProduct,
-   editProduct,
-   getProductByCategory,
-} from '../services/product'
+import { newProduct, getProducts, getProductById, deleteProduct, editProduct, getProductByCategory } from '../services/product'
 
 export default function useProduct() {
    const { jwt } = useContext(Context)

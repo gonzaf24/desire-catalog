@@ -1,37 +1,8 @@
 @font-face {
   font-family: 'arial-black';
-  src: local('arial-black'),
-    url('../styles/fonts/arial-black.woff') format('truetype');
+  src: local('arial-black'), url('../styles/fonts/arial-black.woff') format('truetype');
   font-weight: bold;
 }
-
-/* body {
-  overflow: hidden;
-  font-family: 'arial-black';
-} */
-
-/* .index {
-  overflow: scroll;
-  height: 100vh;
-} */
-/* 
-h1,
-h2,
-h3 {
-  color: #313131;
-}
-
-label {
-  color: #313131;
-}
-
-h1 {
-  font-size: 16px;
-}
-
-h2 {
-  font-size: 14px;
-} */
 
 #root {
   height: 100vh;

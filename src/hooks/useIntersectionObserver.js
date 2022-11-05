@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 let listenerCallbacks = new WeakMap();
-
 let observer;
 
 function handleIntersections(entries) {

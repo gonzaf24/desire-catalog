@@ -1,11 +1,11 @@
 import React from 'react'
-import { AnastassaLogo } from '../../images'
-import { Link } from 'wouter'
-import { BiMenu, BiX } from 'react-icons/bi'
-import { useLocation } from 'wouter'
-import { FaPowerOff } from 'react-icons/fa'
-import { useUser } from '../../hooks'
 import PropTypes from 'prop-types';
+import { Link } from 'wouter'
+import { useLocation } from 'wouter'
+import { useUser } from '../../hooks'
+import { BiMenu, BiX } from 'react-icons/bi'
+import { FaPowerOff } from 'react-icons/fa'
+import { AnastassaLogo } from '../../images'
 
 import './Navbar.css';
 

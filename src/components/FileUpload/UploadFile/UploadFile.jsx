@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react'
+import PropTypes from 'prop-types'
 import { Button, Spinner } from 'react-bootstrap'
 import { useImage } from '../../../hooks'
 // eslint-disable-next-line no-undef
 window.Buffer = window.Buffer || require('buffer').Buffer
-import PropTypes from 'prop-types'
 
 import './UploadFile.css';
 
@@ -50,7 +50,11 @@ const UploadFile = ({ className, id, disabled, categoryName, onSuccesUpload }) =
     }
   }
   return (
-    <Button className={ classComponent } disabled={ disabled } id={ id } variant="outline-primary">
+    <Button
+      className={ classComponent }
+      disabled={ disabled }
+      id={ id }
+      variant="outline-primary" >
       { isUploading ? (
         <Spinner animation="grow" className="UploadFileSpinner" />
       ) : (

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import CardArticle from '../CardArticle/CardArticle';
 
 import './CardArticleList.css';
-import CardArticle from '../CardArticle/CardArticle';
 
 const propTypes = {
   className: PropTypes.string,

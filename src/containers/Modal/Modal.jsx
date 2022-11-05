@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { BiX } from 'react-icons/bi'
 import { AnastassaLogo } from '../../images'
 import { Modal as ModalBoostrap } from 'react-bootstrap'
-import { BiX } from 'react-icons/bi'
-import PropTypes from 'prop-types'
+
 import './Modal.css'
 
 const propTypes = {

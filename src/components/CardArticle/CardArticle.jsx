@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { HiOutlineArrowsExpand } from 'react-icons/hi'
 import PropTypes from 'prop-types'
-import useIntersection from '../../hooks/useIntersectionObserver'
+import { useIntersectionObserver } from '../../hooks'
 import { SliderCarousel } from '../../components'
+import { HiOutlineArrowsExpand } from 'react-icons/hi'
 
 import './CardArticle.css';
 
@@ -38,7 +38,7 @@ const CardArticle = ({ className, id, article, onClickArticle, isMode1ViewActive
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef();
 
-  useIntersection(imgRef, () => {
+  useIntersectionObserver(imgRef, () => {
     setIsInView(true);
   });
 

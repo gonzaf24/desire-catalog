@@ -4,6 +4,7 @@ import { Modal } from '../../../containers'
 import { useCategory } from '../../../hooks'
 import { AlertDismissible } from '../../../components'
 import { Button, FloatingLabel, Form } from 'react-bootstrap'
+
 import './EditCategory.css';
 
 const propTypes = {
