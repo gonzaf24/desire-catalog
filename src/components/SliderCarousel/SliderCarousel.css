@@ -1,6 +1,10 @@
 .SliderCarousel {
 }
 
+.slick-slider {
+  width: 100%;
+}
+
 .slick-track {
   display: flex;
   align-items: flex-start;

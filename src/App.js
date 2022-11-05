@@ -1,9 +1,10 @@
 import React, { useState, Suspense } from 'react'
-import './styles/App.css'
 import { Route, Switch } from 'wouter'
 import { Menu, Navbar } from './components'
 import { UserContextProvider } from './context/UserContext'
 import { Admin, Error, Category, Home, Product, Login } from './pages'
+
+import './styles/App.css'
 
 function App() {
    const [showMenu, setShowMenu] = useState(false)
@@ -14,7 +15,7 @@ function App() {
 
    return (
       <UserContextProvider>
-         <div className="app-container" id="app-container">
+         <div className="AppContainer">
             <Suspense fallback={ null }>
                <Navbar showMenu={ showMenu } onShowMenu={ onShowMenu } />
                <Menu showMenu={ showMenu } onShowMenu={ onShowMenu } />

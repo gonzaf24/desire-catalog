@@ -5,16 +5,16 @@
   font-weight: bold;
 }
 
-body {
+/* body {
   overflow: hidden;
   font-family: 'arial-black';
-}
+} */
 
-.index {
+/* .index {
   overflow: scroll;
   height: 100vh;
-}
-
+} */
+/* 
 h1,
 h2,
 h3 {
@@ -31,94 +31,17 @@ h1 {
 
 h2 {
   font-size: 14px;
+} */
+
+#root {
+  height: 100vh;
 }
 
-.app-container {
+.AppContainer {
   text-align: center;
   flex: 1;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-}
-
-.card-main::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-}
-
-.h1-title-span {
-  font-family: "arial-black";
-  font-size: 20px;
-  margin-bottom: 0px; 
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.h1-title-login {
-  font-family: "arial-black";
-  font-size: 20px;
-  margin-bottom: 0px; 
-  z-index: 0;
-}
-
-.slick-slider {
-  width: 100%;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-between {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-}
-
-.flex-gap-button-icon {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-weight: 700 !important;
-}
-
-.mr-5p {
-  margin-right: 5px;
-}
-
-.mr-10p {
-  margin-right: 10px;
-}
-
-#root {
-  height: 100vh;
-}
-
-@media (max-width: 500px) {
-  .h1-title-span {
-    font-family: "arial-black";
-    font-size: 16px;
-    margin-bottom: 0px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .h1-title-login {
-    font-family: "arial-black";
-    font-size: 16px;
-    margin-bottom: 0px;
-  }
 }
