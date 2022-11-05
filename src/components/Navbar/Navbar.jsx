@@ -4,7 +4,7 @@ import { Link } from 'wouter'
 import { BiMenu, BiX } from 'react-icons/bi'
 import { useLocation } from 'wouter'
 import { FaPowerOff } from 'react-icons/fa'
-import { useUser } from '../../hooks/index'
+import { useUser } from '../../hooks'
 import PropTypes from 'prop-types';
 
 import './Navbar.css';

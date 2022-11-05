@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from '../../../containers/index'
-import { useCategory } from '../../../hooks/index'
-import { AlertDismissible } from '../../index'
+import { Modal } from '../../../containers'
+import { useCategory } from '../../../hooks'
+import { AlertDismissible } from '../../../components'
 import { Button, FloatingLabel, Form } from 'react-bootstrap'
 import './NewCategory.css';
 

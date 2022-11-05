@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Button, Spinner } from 'react-bootstrap'
-import { useImage } from '../../../hooks/index'
+import { useImage } from '../../../hooks'
 // eslint-disable-next-line no-undef
 window.Buffer = window.Buffer || require('buffer').Buffer
 import PropTypes from 'prop-types'
@@ -24,7 +24,7 @@ const defaultProps = {
 };
 
 const UploadFile = ({ className, id, disabled, categoryName, onSuccesUpload }) => {
-  const classComponent = [UploadFile, className].join(' ').trim();
+  const classComponent = ['UploadFile', className].join(' ').trim();
   const { newImageHook /* , isLoginLoadinUpload, hasUploadError */ } =
     useImage()
   const [isUploading, setIsUploading] = useState(false)

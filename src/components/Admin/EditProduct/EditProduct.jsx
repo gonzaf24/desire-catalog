@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
-import { Modal } from '../../../containers/index'
+import { Modal } from '../../../containers'
 import { FaPlus } from 'react-icons/fa'
 import { ImImage } from 'react-icons/im'
 import { MdDeleteForever } from 'react-icons/md'
 import { formatFileNameToShow } from '../../../utils/formatters'
 import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
-import { useProduct, useImage, useCategory } from '../../../hooks/index'
-import { AlertDismissible, AlertConfirm, FullSizeImage, UploadFile } from '../../index'
+import { useProduct, useImage, useCategory } from '../../../hooks'
+import { AlertDismissible, AlertConfirm, FullSizeImage, UploadFile } from '../../../components'
 import { Button, FloatingLabel, Form, FormControl, InputGroup, ListGroup, } from 'react-bootstrap'
 
 import './EditProduct.css';

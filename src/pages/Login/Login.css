@@ -1,0 +1,21 @@
+.Login {
+   display: flex;
+   flex-direction: column;
+}
+
+.LoginTitle {
+   font-family: 'arial-black';
+   font-size: 20px;
+   margin-bottom: 50px;
+   margin-top: 50px;
+   z-index: 0;
+}
+
+@media (max-width: 500px) {
+   .LoginTitle {
+      font-family: 'arial-black';
+      font-size: 16px;
+      margin-bottom: 25px;
+      margin-top: 25px;
+   }
+}

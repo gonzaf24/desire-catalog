@@ -6,8 +6,8 @@ import { MdDeleteForever } from 'react-icons/md'
 import { AiTwotoneEdit } from 'react-icons/ai'
 import { TbSortAscending } from 'react-icons/tb'
 import { TiPlus } from 'react-icons/ti'
-import { useCategory, useOpenToggle } from '../../../hooks/index'
-import { NewCategory, EditCategory, AlertDismissible, AlertConfirm } from '../../index'
+import { useCategory, useOpenToggle } from '../../../hooks'
+import { NewCategory, EditCategory, AlertDismissible, AlertConfirm } from '../../../components'
 
 import './CategoryTable.css';
 

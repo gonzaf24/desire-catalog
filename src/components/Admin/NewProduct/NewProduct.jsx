@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { FaPlus } from 'react-icons/fa'
 import { ImImage } from 'react-icons/im'
-import { Modal } from '../../../containers/index'
+import { Modal } from '../../../containers'
 import { MdDeleteForever } from 'react-icons/md'
 import { formatFileNameToShow } from '../../../utils/formatters'
-import { useProduct, useImage, useCategory } from '../../../hooks/index'
-import { AlertDismissible, AlertConfirm, FullSizeImage, UploadFile } from '../../index'
+import { useProduct, useImage, useCategory } from '../../../hooks'
+import { AlertDismissible, AlertConfirm, FullSizeImage, UploadFile } from '../../../components'
 import { Button, FloatingLabel, Form, FormControl, InputGroup, ListGroup, } from 'react-bootstrap'
 
 import './NewProduct.css';
@@ -36,7 +36,7 @@ const NewProduct = ({
   isOpenModal,
   isLoading,
   onCloseModal, }) => {
-  const classComponent = [NewProduct, className].join(' ').trim();
+  const classComponent = ['NewProduct', className].join(' ').trim();
   const { newProductHook } = useProduct()
   const { deleteImageHook } = useImage()
   const { getCategorysHook } = useCategory()
@@ -223,7 +223,7 @@ const NewProduct = ({
         })
       if (productCreated) {
         setShowAlert(true)
-        setMessageError('Creado nuevo producto/item !')
+        setMessageError('Creado nuevo producto !')
         setTypeError('succes')
         onSuccessNewProduct()
         setPhotos([])

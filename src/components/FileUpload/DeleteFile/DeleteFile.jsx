@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useImage } from '../../../hooks/index'
-import { formatFileNameToShow } from '../../../utils/formatters'
-import { MdDeleteForever } from 'react-icons/md'
-import { AlertDismissible, AlertConfirm } from '../../index'
 import { Spinner } from 'react-bootstrap'
+import { MdDeleteForever } from 'react-icons/md'
+import { useImage } from '../../../hooks'
+import { formatFileNameToShow } from '../../../utils/formatters'
+import { AlertDismissible, AlertConfirm } from '../../../components'
 import PropTypes from 'prop-types'
 
 import './DeleteFile.css';

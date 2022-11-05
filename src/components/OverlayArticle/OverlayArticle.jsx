@@ -5,7 +5,7 @@ import { BiCopy } from 'react-icons/bi'
 import { TiMinus } from 'react-icons/ti'
 import { MdIosShare } from 'react-icons/md'
 import { isMobile } from 'react-device-detect';
-import { Modal } from '../../containers/index'
+import { Modal } from '../../containers'
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 import './OverlayArticle.css';
@@ -52,14 +52,14 @@ const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToSho
   const [urlCopied, setUrlCopied] = useState('')
 
   useEffect(() => {
-    const url = window.location.host + '/item/' + articleToShow.id
+    const url = window.location.host + '/product/' + articleToShow.id
     setUrlCopied(url);
   }, []);
 
   const onCopyLink = async () => {
     setCopied(false)
     setCopied(true)
-    const url = window.location.host + '/item/' + articleToShow.id
+    const url = window.location.host + '/product/' + articleToShow.id
     setUrlCopied(url);
     await navigator.clipboard.writeText(url)
     setTimeout(() => {
@@ -87,7 +87,7 @@ const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToSho
   useEffect(() => {
     if (isOpenModal) {
       setArticle(articleToShow)
-      setUrlCopied(window.location.host + '/item/' + articleToShow.id)
+      setUrlCopied(window.location.host + '/product/' + articleToShow.id)
     }
   }, [articleToShow, isOpenModal])
 

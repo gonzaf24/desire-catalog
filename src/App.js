@@ -1,16 +1,9 @@
 import React, { useState, Suspense } from 'react'
 import './styles/App.css'
 import { Route, Switch } from 'wouter'
+import { Menu, Navbar } from './components'
 import { UserContextProvider } from './context/UserContext'
-
-import { Menu, Navbar } from './components/index'
-
-import Home from './pages/home.page'
-import Category from './pages/category.page'
-import Item from './pages/item.page'
-import Login from './pages/login.page'
-import Admin from './pages/admin.page'
-import ErrorPage from './pages/error.page'
+import { Admin, Error, Category, Home, Product, Login } from './pages'
 
 function App() {
    const [showMenu, setShowMenu] = useState(false)
@@ -28,10 +21,10 @@ function App() {
                <Switch>
                   <Route component={ Home } path={ '/' } />
                   <Route component={ Category } path={ '/category/:category' } />
-                  <Route component={ Item } path={ '/item/:id' } />
+                  <Route component={ Product } path={ '/product/:id' } />
                   <Route component={ Login } path="/login" />
                   <Route component={ Admin } path="/admin" />
-                  <Route component={ ErrorPage } path="/:rest*" />
+                  <Route component={ Error } path="/:rest*" />
                </Switch>
             </Suspense>
          </div>

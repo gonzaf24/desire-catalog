@@ -60,7 +60,7 @@ const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) 
     <section className={ classModelActive } id={ id }>
       <div ref={ imgRef } className="CardArticleWrapper">
         { isInView && (
-          <Slider { ...settings } id="slider">
+          <Slider { ...settings }>
             { article.photos.map((imagen, index) => {
               return (
                 <section key={ index } className="CardArticleSection">
