@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
-import Slider from 'react-slick'
 import { HiOutlineArrowsExpand } from 'react-icons/hi'
 import PropTypes from 'prop-types'
 import useIntersection from '../../hooks/useIntersectionObserver'
+import { SliderCarousel } from '../../components'
+
 import './CardArticle.css';
 
 const propTypes = {
@@ -30,15 +31,6 @@ const defaultProps = {
 };
 
 
-const settings = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  swipeToSlide: true,
-}
-
 const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) => {
   const classComponent = ['CardArticle', className].join(' ').trim()
   const classModelActive = !isMode1Active ? classComponent : [classComponent, 'CardArticleSingle'].join(' ');
@@ -60,7 +52,7 @@ const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) 
     <section className={ classModelActive } id={ id }>
       <div ref={ imgRef } className="CardArticleWrapper">
         { isInView && (
-          <Slider { ...settings }>
+          <SliderCarousel>
             { article.photos.map((imagen, index) => {
               return (
                 <section key={ index } className="CardArticleSection">
@@ -73,7 +65,7 @@ const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) 
                 </section>
               )
             }) }
-          </Slider>
+          </SliderCarousel>
         ) }
 
       </div>

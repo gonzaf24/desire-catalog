@@ -17,6 +17,7 @@ import ProductTable from './Admin/ProductTable';
 import EditCategory from './Admin/EditCategory';
 import NewCategory from './Admin/NewCategory';
 import CategoryTable from './Admin/CategoryTable';
+import SliderCarousel from './SliderCarousel';
 
 export {
   AlertConfirm,
@@ -38,4 +39,5 @@ export {
   UploadFile,
   DeleteFile,
   Navbar,
+  SliderCarousel,
 };

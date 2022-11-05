@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
+import PropTypes from 'prop-types';
+import { Link } from 'wouter';
 import { BiCopy } from 'react-icons/bi';
 import { TiMinus } from 'react-icons/ti';
 import { MdIosShare } from 'react-icons/md'
-import { Link } from 'wouter';
 import { isMobile } from 'react-device-detect';
-import { LoaderSkeleton } from '../../components';
-import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
 import { useProduct } from '../../hooks';
-import PropTypes from 'prop-types';
+import { LoaderSkeleton, SliderCarousel } from '../../components';
+import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share';
 
 import './Product.css';
 
@@ -26,15 +25,6 @@ const defaultProps = {
   params: {
     id: '',
   },
-};
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  swipeToSlide: true,
 };
 
 const Product = ({ className, id, params }) => {
@@ -99,7 +89,7 @@ const Product = ({ className, id, params }) => {
       ) : Object.keys(productToShow).length > 0 ? (
         <article className="ProductOverlayWrapperItem">
           <div className="ProductCardWpr1">
-            <Slider { ...settings } id="slider">
+              <SliderCarousel>
               { productToShow.photos.map((imagen, index) => {
                 return (
                   <img
@@ -110,7 +100,7 @@ const Product = ({ className, id, params }) => {
                   />
                 );
               }) }
-            </Slider>
+              </SliderCarousel>
           </div>
           <div className="ProductCardWpr2">
             <div className="ProductItem">

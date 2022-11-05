@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import Slider from 'react-slick'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { BiCopy } from 'react-icons/bi'
 import { TiMinus } from 'react-icons/ti'
 import { MdIosShare } from 'react-icons/md'
-import { isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect'
 import { Modal } from '../../containers'
+import { SliderCarousel } from '../../components'
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 import './OverlayArticle.css';
@@ -17,6 +17,7 @@ const propTypes = {
     photos: PropTypes.arrayOf(PropTypes.string),
     precioUY: PropTypes.string,
   }),
+  className: PropTypes.string,
   id: PropTypes.string,
   isLoading: PropTypes.bool,
   isOpenModal: PropTypes.bool,
@@ -24,28 +25,21 @@ const propTypes = {
 };
 
 const defaultProps = {
-  id: undefined,
-  isOpenModal: false,
-  isLoading: false,
-  onCloseModal: undefined,
   articleToShow: {
     description: '',
     photos: [],
     id: '',
     precioUY: '',
   },
+  className: '',
+  id: undefined,
+  isLoading: false,
+  isOpenModal: false,
+  onCloseModal: undefined,
 };
 
-const settingsArticle = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  swipeToSlide: true,
-}
-
-const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToShow }) => {
+const OverlayArticle = ({ id, className, isOpenModal, isLoading, onCloseModal, articleToShow }) => {
+  const classComponent = ['OverlayArticle', className].join(' ').trim();
 
   const [copied, setCopied] = useState(false)
   const [article, setArticle] = useState(articleToShow)
@@ -98,6 +92,7 @@ const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToSho
 
   return (
     <Modal
+      className={ classComponent }
       id={ id }
       isLoading={ isLoading }
       isOpen={ isOpenModal }
@@ -107,7 +102,7 @@ const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToSho
       { article && (
         <>
           <div className="OverlayArticlWrapper-1">
-            <Slider { ...settingsArticle } id='slider'>
+            <SliderCarousel>
               { article.photos.map((imagen, index) => {
                 return (
                   <section key={ index } className="OverlayArticleSection">
@@ -119,7 +114,7 @@ const OverlayArticle = ({ id, isOpenModal, isLoading, onCloseModal, articleToSho
                   </section>
                 )
               }) }
-            </Slider>
+            </SliderCarousel>
           </div>
           <div className="OverlayArticlWrapper-2">
             <div className="OverlayArticleShared">

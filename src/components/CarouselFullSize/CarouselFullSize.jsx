@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slider from 'react-slick'
+import { BiX } from 'react-icons/bi';
+import { SliderCarousel } from '../../components'
 
 import './CarouselFullSize.css';
-import { BiX } from 'react-icons/bi';
 
 const propTypes = {
   className: PropTypes.string,
@@ -21,16 +21,6 @@ const defaultProps = {
   show: false,
 };
 
-
-const settings = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  swipeToSlide: true,
-}
-
 const CarouselFullSize = ({ className, id, show, imgSrcArray, setShowCarouselFullSizeImages, }) => {
   const classComponent = ['CarouselFullSize', className].join(' ').trim();
 
@@ -43,7 +33,7 @@ const CarouselFullSize = ({ className, id, show, imgSrcArray, setShowCarouselFul
             size={ 50 }
             onClick={ () => setShowCarouselFullSizeImages(false) }
           />
-          <Slider { ...settings } id="sliderCrousel">
+          <SliderCarousel>
             { imgSrcArray &&
               imgSrcArray.map((imagen, index) => {
                 return (
@@ -55,7 +45,7 @@ const CarouselFullSize = ({ className, id, show, imgSrcArray, setShowCarouselFul
                   />
                 )
               }) }
-          </Slider>
+          </SliderCarousel>
         </section>
       </div>
     )
