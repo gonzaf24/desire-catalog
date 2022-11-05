@@ -1,5 +1,5 @@
 import React from 'react'
-import AnastassaLogo from '../../images/logo-anastassa.jpg'
+import { AnastassaLogo } from '../../images'
 import { Link } from 'wouter'
 import { BiMenu, BiX } from 'react-icons/bi'
 import { useLocation } from 'wouter'

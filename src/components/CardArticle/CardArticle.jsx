@@ -14,7 +14,7 @@ const propTypes = {
   }),
   className: PropTypes.string,
   id: PropTypes.string,
-  isMode1Active: PropTypes.bool,
+  isMode1ViewActive: PropTypes.bool,
   onClickArticle: PropTypes.func,
 };
 
@@ -26,14 +26,14 @@ const defaultProps = {
   },
   className: '',
   id: undefined,
-  isMode1Active: false,
+  isMode1ViewActive: false,
   onClickArticle: undefined,
 };
 
 
-const CardArticle = ({ className, id, article, onClickArticle, isMode1Active }) => {
+const CardArticle = ({ className, id, article, onClickArticle, isMode1ViewActive }) => {
   const classComponent = ['CardArticle', className].join(' ').trim()
-  const classModelActive = !isMode1Active ? classComponent : [classComponent, 'CardArticleSingle'].join(' ');
+  const classModelActive = !isMode1ViewActive ? classComponent : [classComponent, 'CardArticleSingle'].join(' ');
 
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef();

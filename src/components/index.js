@@ -1,23 +1,24 @@
-import Menu from './Menu';
-import Navbar from './Navbar';
-import LoaderSkeleton from './LoaderSkeleton';
-import FullSizeImage from './FullSizeImage';
-import CarouselFullSize from './CarouselFullSize';
-import AlertDismissible from './AlertDismissible';
-import AlertConfirm from './AlertConfirm';
-import CardArticle from './CardArticle';
-import CardArticleList from './CardArticleList';
-import OverlayArticle from './OverlayArticle';
-import Login from './Login';
-import UploadFile from './FileUpload/UploadFile';
-import DeleteFile from './FileUpload/DeleteFile';
-import NewProduct from './Admin/NewProduct';
-import EditProduct from './Admin/EditProduct';
-import ProductTable from './Admin/ProductTable';
-import EditCategory from './Admin/EditCategory';
-import NewCategory from './Admin/NewCategory';
-import CategoryTable from './Admin/CategoryTable';
-import SliderCarousel from './SliderCarousel';
+import Menu from './Menu'
+import Navbar from './Navbar'
+import LoaderSkeleton from './LoaderSkeleton'
+import FullSizeImage from './FullSizeImage'
+import CarouselFullSize from './CarouselFullSize'
+import AlertDismissible from './AlertDismissible'
+import AlertConfirm from './AlertConfirm'
+import CardArticle from './CardArticle'
+import CardArticleList from './CardArticleList'
+import OverlayArticle from './OverlayArticle'
+import Login from './Login'
+import UploadFile from './FileUpload/UploadFile'
+import DeleteFile from './FileUpload/DeleteFile'
+import NewProduct from './Admin/NewProduct'
+import EditProduct from './Admin/EditProduct'
+import ProductTable from './Admin/ProductTable'
+import EditCategory from './Admin/EditCategory'
+import NewCategory from './Admin/NewCategory'
+import CategoryTable from './Admin/CategoryTable'
+import SliderCarousel from './SliderCarousel'
+import Filter from './Filter'
 
 export {
   AlertConfirm,
@@ -40,4 +41,5 @@ export {
   DeleteFile,
   Navbar,
   SliderCarousel,
-};
+  Filter,
+}

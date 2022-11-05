@@ -1,14 +1,7 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
-import { FaPlay } from 'react-icons/fa'
-import { HiPlusSm } from 'react-icons/hi'
-import Mode1 from '../../images/mode-1.png'
-import Mode2 from '../../images/mode-2.png'
-import Mode1Active from '../../images/mode-1-active.png'
-import Mode2Active from '../../images/mode-2-active.png'
 import { useProduct, useOpenToggle } from '../../hooks/'
-import { OverlayArticle, CardArticleList, LoaderSkeleton } from '../../components'
-import Dropdown from 'react-bootstrap/Dropdown'
+import { OverlayArticle, CardArticleList, LoaderSkeleton, Filter } from '../../components'
 
 import './Category.css';
 
@@ -32,10 +25,10 @@ const Category = ({ className, id, params }) => {
   const classComponent = ['Category', className].join(' ').trim();
   const [productsList, setProductsList] = useState([])
   const [productSelected, setProductSelected] = useState()
-  const [isMode1Active, setIsMode1Active] = useState(false)
   const { getProductByCategoryHook } = useProduct()
   const [categoryNamePage, setCategoryNamePage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [isMode1ViewActive, setIsMode1ViewActive] = useState(false)
 
   const {
     isOpen: isOpenModal,
@@ -89,56 +82,27 @@ const Category = ({ className, id, params }) => {
     exect()
   }, [getProductByCategoryHook, params.category])
 
-  return (
-    <div
-      className={ classComponent }
-      id={ id }
-    >
-      <div>
-        <section className="CategoryContainerIconsShow">
-          <Dropdown className="CategoryFilterWrapper">
-            <Dropdown.Toggle className="CategoryFilterContent" >
-              <FaPlay className="CategoryRotate90" />
-              <span className="CategoryFilterSize">FILTRO</span>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={ ordenarBaratos }>
-                <HiPlusSm />
-                BARATOS PRIMERO
-              </Dropdown.Item>
-              <Dropdown.Item onClick={ ordenarFechaCreacion }>
-                <HiPlusSm />
-                NUEVOS PRIMERO
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <h1 className="CategoryTitle"> { categoryNamePage } </h1>
-          <div className="CategoryIconsWrapper">
-            { isMode1Active && (
-              <>
-                <img alt="" className="CategoryModelIconShow" src={ Mode1Active } width={ 5 } />
-                <img alt="" className="CategoryModelIconShowActive" src={ Mode2 } width={ 5 } onClick={ () => setIsMode1Active(false) } />
-              </>
-            ) }
-            { !isMode1Active && (
-              <>
-                <img alt="" className="CategoryModelIconShowActive" src={ Mode1 } width={ 5 } onClick={ () => setIsMode1Active(true) } />
-                <img alt="" className="CategoryModelIconShow" src={ Mode2Active } width={ 5 } />
-              </>
-            ) }
-          </div>
-        </section>
-        { isLoading ? (
-          <LoaderSkeleton />
-        ) : (
-          <CardArticleList
-            isMode1Active={ isMode1Active }
-            productsList={ productsList }
-            onClickArticle={ onClickProduct }
-          />
-        ) }
-      </div>
+  const handleModelView = (isMode1ViewActive) => {
+    setIsMode1ViewActive(!isMode1ViewActive)
+  }
 
+  return (
+    <div className={ classComponent } id={ id } >
+      <Filter
+        categoryNamePage={ categoryNamePage }
+        handleModelView={ handleModelView }
+        ordenarBaratos={ ordenarBaratos }
+        ordenarFechaCreacion={ ordenarFechaCreacion }
+      />
+      { isLoading ? (
+        <LoaderSkeleton />
+      ) : (
+        <CardArticleList
+          isMode1ViewActive={ isMode1ViewActive }
+          productsList={ productsList }
+          onClickArticle={ onClickProduct }
+        />
+      ) }
       <OverlayArticle
         articleToShow={ productSelected }
         isLoading={ isLoading }

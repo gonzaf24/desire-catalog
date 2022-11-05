@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import AnastassaLogo from '../../images/logo-anastassa.jpg'
+import { AnastassaLogo } from '../../images'
 import { Modal as ModalBoostrap } from 'react-bootstrap'
 import { BiX } from 'react-icons/bi'
 import PropTypes from 'prop-types'

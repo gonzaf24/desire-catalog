@@ -7,7 +7,7 @@ import CardArticle from '../CardArticle/CardArticle';
 const propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
-  isMode1Active: PropTypes.bool,
+  isMode1ViewActive: PropTypes.bool,
   productsList: PropTypes.array,
   onClickArticle: PropTypes.func,
 };
@@ -15,12 +15,12 @@ const propTypes = {
 const defaultProps = {
   className: '',
   id: undefined,
-  isMode1Active: false,
+  isMode1ViewActive: false,
   productsList: [],
   onClickArticle: undefined,
 };
 
-const CardArticleList = ({ className, id, isMode1Active, onClickArticle, productsList }) => {
+const CardArticleList = ({ className, id, isMode1ViewActive, onClickArticle, productsList }) => {
   const classComponent = ['CardArticleList', className].join(' ').trim();
   const [listOfProducts, setlistOfProducts] = useState([])
 
@@ -39,7 +39,7 @@ const CardArticleList = ({ className, id, isMode1Active, onClickArticle, product
                 <CardArticle
                   key={ index }
                   article={ prenda }
-                  isMode1Active={ isMode1Active }
+                  isMode1ViewActive={ isMode1ViewActive }
                   onClickArticle={ (e) => onClickArticle(e, prenda) }
                 />
               ) : null

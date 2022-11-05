@@ -38,10 +38,6 @@ h2 {
 }
 
 .AppContainer {
-  text-align: center;
   flex: 1;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
 }
