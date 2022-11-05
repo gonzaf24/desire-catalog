@@ -10,7 +10,6 @@ function App() {
 
    return (
       <UserContextProvider>
-         <div className="AppContainer">
             <Suspense fallback={ null }>
                <AppNavbar />
                <Switch>
@@ -21,8 +20,7 @@ function App() {
                   <Route component={ Admin } path="/admin" />
                   <Route component={ Error } path="/:rest*" />
                </Switch>
-            </Suspense>
-         </div>
+         </Suspense>
       </UserContextProvider>
    )
 }

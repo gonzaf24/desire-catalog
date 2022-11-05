@@ -13,7 +13,7 @@
   background-color: white;
   padding-bottom: 25px;
   position: relative;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .EditProductForm{
@@ -53,6 +53,6 @@
     background-color: white;
     padding: 25px;
     position: relative;
-    overflow: scroll;
+    overflow: auto;
   }
 }
