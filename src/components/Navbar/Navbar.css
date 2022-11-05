@@ -4,6 +4,7 @@
    align-items: center;
    padding: 15px 15px 0px 15px;
    position: relative;
+   height: 80px;
 }
 
 .NavbarLogoutContainer {
