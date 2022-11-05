@@ -1,37 +1,36 @@
 .SliderCarousel {
-}
-
-.slick-slider {
   width: 100%;
 }
 
-.slick-track {
-  display: flex;
-  align-items: flex-start;
-}
-
-.slick-prev {
-  left: 10px;
-  z-index: 1;
-  width: 35px;
-  height: 35px;
-}
-
-.slick-next {
+.SliderCarouselNextArrow{
+  cursor: pointer;
+  position: absolute;
+  color: rgba(239, 132, 130, 0.2);
   right: 10px;
   z-index: 1;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  top: 50%; 
 }
 
-.slick-next:before,
-.slick-prev:before {
-  font-size: 30px;
-  line-height: 1;
-  color: rgb(236 98 95 / 60%);
+.SliderCarouselNextArrow:hover{
+  color: rgba(239, 132, 130, 0.5);
+  transform: scale(2.1);
+  transition: 1s;
 }
 
-.slick-dots li.slick-active button:before {
-  opacity: 0.75;
-  color: rgb(236 98 95 / 90%);
+.SliderCarouselPrevArrow{
+  cursor: pointer;
+  position: absolute;
+  color: rgba(239, 132, 130, 0.2);
+  left: 10px;
+  z-index: 1;
+  width: 25px;
+  top: 50%; 
 }
+
+.SliderCarouselPrevArrow:hover{
+  color: rgba(239, 132, 130, 0.5);
+  transform: scale(2.1);
+  transition: 1s;
+}
+

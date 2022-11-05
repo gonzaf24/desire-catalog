@@ -15,6 +15,7 @@
   -webkit-box-shadow: 0px 0px 10px 2px #828282;
   box-shadow: 0px 0px 10px 2px #828282;
   transform: scale(1.05);
+  transition: 0.5s;
 }
 
 .CardArticleWrapper {
@@ -74,18 +75,20 @@
 }
 
 .CardArticleExpandButton {
-  width: 25px;
+  width: 15px;
   position: absolute;
   bottom: 5px;
   display: flex;
-  right: 5px;
+  right: 15px;
   z-index: 1;
-  color: rgb(236 98 95 / 30%);
+  color: rgba(239, 132, 130, 0.2);
   cursor: pointer;
 }
 
 .CardArticleExpandButton:hover {
-  color: rgb(236 98 95 / 60%);
+  color: rgba(239, 132, 130, 0.5);
+  transition: 1s;
+  transform: scale(1.9);
 }
 
 
