@@ -3,8 +3,8 @@
   justify-content: space-between;
   overflow: hidden;
   flex-direction: column;
-  -webkit-box-shadow: 0px 0px 10px -4px #828282;
-  box-shadow: 0px 0px 10px -4px #828282;
+  -webkit-box-shadow: 0px 0px 10px -3px #828282;
+  box-shadow: 0px 0px 10px -3px #828282; 
   border-radius: 5px;
   max-width: 220px;
   width: 100%;
