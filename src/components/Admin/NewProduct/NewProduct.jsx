@@ -4,6 +4,7 @@ import { FaPlus } from 'react-icons/fa'
 import { ImImage } from 'react-icons/im'
 import { Modal } from '../../../containers'
 import { MdDeleteForever } from 'react-icons/md'
+import { BiUpArrowAlt, BiDownArrowAlt } from 'react-icons/bi'
 import { formatFileNameToShow } from '../../../utils/formatters'
 import { useProduct, useImage, useCategory } from '../../../hooks'
 import { AlertDismissible, AlertConfirm, FullSizeImage, UploadFile } from '../../../components'
@@ -233,6 +234,31 @@ const NewProduct = ({
     }
   }
 
+
+  const swapDownPhotos = (array, a) => {
+    const arrayAux = [...array];
+    const b = (a + 1);
+    [arrayAux[a], arrayAux[b]] = [arrayAux[b], arrayAux[a]]
+    setPhotos(arrayAux)
+  }
+
+  const swapUpPhotos = (array, a) => {
+    const arrayAux = [...array];
+    let b = (a - 1);
+    [arrayAux[b], arrayAux[a]] = [arrayAux[a], arrayAux[b]]
+    setPhotos(arrayAux)
+  }
+
+  const handleSwap = (array, a) => {
+
+    if (a === array.length - 1) {
+      swapUpPhotos(array, a)
+    }
+    else {
+      swapDownPhotos(array, a)
+    }
+  }
+
   useEffect(() => {
     const exect = async () => {
       const categorysOut = await getCategorysHook()
@@ -322,7 +348,7 @@ const NewProduct = ({
           <InputGroup className="mt-4">
             <FormControl
               aria-label="Lista de colores disponibles para la prenda."
-              placeholder="Colores 1"
+              placeholder="Colores"
               value={ colorDescription }
               onChange={ (e) => {
                 setColorDescription(e.target.value.toUpperCase())
@@ -385,7 +411,6 @@ const NewProduct = ({
 
           <InputGroup className="mt-4">
             <FormControl
-              aria-label="Lista de talles disponibles para la prenda."
               placeholder="Desc"
               value={ sizesDescr1 }
               onChange={ (e) => {
@@ -393,7 +418,6 @@ const NewProduct = ({
               } }
             />
             <FormControl
-              aria-label="Lista de talles disponibles para la prenda."
               placeholder="Valor"
               value={ sizesDescr2 }
               onChange={ (e) => {
@@ -428,7 +452,11 @@ const NewProduct = ({
           </ListGroup>
 
           <InputGroup className="mt-4">
-
+            <FormControl
+              aria-label="Lista de fotos de la prenda."
+              disabled
+              placeholder="Fotos"
+            />
             <UploadFile
               categoryName={ categoryName }
               disabled={
@@ -441,26 +469,35 @@ const NewProduct = ({
             />
           </InputGroup>
           <ListGroup>
-            { photos &&
-              photos.length > 0 &&
-              photos.map((el, index) => {
-                return (
-                  <ListGroup.Item
-                    key={ index }
-                    className="d-flex justify-content-between NewProductItemGroup"
-                  >
-                    <ImImage
-                      className="NewProductDeleteItem"
-                      onClick={ () => onShowImageFullSize(el) }
-                    />
-                    { formatFileNameToShow(el) }
-                    <MdDeleteForever
-                      className="NewProductDeleteItem"
-                      onClick={ () => onDeletePhoto(el) }
-                    />
-                  </ListGroup.Item>
-                )
-              }) }
+            { photos.map((el, index) => {
+              return (
+
+                <ListGroup.Item
+                  key={ index }
+                  className="NewProductPhotosInfoWrapper"
+                >
+                  { photos.length > 1 &&
+                    <>
+                      <div title='Mover foto arriba/abajo' onClick={ () => handleSwap(photos, index) }>
+                        { index === photos.length - 1 ? <BiUpArrowAlt className='NewProductArrows' /> : <BiDownArrowAlt className='EditProductArrows' /> }
+                      </div>
+                      { index }
+                    </>
+                  }
+
+                  <ImImage
+                    className="NewProductDeleteItem"
+                    onClick={ () => onShowImageFullSize(el) }
+                  />
+                  <div>{ formatFileNameToShow(el) }</div>
+                  <MdDeleteForever
+                    className="NewProductDeleteItem"
+                    title='Eliminar foto'
+                    onClick={ () => onDeletePhoto(el) }
+                  />
+                </ListGroup.Item>
+              )
+            }) }
           </ListGroup>
 
           <FloatingLabel

@@ -25,6 +25,19 @@
  text-align: right;
 }
 
+.NewProductPhotosInfoWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 8pt;
+}
+
+.NewProductArrows{
+  cursor: pointer;
+}
+
 .NewProductDeleteItem{
   margin-left: 10px;
   cursor: pointer;

@@ -9,6 +9,7 @@
   max-width: 220px;
   width: 100%;
   height: fit-content;
+  min-height: 220px;
 }
 
 .CardArticle:hover {

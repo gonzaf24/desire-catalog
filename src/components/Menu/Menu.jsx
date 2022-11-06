@@ -16,10 +16,11 @@ const defaultProps = {
 }
 
 export const Menu = ({ showMenu, onShowMenu }) => {
+   const menuRef = useRef()
    const [womanList, setWomanList] = useState([])
    const [mensList, setMensList] = useState([])
    const { getCategorysHook } = useCategory()
-   const menuRef = useRef()
+   const muenuClassName = !showMenu ? 'MenuContainer' : 'MenuContainerShow'
 
    useEffect(() => {
       async function exect() {
@@ -53,14 +54,14 @@ export const Menu = ({ showMenu, onShowMenu }) => {
    }, [onShowMenu, showMenu])
 
    return (
-      <section ref={ menuRef } className={ !showMenu ? 'menu-container' : 'menu-container-show' } >
+      <section ref={ menuRef } className={ muenuClassName } >
          { womanList.length > 0 && (
-            <section className="menu-subtitle-container">
-               <span className="menu-title">MUJER</span>
+            <section className="MenuSubtitleContainer">
+               <span className="MenuTitle">MUJER</span>
                { womanList.map((element, index) => {
                   return (
                      <Link key={ index } to={ `/category/${element.idName}` } onClick={ onShowMenu } >
-                        <span className="menu-subtitle cursor">
+                        <span className="MenuSubtitle">
                            { element.categoryName }
                         </span>
                      </Link>
@@ -69,12 +70,12 @@ export const Menu = ({ showMenu, onShowMenu }) => {
             </section>
          ) }
          { mensList.length > 0 && (
-            <section className="menu-subtitle-container">
-               <span className="menu-title">HOMBRE</span>
+            <section className="MenuSubtitleContainer">
+               <span className="MenuTitle">HOMBRE</span>
                { mensList.map((element, index) => {
                   return (
                      <Link key={ index } to={ `/category/${element.idName}` } onClick={ onShowMenu } >
-                        <span className="menu-subtitle cursor">
+                        <span className="MenuSubtitle">
                            { element.categoryName }
                         </span>
                      </Link>

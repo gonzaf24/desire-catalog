@@ -37,7 +37,6 @@ const propTypes = {
     sizes: PropTypes.arrayOf(PropTypes.string),
     sizesDescriptions: PropTypes.arrayOf(PropTypes.string),
     stock: PropTypes.number,
-
   }),
   onCloseModal: PropTypes.func,
   onSuccessEditProduct: PropTypes.func,
@@ -523,6 +522,11 @@ const EditProduct = ({
           </ListGroup>
 
           <InputGroup className="mt-4">
+            <FormControl
+              aria-label="Lista de fotos de la prenda."
+              disabled
+              placeholder="Fotos"
+            />
             <UploadFile
               categoryName={ categoryName }
               disabled={
@@ -540,12 +544,12 @@ const EditProduct = ({
 
                 <ListGroup.Item
                   key={ index }
-                  className="d-flex justify-content-between item-group"
+                  className="EditProductPhotosInfoWrapper"
                 >
                   { photos.length > 1 &&
                     <>
                       <div title='Mover foto arriba/abajo' onClick={ () => handleSwap(photos, index) }>
-                        { index === photos.length - 1 ? <BiUpArrowAlt className='cursor' /> : <BiDownArrowAlt className='cursor' /> }
+                      { index === photos.length - 1 ? <BiUpArrowAlt className='EditProductArrows' /> : <BiDownArrowAlt className='EditProductArrows' /> }
                       </div>
                       { index }
                     </>
@@ -555,7 +559,7 @@ const EditProduct = ({
                     className="EditProductDeleteItem"
                     onClick={ () => onShowImageFullSize(el) }
                   />
-                  { formatFileNameToShow(el) }
+                  <div>{ formatFileNameToShow(el) }</div>
                   <MdDeleteForever
                     className="EditProductDeleteItem"
                     title='Eliminar foto'

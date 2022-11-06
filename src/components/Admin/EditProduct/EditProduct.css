@@ -20,11 +20,23 @@
   padding: 0px 25px 25px 25px;
 }
 
+.EditProductPhotosInfoWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 8pt;
+}
+
 .EditProductDeleteItem{
-  margin-left: 10px;
   cursor: pointer;
   width: 20px;
   height: 20px;
+}
+
+.EditProductArrows{
+  cursor: pointer;
 }
 
 .EditProductItemGroup{

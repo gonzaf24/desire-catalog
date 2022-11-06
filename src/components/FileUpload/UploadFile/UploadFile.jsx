@@ -6,6 +6,7 @@ import { useImage } from '../../../hooks'
 window.Buffer = window.Buffer || require('buffer').Buffer
 
 import './UploadFile.css';
+import { FaPlus } from 'react-icons/fa'
 
 const propTypes = {
   categoryName: PropTypes.string,
@@ -25,9 +26,13 @@ const defaultProps = {
 
 const UploadFile = ({ className, id, disabled, categoryName, onSuccesUpload }) => {
   const classComponent = ['UploadFile', className].join(' ').trim();
-  const { newImageHook /* , isLoginLoadinUpload, hasUploadError */ } =
-    useImage()
+  const hiddenFileInput = React.useRef(null);
+  const { newImageHook } = useImage()
   const [isUploading, setIsUploading] = useState(false)
+
+  const handleClick = () => {
+    hiddenFileInput.current.click();
+  };
 
   const onSelectFile = async (e) => {
     try {
@@ -53,19 +58,22 @@ const UploadFile = ({ className, id, disabled, categoryName, onSuccesUpload }) =
     <Button
       className={ classComponent }
       disabled={ disabled }
-      id={ id }
-      variant="outline-primary" >
+      id={ id } 
+      variant='outline-primary'
+      onClick={ handleClick }>
       { isUploading ? (
         <Spinner animation="grow" className="UploadFileSpinner" />
       ) : (
           <Fragment>
-          <input
-              accept="image/*"
-              className='UploadFileInput'
-              id="file-upload"
-            type="file"
-            onChange={ onSelectFile }
-          />
+            <FaPlus />
+            <input
+              ref={ hiddenFileInput }
+              accept="image/*"  
+              id="file-upload" 
+              style={ { display: 'none' } }
+              type="file"
+              onChange={ onSelectFile }
+            />
         </Fragment>
       ) }
     </Button>

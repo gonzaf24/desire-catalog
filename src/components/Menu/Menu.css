@@ -1,4 +1,8 @@
-.menu-container {
+.Menu{
+
+}
+
+.MenuContainer {
    top: 90px;
    bottom: 0px;
    left: -90vw;
@@ -13,7 +17,7 @@
    z-index: 999;
 }
 
-.menu-container-show {
+.MenuContainerShow {
    top: 90px;
    left: 0px;
    bottom: 0px;
@@ -30,7 +34,7 @@
    justify-content: space-between;
 }
 
-.menu-title {
+.MenuTitle {
    color: #313131;
    margin-bottom: 20px;
    font-family: 'arial-black';
@@ -38,29 +42,30 @@
    font-size: 25px;
 }
 
-.menu-subtitle-container {
+.MenuSubtitleContainer {
    display: flex;
    flex-direction: column;
    align-items: flex-start;
    padding: 0px 0px 15px 0px;
 }
 
-.menu-subtitle {
+.MenuSubtitle {
    padding: 15px 0px;
    color: #414141;
    font-weight: 700;
+   cursor: pointer;
 }
 
-.menu-subtitle:hover {
+.MenuSubtitle:hover {
    color: rgb(255 255 255 / 50%);
 }
 
 @media (max-width: 812px) {
-   .menu-container {
+   .MenuContainer {
       top: 90px;
    }
 
-   .menu-container-show {
+   .MenuContainerShow {
       top: 90px;
    }
 }
