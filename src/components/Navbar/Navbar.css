@@ -18,11 +18,15 @@
 .NavbarIconMenu {
    color: #313131;
    cursor: pointer;
+   width: 75px;
+   height: 75px;
 }
 
 .NavbarIconClose {
    color: rgb(236 98 95 / 80%);
    cursor: pointer;
+   width: 75px;
+   height: 75px;
 }
 
 .NavbarWrapperLogo {
@@ -37,10 +41,10 @@
 }
 
 .NavbarMainLogo {
-   width: 120px;
+   width: 100px;
    cursor: pointer;
    position: absolute;
-   top: 60%;
+   top: 50px;
    left: 50%;
    -webkit-transform: translate(-50%, -50%);
    -ms-transform: translate(-50%, -50%);

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'wouter'
-import { useLocation } from 'wouter'
 import { useUser } from '../../hooks'
 import { BiMenu, BiX } from 'react-icons/bi'
 import { FaPowerOff } from 'react-icons/fa'
@@ -25,31 +24,14 @@ const defaultProps = {
 
 const Navbar = ({ className, id, showMenu, onShowMenu }) => {
   const classComponent = ['Navbar', className].join(' ').trim();
-  // eslint-disable-next-line no-unused-vars
-  const [location, setLocation] = useLocation()
   const { isLogged, logout } = useUser()
+  const menuIconShow = showMenu ? <BiX className="NavbarIconClose" onClick={ onShowMenu } /> : <BiMenu className="NavbarIconMenu" onClick={ onShowMenu } />;
 
   return (
     <section className={ classComponent } id={ id }>
-      { !showMenu ? (
-        <BiMenu
-          className="NavbarIconMenu"
-          size={ 75 }
-          onClick={ onShowMenu }
-        />
-      ) : (
-        <BiX
-          className="NavbarIconClose"
-          size={ 75 }
-          onClick={ onShowMenu }
-        />
-      ) }
+      { menuIconShow }
       <Link className="NavbarWrapperLogo" to="/">
-        <img
-          alt="www.anastassa.com"
-          className="NavbarMainLogo"
-          src={ AnastassaLogo }
-        />
+        <img alt="www.anastassa.com" className="NavbarMainLogo" src={ AnastassaLogo } />
       </Link>
       <div className="NavbarRightMenu">
         { isLogged && (
